@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.HomepageController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.frontend.HomepageInterfaceController">
    <children>
       <Button fx:id="gestioneassegnazione" defaultButton="true" layoutX="435.0" layoutY="454.0" minHeight="25.0" mnemonicParsing="false" onAction="#gestioneAssegnazione" prefHeight="32.0" prefWidth="200.0" style="-fx-background-color: #3b3131;" text="Gestione Assegnazioni" textFill="WHITE" visible="false" />
       <TextField fx:id="searchBar" layoutX="210.0" layoutY="306.0" prefWidth="251.0" promptText="Cerca..." />
@@ -63,7 +63,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Button fx:id="selectImage" layoutX="779.0" layoutY="613.0" mnemonicParsing="false" onAction="#selectImage" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #3b3131;" text="Scegli l'immagine" textFill="WHITE" visible="false" />
+      <Button fx:id="selectImage" layoutX="779.0" layoutY="613.0" mnemonicParsing="false" onAction="#uploadFile" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #3b3131;" text="Scegli l'immagine" textFill="WHITE" />
       <TextField fx:id="workName" layoutX="353.0" layoutY="616.0" prefHeight="25.0" prefWidth="192.0" promptText="Nome dell'opera della pagina" visible="false" />
       <TextField fx:id="numPage" layoutX="593.0" layoutY="616.0" promptText="Numero della pagina" visible="false" />
       <Label layoutX="47.0" layoutY="193.0" prefHeight="57.0" prefWidth="457.0" text="Per effettuare una ricerca bisogna inserire correttamente il nome dell'opera o il nome dell'autore che state&#10; cercando e selezionare la corrispondente icona per abilitare il metodo di ricerca da usare, a seconda del metodo  &#10;scelto vi verranno presentate interfacce diverse.&#10;">

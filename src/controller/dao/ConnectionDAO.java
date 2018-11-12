@@ -33,4 +33,26 @@ public class ConnectionDAO {
 		}
 		
 	}
+	
+	
+	
+	public static ResultSet query(String str) {
+		try {
+
+		    
+		    Connection con = DriverManager.getConnection(URL,username, pass);
+		    Statement stm = con.createStatement();
+		    ResultSet result = stm.executeQuery(str);
+
+		    return result;
+
+		} catch (Exception e) {
+
+		    System.out.println(e.getMessage());
+		    return null;
+		}
+	 
+	}
+	
+	
 }

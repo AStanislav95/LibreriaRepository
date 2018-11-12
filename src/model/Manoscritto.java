@@ -1,56 +1,72 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Manoscritto {
-	private static int ID;
-	private static int pubblicazione;
-	private static int anno;
-	private static int secolo;
-	private static String titolo;
-	private static String autore;
-	private static String genere;
+
+	private int ID;
+	private int pubblicazione;
+	private int anno;
+	private int secolo;
+	private String titolo;
+	private String autore;
+	private String genere;
+	private ArrayList<Pagina> listaPagine;
 	
 	
-	public static int getID() {
+	
+	public int getID() {
 		return ID;
 	}
-	public static void setID(int iD) {
+	public void setID(int iD) {
 		ID = iD;
 	}
-	public static int getPubblicazione() {
+	public int getPubblicazione() {
 		return pubblicazione;
 	}
-	public static void setPubblicazione(int pubblicazione) {
-		Manoscritto.pubblicazione = pubblicazione;
+	public void setPubblicazione(int pubblicazione) {
+		this.pubblicazione = pubblicazione;
 	}
-	public static int getAnno() {
+	public int getAnno() {
 		return anno;
 	}
-	public static void setAnno(int anno) {
-		Manoscritto.anno = anno;
+	public void setAnno(int anno) {
+		this.anno = anno;
 	}
-	public static int getSecolo() {
+	public int getSecolo() {
 		return secolo;
 	}
-	public static void setSecolo(int secolo) {
-		Manoscritto.secolo = secolo;
+	public void setSecolo(int secolo) {
+		this.secolo = secolo;
 	}
-	public static String getTitolo() {
+	public String getTitolo() {
 		return titolo;
 	}
-	public static void setTitolo(String titolo) {
-		Manoscritto.titolo = titolo;
+	public void setTitolo(String titolo) {
+		this.titolo = titolo;
 	}
-	public static String getAutore() {
+	public String getAutore() {
 		return autore;
 	}
-	public static void setAutore(String autore) {
-		Manoscritto.autore = autore;
+	public void setAutore(String autore) {
+		this.autore = autore;
 	}
-	public static String getGenere() {
+	public String getGenere() {
 		return genere;
 	}
-	public static void setGenere(String genere) {
-		Manoscritto.genere = genere;
+	public void setGenere(String genere) {
+		this.genere = genere;
 	}
+	
+	public ArrayList<Pagina> getListaPagine() {
+		return listaPagine;
+	}
+	public void setListaPagine(ArrayList<Pagina> listaPagine) {
+		this.listaPagine = listaPagine;
+	}
+	
+	
+	
+	
 
 }

@@ -11,7 +11,7 @@ public class Manoscritto {
 	private String titolo;
 	private String autore;
 	private String genere;
-	private ArrayList<Pagina> listaPagine;	
+	private ArrayList<Pagina> listaPagine = new ArrayList<>();	
 	
 	
 	public int getID() {
@@ -60,8 +60,8 @@ public class Manoscritto {
 	public ArrayList<Pagina> getListaPagine() {
 		return listaPagine;
 	}
-	public void setListaPagine(ArrayList<Pagina> listaPagine) {
-		this.listaPagine = listaPagine;
+	public void setListaPagine(Pagina pag) {
+		this.listaPagine.add(pag);
 	}
 	
 	

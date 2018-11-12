@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Utente {
 	
 	private int ID;
@@ -121,6 +123,28 @@ public class Utente {
 	
 	
 	public static void main(String[] args) {
+		
+		Pagina p = new Pagina();
+		p.setAccettato(1);
+		p.setID(4);
+		p.setNumero(4);
+		p.setScanpath("something");
+		p.setTrascrizione("trascript");
+		p.setManoscritto("ghj");
+		
+		
+		
+		Pagina ps = new Pagina();
+		ps.setAccettato(1);
+		ps.setID(74);
+		ps.setNumero(4);
+		ps.setScanpath("something");
+		ps.setTrascrizione("trascript");
+		ps.setManoscritto("ghj");
+		
+	
+		
+		
 		Manoscritto m = new Manoscritto();
 		m.setAnno(100);
 		m.setAutore("Ciao");
@@ -129,6 +153,9 @@ public class Utente {
 		m.setPubblicazione(1);
 		m.setTitolo("Ciao");
 		m.setSecolo(1454);
+		
+		m.setListaPagine(ps);
+		m.setListaPagine(p);
 		
 		Manoscritto b = new Manoscritto();
 		b.setAnno(1780);
@@ -139,13 +166,16 @@ public class Utente {
 		b.setTitolo("pirla");
 		b.setSecolo(1454);
 		
-		ObjectContenitor.listaManoscritti.add(m);
-		ObjectContenitor.listaManoscritti.add(b);
+		b.setListaPagine(p);
 		
-		for (Manoscritto x: ObjectContenitor.listaManoscritti) {
-			System.out.println(x.getTitolo());
+		
+		
+		
+		for (Pagina v:b.getListaPagine()) {
+			System.out.println(v.getID());
 		}
 		
+	
 	}
 	
 }

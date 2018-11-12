@@ -6,12 +6,13 @@ public class LoginController {
 
 	public static boolean Login() {
 		
-		Utente ut=UtenteDAO.login();
-		if (ut!=null) {
-		//Cambia scena
-		}
-		//else alert
-	}
+//		Utente ut=UtenteDAO.login();
+//		if (ut!=null) {
+//		//Cambia scena
+//		}
+//		//else alert
+//	}
 	
-	
+	return true;
+}
 }

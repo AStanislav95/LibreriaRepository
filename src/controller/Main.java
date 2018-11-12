@@ -4,9 +4,7 @@ import controller.viewer.*;
 
 public class Main {
 	
-<<<<<<< HEAD
 
-=======
 	public static void main(String[] args) {
 		Utente utentone=new Utente();
 		utentone.setEmail("ohno@gmail.com");
@@ -19,7 +17,7 @@ public class Main {
 		
 		
 	}
->>>>>>> branch 'master' of https://github.com/AStanislav95/LibreriaRepository.git
+
 	
 }
 

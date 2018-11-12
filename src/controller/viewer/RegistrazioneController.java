@@ -10,9 +10,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class RegistrazioneController {
-<<<<<<< HEAD
-	
-=======
+
 //Qui invece dell'utente deve prendere come parametri le stringhe delle textarea
 	public static void register(Utente u) {
 		
@@ -22,5 +20,5 @@ public class RegistrazioneController {
 		 
 		}
 	}
->>>>>>> branch 'master' of https://github.com/AStanislav95/LibreriaRepository.git
+
 

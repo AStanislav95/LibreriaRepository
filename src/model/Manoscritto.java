@@ -11,8 +11,7 @@ public class Manoscritto {
 	private String titolo;
 	private String autore;
 	private String genere;
-	private ArrayList<Pagina> listaPagine;
-	
+	private ArrayList<Pagina> listaPagine;	
 	
 	
 	public int getID() {

@@ -1,49 +1,55 @@
 package model;
 
 public class Trascrizione {
-	private static int ID;
-	private static String testo;
-	private static String annotazioni;
-	private static int accettato;
-	private static int IDutente;
-	private static int IDcapotrascrittore;
+
+	private int ID;
+	private String testo;
+	private String annotazione;
+	private int accettato;
+	private int IDUtente;
+	private int IDCapotrascrittore;
 	
-	public static int getID() {
+	
+	public Trascrizione() {
+		
+	}
+	
+	public int getID() {
 		return ID;
 	}
-	public static void setID(int iD) {
+	public void setID(int iD) {
 		ID = iD;
 	}
-	public static String getTesto() {
+	public String getTesto() {
 		return testo;
 	}
-	public static void setTesto(String testo) {
-		Trascrizione.testo = testo;
+	public void setTesto(String testo) {
+		this.testo = testo;
 	}
-	public static String getAnnotazioni() {
-		return annotazioni;
+	public String getAnnotazione() {
+		return annotazione;
 	}
-	public static void setAnnotazioni(String annotazioni) {
-		Trascrizione.annotazioni = annotazioni;
+	public void setAnnotazione(String annotazione) {
+		this.annotazione = annotazione;
 	}
-
-	public static int getAccettato() {
+	public int getAccettato() {
 		return accettato;
 	}
-	public static void setAccettato(int accettato) {
-		Trascrizione.accettato = accettato;
+	public void setAccettato(int accettato) {
+		this.accettato = accettato;
 	}
-	public static int getIDutente() {
-		return IDutente;
+	public int getIDUtente() {
+		return IDUtente;
 	}
-	public static void setIDutente(int iDutente) {
-		IDutente = iDutente;
+	public void setIDUtente(int iDUtente) {
+		IDUtente = iDUtente;
 	}
-	public static int getIDcapotrascrittore() {
-		return IDcapotrascrittore;
+	public int getIDCapotrascrittore() {
+		return IDCapotrascrittore;
 	}
-	public static void setIDcapotrascrittore(int iDcapotrascrittore) {
-		IDcapotrascrittore = iDcapotrascrittore;
+	public void setIDCapotrascrittore(int iDCapotrascrittore) {
+		IDCapotrascrittore = iDCapotrascrittore;
 	}
-
+	
+	
 }

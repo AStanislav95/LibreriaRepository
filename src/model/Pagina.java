@@ -1,48 +1,55 @@
 package model;
 
 public class Pagina {
-	private static int ID;
-	private static int numero;
-	private static String manoscritto;
-	private static int accettato;
-	private static String scanpath;
-	private static Trascrizione trascrizione;
 	
-	public static int getID() {
+	private int ID;
+	private int numero;
+	private String manoscritto;
+	private int accettato;
+	private String scanpath;
+	private String trascrizione;
+	
+	
+	public Pagina() {
+		
+	}
+	
+	
+	public int getID() {
 		return ID;
 	}
-	public static void setID(int iD) {
+	public void setID(int iD) {
 		ID = iD;
 	}
-	public static int getNumero() {
+	public int getNumero() {
 		return numero;
 	}
-	public static void setNumero(int numero) {
-		Pagina.numero = numero;
+	public void setNumero(int numero) {
+		this.numero = numero;
 	}
-	public static String getManoscritto() {
+	public String getManoscritto() {
 		return manoscritto;
 	}
-	public static void setManoscritto(String manoscritto) {
-		Pagina.manoscritto = manoscritto;
+	public void setManoscritto(String manoscritto) {
+		this.manoscritto = manoscritto;
 	}
-	public static int getAccettato() {
+	public int getAccettato() {
 		return accettato;
 	}
-	public static void setAccettato(int accettato) {
-		Pagina.accettato = accettato;
+	public void setAccettato(int accettato) {
+		this.accettato = accettato;
 	}
-	public static String getScanpath() {
+	public String getScanpath() {
 		return scanpath;
 	}
-	public static void setScanpath(String scanpath) {
-		Pagina.scanpath = scanpath;
+	public void setScanpath(String scanpath) {
+		this.scanpath = scanpath;
 	}
-	public static Trascrizione getTrascrizione() {
+	public String getTrascrizione() {
 		return trascrizione;
 	}
-	public static void setTrascrizione(Trascrizione trascrizione) {
-		Pagina.trascrizione = trascrizione;
+	public void setTrascrizione(String trascrizione) {
+		this.trascrizione = trascrizione;
 	}
 	
 	

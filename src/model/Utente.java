@@ -1,81 +1,113 @@
 package model;
 
 public class Utente {
-	private static int ID;
-	private static String email;
-	private static String name;
-	private static String password;
-	private static String qualification;
-	private static String profession;
-	private static int role;
-	private static int candownload;
-	private static int requesttranscriber;
-	private static int lvltranscriber;
+	
+	private int ID;
+	private String email;
+	private String name;
+	private String password;
+	private String qualification;
+	private String profession;
+	private int role;
+	private int canDownload;
+	private int requestTrascriber;
+	
 	
 	public Utente() {
 		
 	}
-	
+
+
 	public int getID() {
 		return ID;
 	}
+
+
 	public void setID(int iD) {
 		ID = iD;
 	}
-	public  String getEmail() {
+
+
+	public String getEmail() {
 		return email;
 	}
-	public  void setEmail(String email) {
-		Utente.email = email;
+
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	public  String getName() {
+
+
+	public String getName() {
 		return name;
 	}
+
+
 	public void setName(String name) {
-		Utente.name = name;
+		this.name = name;
 	}
-	public  String getPassword() {
+
+
+	public String getPassword() {
 		return password;
 	}
-	public  void setPassword(String password) {
-		Utente.password = password;
+
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
+
+
 	public String getQualification() {
 		return qualification;
 	}
-	public  void setQualification(String qualification) {
-		Utente.qualification = qualification;
+
+
+	public void setQualification(String qualification) {
+		this.qualification = qualification;
 	}
-	public  String getProfession() {
+
+
+	public String getProfession() {
 		return profession;
 	}
-	public  void setProfession(String profession) {
-		Utente.profession = profession;
+
+
+	public void setProfession(String profession) {
+		this.profession = profession;
 	}
-	public  int getRole() {
+
+
+	public int getRole() {
 		return role;
 	}
-	public  void setRole(int i) {
-		Utente.role = i;
+
+
+	public void setRole(int role) {
+		this.role = role;
 	}
-	public  int getCandownload() {
-		return candownload;
+
+
+	public int getCanDownload() {
+		return canDownload;
 	}
-	public void setCandownload(int candownload) {
-		Utente.candownload = candownload;
+
+
+	public void setCanDownload(int canDownload) {
+		this.canDownload = canDownload;
 	}
-	public int getRequesttranscriber() {
-		return requesttranscriber;
+
+
+	public int getRequestTrascriber() {
+		return requestTrascriber;
 	}
-	public  void setRequesttranscriber(int requesttranscriber) {
-		Utente.requesttranscriber = requesttranscriber;
+
+
+	public void setRequestTrascriber(int requestTrascriber) {
+		this.requestTrascriber = requestTrascriber;
 	}
-	public int getLvltranscriber() {
-		return lvltranscriber;
-	}
-	public  void setLvltranscriber(int lvltranscriber) {
-		Utente.lvltranscriber = lvltranscriber;
-	}
+	
+	
 }
 
    

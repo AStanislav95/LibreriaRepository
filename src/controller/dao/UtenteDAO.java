@@ -7,6 +7,7 @@ public class UtenteDAO {
 	static Connection conn;
 
 	
+	
 	public static boolean register(Utente u) {
 	try{
 		conn=ConnectionDAO.getConnection();
@@ -25,7 +26,40 @@ public class UtenteDAO {
 	}catch(Exception e) {System.out.println(e); return false;}}
 	
 	
+	public static Utente login(String nome, String pass) {
+		try {	
+			//Vede se l'utente esiste
+		conn=ConnectionDAO.getConnection();
+		Statement stmt=conn.createStatement();
+		ResultSet rs;
+		Utente u=null;
+		rs=stmt.executeQuery("select * from utente where Nome='"+nome+ "'and Password= '"+pass+"';");
+		
+		if (!(rs.next())){//ResultSet is empty
+			System.out.println("Accesso Negato");
+			conn.close();
+			return u;
+		}
+		//Costruisce l'utente se esiste
+		else {
+			System.out.println("Accesso concesso");
+		u=new Utente(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
+				rs.getString(5),rs.getString(6),rs.getInt(7),rs.getInt(8),rs.getInt(9),
+				rs.getInt(10));
+		conn.close();
+		return u;
+		
+		
+		
+		}
+		
+		
+		}catch(Exception e) {System.out.println(e);  
+		Utente u=new Utente(); 
+		return u;}}
+		
+	}
+	
 	
 		
 	
-}

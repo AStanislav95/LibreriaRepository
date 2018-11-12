@@ -10,7 +10,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class RegistrazioneController {
-
+//Qui invece dell'utente deve prendere come parametri le stringhe delle textarea
 	public static void register(Utente u) {
 		
 		UtenteDAO.register(u);

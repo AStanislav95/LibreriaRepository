@@ -22,8 +22,10 @@ public class UtenteDAO {
 				+"','"+ professione +"',"+ ruolo +");");
 		return true;
 		
-	}catch(Exception e) {System.out.println(e); return false;}
+	}catch(Exception e) {System.out.println(e); return false;}}
+	
+	
 	
 		
 	
-}}
+}

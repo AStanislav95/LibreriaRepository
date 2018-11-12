@@ -22,6 +22,7 @@ public class ObjectContenitor {
 		return listaManoscritti;
 	}
 	
+	
 	public ArrayList<Pagina> getListaPagine(){
 		return listaPagine;
 	}

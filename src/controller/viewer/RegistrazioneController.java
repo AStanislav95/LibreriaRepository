@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 
 public class RegistrazioneController {
 
-	private void register(Utente u) {
+	public static void register(Utente u) {
 		
 		UtenteDAO.register(u);
 		

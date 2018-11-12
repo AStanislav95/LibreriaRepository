@@ -1,12 +1,19 @@
 package controller;
-import model.Pagina;
+import model.*;
+import controller.viewer.*;
 
 public class Main {
 	
 	public static void main(String[] args) {
-		Pagina p=new Pagina();
-		p.setManoscritto("Divina Commedia");
-		System.out.println(p.getManoscritto());
+		Utente utentone=new Utente();
+		utentone.setEmail("ohno@gmail.com");
+		utentone.setName("Stas");
+		utentone.setProfession("Pagliaccio");
+		utentone.setQualification("Liceo");
+		utentone.setRole(1);
+		
+		RegistrazioneController.register(utentone);
+		
 		
 	}
 	

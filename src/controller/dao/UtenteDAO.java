@@ -34,15 +34,13 @@ public class UtenteDAO {
 		ResultSet rs;
 		Utente u=null;
 		rs=stmt.executeQuery("select * from utente where Nome='"+nome+ "'and Password= '"+pass+"';");
-		
 		if (!(rs.next())){//ResultSet is empty
 			System.out.println("Accesso Negato");
 			conn.close();
 			return u;
 		}
 		//Costruisce l'utente se esiste
-		else {
-			System.out.println("Accesso concesso");
+		else {System.out.println("Accesso concesso");
 		u=new Utente(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
 				rs.getString(5),rs.getString(6),rs.getInt(7),rs.getInt(8),rs.getInt(9),
 				rs.getInt(10));

@@ -26,6 +26,7 @@ public class UtenteDAO {
 	}catch(Exception e) {System.out.println(e); return false;}}
 	
 	
+	
 	public static Utente login(String nome, String pass) {
 		try {	
 			//Vede se l'utente esiste

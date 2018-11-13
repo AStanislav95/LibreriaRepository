@@ -6,23 +6,22 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TitledPane?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.frontend.TrascriberInterfaceController">
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.frontend.TrascriberInterfaceController">
    <children>
-      <Button fx:id="back" layoutX="795.0" layoutY="35.0" mnemonicParsing="false" onAction="#back" prefHeight="32.0" prefWidth="137.0" style="-fx-background-color: #3b3131;" text="Torna Indietro" textFill="WHITE" />
+      <Button fx:id="back" layoutX="14.0" layoutY="23.0" mnemonicParsing="false" onAction="#back" prefHeight="32.0" prefWidth="137.0" style="-fx-background-color: #3b3131;" text="Indietro" textFill="WHITE" />
       <ImageView fx:id="img" fitHeight="200.0" fitWidth="240.0" layoutX="397.0" layoutY="143.0" pickOnBounds="true" preserveRatio="true" />
-      <TextArea fx:id="textArea" layoutX="392.0" layoutY="372.0" prefHeight="200.0" prefWidth="250.0" />
-      <Button fx:id="submit" layoutX="783.0" layoutY="533.0" mnemonicParsing="false" onAction="#submit" prefHeight="32.0" prefWidth="161.0" style="-fx-background-color: #3b3131;" text="Presenta Trascrizione" textFill="WHITE" />
-      <TitledPane collapsible="false" layoutX="50.0" layoutY="129.0" prefHeight="427.0" prefWidth="178.0" text="Manoscritto">
+      <TextArea fx:id="textArea" layoutX="372.0" layoutY="156.0" prefHeight="374.0" prefWidth="572.0" />
+      <Button fx:id="submit" layoutX="578.0" layoutY="575.0" mnemonicParsing="false" onAction="#submit" prefHeight="32.0" prefWidth="161.0" style="-fx-background-color: #3b3131;" text="Presenta Trascrizione" textFill="WHITE" />
+      <TitledPane collapsible="false" layoutX="14.0" layoutY="130.0" prefHeight="626.0" prefWidth="178.0" text="Manoscritto">
          <content>
-            <ListView fx:id="manoscritto" prefHeight="400.0" prefWidth="178.0" />
+            <ListView fx:id="manoscritto" prefHeight="580.0" prefWidth="176.0" />
          </content>
       </TitledPane>
-      <TitledPane animated="false" collapsible="false" layoutX="228.0" layoutY="129.0" prefHeight="427.0" prefWidth="90.0" text="Pagina">
+      <TitledPane animated="false" collapsible="false" layoutX="192.0" layoutY="130.0" prefHeight="626.0" prefWidth="90.0" text="Pagina">
          <content>
             <ListView fx:id="pagina" prefHeight="398.0" prefWidth="90.0">
                <padding>
@@ -30,29 +29,9 @@
                </padding>
             </ListView>
          </content></TitledPane>
-      <ImageView fitHeight="123.0" fitWidth="324.0" layoutX="28.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../ImageFolder/Images%20Interface/univaq_logo_0.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="337.0" layoutY="42.0" text="Interfaccia Trascrizioni">
-         <font>
-            <Font size="33.0" />
-         </font>
-      </Label>
-      <Label layoutX="407.0" layoutY="343.0" text="Inserisci qui la Trascrizione: ">
+      <Label layoutX="364.0" layoutY="109.0" text="Inserisci qui la Trascrizione: ">
          <font>
             <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="422.0" layoutY="115.0" text="Scan da Trascrivere:">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="736.0" layoutY="175.0" text="NOTA: SE NON VIENE VISUALIZZATA &#10;ALCUNA PAGINA VUOL DIRE CHE NON &#10;VI E' STATA ASSEGNATA ALCUNA PAGINA&#10;DA TRASCRIVERE.&#10;">
-         <font>
-            <Font size="8.0" />
          </font>
       </Label>
    </children>

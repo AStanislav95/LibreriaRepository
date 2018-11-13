@@ -52,7 +52,13 @@ public class GestioneAssegnazioniInterfaceController implements Initializable {
 
 	@FXML
 	private void homepage(ActionEvent e) throws Exception {
+		Stage stage = (Stage) homepage.getScene().getWindow();
+		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/Homepage.fxml"));
 
+		Scene scene = new Scene(parent, 1200, 800);
+		stage.setTitle("Homepage");
+		stage.setScene(scene);
+		stage.show();
 	}
 
 	@FXML
@@ -62,7 +68,13 @@ public class GestioneAssegnazioniInterfaceController implements Initializable {
 
 	@FXML
 	private void profile(ActionEvent e) throws Exception {
+		Stage stage = (Stage) profile.getScene().getWindow();
+		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/Profile.fxml"));
 
+		Scene scene = new Scene(parent, 500, 400);
+		stage.setTitle("Profile");
+		stage.setScene(scene);
+		stage.show();
 	}
 
 	@Override

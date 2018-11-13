@@ -39,8 +39,6 @@ public class HomepageInterfaceController implements Initializable {
 	@FXML
 	private ListView listView;
 	@FXML
-	private Label description;
-	@FXML
 	private Button back;
 	@FXML
 	private Button gestioneassegnazione;
@@ -52,15 +50,7 @@ public class HomepageInterfaceController implements Initializable {
 	private TextField workName;
 	@FXML
 	private TextField numPage;
-	@FXML
-	private Label uploadlabel;
-	@FXML
-	private Label uploadlabel1;
-	@FXML
-	private Label uploadlabel2;
-	@FXML
-	private Label labelcandidatura;
-	@FXML
+		@FXML
 	private Button interfacciacandidatura;
 
 	@FXML
@@ -78,7 +68,7 @@ public class HomepageInterfaceController implements Initializable {
 		Stage stage = (Stage) profile.getScene().getWindow();
 		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/Profile.fxml"));
 
-		Scene scene = new Scene(parent, 1200, 800);
+		Scene scene = new Scene(parent, 500, 400);
 		stage.setTitle("Profile");
 		stage.setScene(scene);
 		stage.show();
@@ -107,17 +97,35 @@ public class HomepageInterfaceController implements Initializable {
 
 	@FXML
 	private void gestioneAssegnazione(ActionEvent e) throws Exception {
+		Stage stage = (Stage) gestioneassegnazione.getScene().getWindow();
+		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/GestioneAssegnazioni.fxml"));
 
+		Scene scene = new Scene(parent, 1200, 800);
+		stage.setTitle("Gestione Assegnazioni");
+		stage.setScene(scene);
+		stage.show();
 	}
 
 	@FXML
 	private void revisioneupload(ActionEvent e) throws Exception {
+		Stage stage = (Stage) revupload.getScene().getWindow();
+		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/InterfacciaRevisioneUpload.fxml"));
 
+		Scene scene = new Scene(parent, 1200, 800);
+		stage.setTitle("Revisione Upload");
+		stage.setScene(scene);
+		stage.show();
 	}
 
 	@FXML
 	private void interfacciacandidatura(ActionEvent e) throws Exception {
+		Stage stage = (Stage) interfacciacandidatura.getScene().getWindow();
+		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/TranscriberCandidatureInterface.fxml"));
 
+		Scene scene = new Scene(parent, 1200, 800);
+		stage.setTitle("Modulo Trascrittore");
+		stage.setScene(scene);
+		stage.show();
 	}
 	@FXML
 	private void uploadFile(ActionEvent e) {
@@ -126,7 +134,7 @@ public class HomepageInterfaceController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
+		
 
 	}
 

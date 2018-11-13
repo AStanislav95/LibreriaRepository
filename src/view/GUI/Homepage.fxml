@@ -6,20 +6,18 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.frontend.HomepageInterfaceController">
    <children>
-      <Button fx:id="gestioneassegnazione" defaultButton="true" layoutX="399.0" layoutY="18.0" minHeight="25.0" mnemonicParsing="false" onAction="#gestioneAssegnazione" prefHeight="32.0" prefWidth="200.0" style="-fx-background-color: #3b3131;" text="Gestione Assegnazioni" textFill="WHITE" />
+      <Button fx:id="gestioneassegnazione" defaultButton="true" layoutX="306.0" layoutY="18.0" minHeight="25.0" mnemonicParsing="false" onAction="#gestioneAssegnazione" prefHeight="32.0" prefWidth="200.0" style="-fx-background-color: #3b3131;" text="Gestione Assegnazioni" textFill="WHITE" />
       <TextField fx:id="searchBar" layoutX="389.0" layoutY="192.0" prefHeight="26.0" prefWidth="430.0" promptText="Cerca..." />
       <Button fx:id="search" layoutX="844.0" layoutY="189.0" mnemonicParsing="false" onAction="#search" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #3b3131;" text="Cerca" textFill="WHITE" />
       <RadioButton fx:id="searchByAuthor" layoutX="492.0" layoutY="233.0" mnemonicParsing="false" text="Autore" />
       <RadioButton fx:id="searchByName" layoutX="597.0" layoutY="233.0" mnemonicParsing="false" text="Nome Opera" />
       <Button fx:id="back" layoutX="13.0" layoutY="18.0" mnemonicParsing="false" onAction="#loginPage" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #3b3131;" text="Login" textFill="WHITE" />
-      <Button fx:id="revupload" defaultButton="true" layoutX="628.0" layoutY="18.0" minHeight="25.0" mnemonicParsing="false" onAction="#revisioneupload" prefHeight="32.0" prefWidth="200.0" style="-fx-background-color: #3b3131;" text="Revisione Upload" textFill="WHITE" />
+      <Button fx:id="revupload" defaultButton="true" layoutX="526.0" layoutY="18.0" minHeight="25.0" mnemonicParsing="false" onAction="#revisioneupload" prefHeight="32.0" prefWidth="200.0" style="-fx-background-color: #3b3131;" text="Revisione Upload" textFill="WHITE" />
       <Label layoutX="382.0" layoutY="118.0" prefHeight="58.0" prefWidth="592.0" text="Fai una ricerca per scoprire alcune meraviglie del passato">
          <font>
             <Font size="20.0" />
@@ -33,11 +31,6 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </TitledPane>
-      <ImageView fitHeight="77.0" fitWidth="292.0" layoutX="73.0" layoutY="280.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../ImageFolder/Images%20Interface/libreria.png" />
-         </image>
-      </ImageView>
       <Label layoutX="1024.0" layoutY="19.0" prefHeight="30.0" prefWidth="131.0" text="    Vai al Profilo...">
          <font>
             <Font size="14.0" />
@@ -46,19 +39,7 @@
       <Button fx:id="selectImage" layoutX="964.0" layoutY="702.0" mnemonicParsing="false" onAction="#uploadFile" prefHeight="32.0" prefWidth="158.0" style="-fx-background-color: #3b3131;" text="Scegli l'immagine" textFill="WHITE" />
       <TextField fx:id="workName" layoutX="418.0" layoutY="705.0" prefHeight="26.0" prefWidth="251.0" promptText="Nome dell'opera della pagina" />
       <TextField fx:id="numPage" layoutX="700.0" layoutY="705.0" prefHeight="26.0" prefWidth="239.0" promptText="Numero della pagina" />
-      <Label fx:id="uploadlabel1" layoutX="355.0" layoutY="596.0" text="Nome Opera:" visible="false" />
-      <Label fx:id="uploadlabel2" layoutX="593.0" layoutY="596.0" text="N° Pagina:" visible="false" />
-      <Label fx:id="uploadlabel" layoutX="351.0" layoutY="559.0" prefHeight="26.0" prefWidth="216.0" text="Upload Pagine Opera:" visible="false">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="labelcandidatura" layoutX="68.0" layoutY="540.0" prefHeight="58.0" prefWidth="282.0" text=" NOTA: Per effettuare la candidatura a Trascrittore&#10;bisogna andare nel profilo e cliccare il tasto&#10;corrispondente.&#10;&#10;" visible="false">
-         <font>
-            <Font name="System Italic" size="9.0" />
-         </font>
-      </Label>
-      <Button fx:id="interfacciacandidatura" layoutX="253.0" layoutY="503.0" mnemonicParsing="false" onAction="#interfacciacandidatura" prefHeight="30.0" prefWidth="165.0" style="-fx-background-color: #3b3131;" text="Interfaccia Candidature" textFill="WHITE" visible="false" />
+      <Button fx:id="interfacciacandidatura" layoutX="739.0" layoutY="19.0" mnemonicParsing="false" onAction="#interfacciacandidatura" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #3b3131;" text="Interfaccia Candidature" textFill="WHITE" />
       <Button fx:id="profile" layoutX="1024.0" layoutY="14.0" mnemonicParsing="false" onAction="#profile" opacity="0.0" prefHeight="58.0" prefWidth="131.0" style="-fx-background-color: WHITE;" text="profile" textFill="#992424" />
       <Label layoutX="421.0" layoutY="633.0" prefHeight="58.0" prefWidth="292.0" text="Fai l'upload di un'immagine :)" textAlignment="CENTER">
          <font>

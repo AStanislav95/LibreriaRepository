@@ -4,56 +4,34 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="700.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.frontend.RegistrationInterfaceController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.frontend.RegistrationInterfaceController">
    <children>
-      <Label layoutX="61.0" layoutY="240.0" text="Nome Utente:" />
-      <Label layoutX="81.0" layoutY="285.0" text="Password:" />
-      <Label layoutX="25.0" layoutY="330.0" text="Conferma Password:" />
-      <Label layoutX="365.0" layoutY="240.0" text="Titolo di Studio:" />
-      <Label layoutX="422.0" layoutY="285.0" text="Mail:" />
-      <Label layoutX="385.0" layoutY="330.0" text="Professione:" />
-      <Label layoutX="290.0" layoutY="40.0" text="Modulo Di Registrazione">
-         <font>
-            <Font size="33.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="109.0" fitWidth="265.0" layoutX="25.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../ImageFolder/Images%20Interface/univaq_logo_0.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="451.0" layoutY="197.0" text="Dati Anagrafici">
-         <font>
-            <Font size="18.0" />
-         </font></Label>
-      <Label layoutX="138.0" layoutY="197.0" text="Dati Account">
-         <font>
-            <Font size="18.0" />
-         </font></Label>
-      <Label layoutX="63.0" layoutY="132.0" prefHeight="27.0" prefWidth="470.0" text="Inserire nei campi sottostanti i dati richiesti.">
-         <font>
-            <Font size="18.0" />
-         </font></Label>
-      <AnchorPane layoutX="7.0" layoutY="177.0" prefHeight="336.0" prefWidth="688.0">
+      <Button fx:id="back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" prefHeight="32.0" prefWidth="135.0" style="-fx-background-color: #3b3131;" text="Torna indietro" textFill="WHITE" />
+      <Button fx:id="register" layoutX="240.0" layoutY="415.0" mnemonicParsing="false" onAction="#register" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #3b3131;" text="Registrami" textFill="WHITE" />
+      <VBox layoutX="32.0" layoutY="135.0" prefHeight="230.0" prefWidth="235.0" spacing="10.0">
          <children>
-            <TextField fx:id="name" layoutX="135.0" layoutY="60.0" prefWidth="150.0" />
-            <PasswordField fx:id="password" layoutX="135.0" layoutY="105.0" prefWidth="150.0" />
-            <PasswordField fx:id="passconfirm" layoutX="135.0" layoutY="150.0" prefWidth="150.0" />
-            <CheckBox fx:id="showPassword" layoutX="152.0" layoutY="197.0" mnemonicParsing="false" onAction="#showPassword" text="Mostra password" />
-            <Button fx:id="back" layoutX="57.0" layoutY="286.0" mnemonicParsing="false" onAction="#back" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #3b3131;" text="Torna indietro..." textFill="WHITE" />
-            <Button fx:id="register" layoutX="514.0" layoutY="286.0" mnemonicParsing="false" onAction="#register" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #3b3131;" text="Registrami" textFill="WHITE" />
-            <TextField fx:id="qualification" layoutX="448.0" layoutY="60.0" />
-            <TextField fx:id="email" layoutX="448.0" layoutY="105.0" />
-            <TextField fx:id="profession" layoutX="448.0" layoutY="150.0" />
-            <Separator layoutX="329.0" layoutY="6.0" orientation="VERTICAL" prefHeight="222.0" prefWidth="8.0" />
+            <Label text="Nome Utente:" />
+            <TextField fx:id="name" prefHeight="26.0" prefWidth="171.0" promptText="Nome" />
+            <Label text="Password:" />
+            <PasswordField fx:id="password" prefWidth="150.0" promptText="Password" />
+            <Label text="Conferma Password:" />
+            <PasswordField fx:id="passconfirm" prefWidth="150.0" promptText="Password" />
+            <CheckBox fx:id="showPassword" mnemonicParsing="false" onAction="#showPassword" text="Mostra password" />
          </children>
-      </AnchorPane>
+      </VBox>
+      <VBox layoutX="322.0" layoutY="135.0" prefHeight="230.0" prefWidth="235.0" spacing="10.0">
+         <children>
+            <Label text="Email:" />
+            <TextField fx:id="qualification" promptText="Email" />
+            <Label text="Professione:" />
+            <TextField fx:id="email" promptText="Professione" />
+            <Label text="Titolo di Studio:" />
+            <TextField fx:id="profession" promptText="Titolo di Studio" />
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

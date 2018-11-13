@@ -11,6 +11,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -70,6 +72,12 @@ public class LoginInterfaceController implements Initializable{
 			stage.setTitle("Homepage");
 			stage.setScene(scene);
 			stage.show();
+		}else {
+			Alert alert = new Alert(AlertType.ERROR);
+			
+			alert.setContentText("Dati errati");
+
+			alert.showAndWait();
 		}
 		
 		
@@ -80,7 +88,7 @@ public class LoginInterfaceController implements Initializable{
 		Stage stage = (Stage) register.getScene().getWindow();
 		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/Registration.fxml"));
 
-		Scene scene = new Scene(parent, 1200, 800);
+		Scene scene = new Scene(parent, 600, 500);
 		stage.setTitle("Registrazione");
 		stage.setScene(scene);
 		stage.show();
@@ -103,7 +111,7 @@ public class LoginInterfaceController implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+	
 		
 	}
 }

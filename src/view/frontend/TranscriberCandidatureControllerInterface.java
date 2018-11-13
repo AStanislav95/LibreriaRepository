@@ -40,7 +40,7 @@ public class TranscriberCandidatureControllerInterface implements Initializable 
 	@FXML
 	private TableView dbtable;
 	@FXML
-	private Button back;
+	private Button adminInterface;
 	@FXML
 	private Button homepage;
 	@FXML
@@ -52,24 +52,31 @@ public class TranscriberCandidatureControllerInterface implements Initializable 
 	}
 
 	@FXML
-	private void back(ActionEvent e) throws Exception {
-		Stage stage = (Stage) back.getScene().getWindow(); //Source Stage!!
-		Parent homepage = FXMLLoader.load(getClass().getResource("/Interface/Homepage.fxml"));
-
-		Scene scene = new Scene(homepage);
-		stage.setTitle("Homepage");
-		stage.setScene(scene);
-		stage.show();
-	}
-
-	@FXML
 	private void candidature(ActionEvent e) throws Exception {
 
 	}
+	
+	@FXML
+	private void adminInterface(ActionEvent e) throws IOException {
+		Stage stage = (Stage) adminInterface.getScene().getWindow();
+		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/AdminInterface1.fxml"));
 
+		Scene scene = new Scene(parent, 1200, 800);
+		stage.setTitle("Profile");
+		stage.setScene(scene);
+		stage.show();
+	}
+	
+	
 	@FXML
 	private void homepage(ActionEvent e) throws Exception {
+		Stage stage = (Stage) homepage.getScene().getWindow();
+		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/Homepage.fxml"));
 
+		Scene scene = new Scene(parent, 1200, 800);
+		stage.setTitle("Profile");
+		stage.setScene(scene);
+		stage.show();
 	}
 
 	@Override

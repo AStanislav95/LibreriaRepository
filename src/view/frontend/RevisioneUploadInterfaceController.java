@@ -61,7 +61,7 @@ public class RevisioneUploadInterfaceController implements Initializable {
 	@FXML
 	private void homepage(ActionEvent e) throws Exception {
 		Stage stage = (Stage) homepage.getScene().getWindow(); //Source Stage!!
-		Parent homepage = FXMLLoader.load(getClass().getResource("/view/gui/Homepage.fxml"));
+		Parent homepage = FXMLLoader.load(getClass().getResource("/view/GUI/Homepage.fxml"));
 
 		Scene scene = new Scene(homepage);
 		stage.setTitle("Homepage");
@@ -76,7 +76,13 @@ public class RevisioneUploadInterfaceController implements Initializable {
 
 	@FXML
 	private void profile(ActionEvent e) throws Exception {
+		Stage stage = (Stage) profile.getScene().getWindow();
+		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/Profile.fxml"));
 
+		Scene scene = new Scene(parent, 500, 400);
+		stage.setTitle("Profile");
+		stage.setScene(scene);
+		stage.show();
 	}
 
 	@SuppressWarnings("unchecked")

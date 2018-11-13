@@ -17,7 +17,10 @@ public class TrascrizioneDAO {
 	}
 	
 	
-	public static boolean insertTrascrizione() {
+	public static boolean insertTrascrizione(int numPag, String text, int IDUtente) throws Exception {
+		Connection con = ConnectionDAO.getConnection();
+		Statement stm = con.createStatement();
+		stm.executeQuery("INSERT INTO Trascrizione(Pagina, Testo, IDUtente) values ("+ numPag + ",'" + text + "'," + IDUtente + ");" );
 		return true;
 	}
 	

@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.GestioneAssegnazioniController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.frontend.GestioneAssegnazioniInterfaceController">
    <children>
       <TextField fx:id="IDpage" layoutX="358.0" layoutY="613.0" promptText="inserisci ID pagina..." />
       <Button fx:id="confirm" layoutX="575.0" layoutY="567.0" mnemonicParsing="false" onAction="#confirm" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #3b3131;" text="Conferma" textFill="WHITE" />

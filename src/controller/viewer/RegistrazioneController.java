@@ -6,7 +6,7 @@ import model.ObjectContenitor;
 
 public class RegistrazioneController {
 
-	public static void register(String email, String nome, String pass, String qualif, String prof) {
+	public static boolean register(String email, String nome, String pass, String qualif, String prof) {
 
 		// Crea un nuovo utente
 		Utente u = new Utente();
@@ -22,8 +22,9 @@ public class RegistrazioneController {
 		// Lo passa alla sessione attiva
 		ObjectContenitor.utenteAttivo = u;
 
-		// Inserisce i dati nel DB
-		UtenteDAO.register(u);
+		
+		return UtenteDAO.register(u);
+		
 
 	}
 

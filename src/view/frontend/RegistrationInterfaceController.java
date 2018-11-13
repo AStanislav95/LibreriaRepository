@@ -34,9 +34,8 @@ public class RegistrationInterfaceController implements Initializable {
 	@FXML
 	private TextField profession;
 	@FXML
-	private CheckBox checkpassword;
-	@FXML
-	private TextField confirmtext;
+	private CheckBox showPassword;
+	
 	@FXML
 	private PasswordField passconfirm;
 
@@ -44,6 +43,7 @@ public class RegistrationInterfaceController implements Initializable {
 	private void register(ActionEvent e) throws Exception {
 		
 		RegistrazioneController.register(email.getText(), name.getText(), password.getText(), qualification.getText(), profession.getText());
+		
 		
 		Stage stage = (Stage) register.getScene().getWindow();
 		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/Login.fxml"));
@@ -66,13 +66,13 @@ public class RegistrationInterfaceController implements Initializable {
 	}
 
 	@FXML
-	private void checkpassword(ActionEvent e) {
+	private void showPassword(ActionEvent e) {
 
 	}
 
 	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-
+	public void initialize(URL location, ResourceBundle resources) {			
+			
 	}
 
 }

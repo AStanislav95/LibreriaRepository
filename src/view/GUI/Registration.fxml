@@ -46,14 +46,13 @@
             <TextField fx:id="name" layoutX="135.0" layoutY="60.0" prefWidth="150.0" />
             <PasswordField fx:id="password" layoutX="135.0" layoutY="105.0" prefWidth="150.0" />
             <PasswordField fx:id="passconfirm" layoutX="135.0" layoutY="150.0" prefWidth="150.0" />
-            <CheckBox fx:id="checkpassword" layoutX="152.0" layoutY="197.0" mnemonicParsing="false" onAction="#checkpassword" text="Mostra password" />
+            <CheckBox fx:id="showPassword" layoutX="152.0" layoutY="197.0" mnemonicParsing="false" onAction="#showPassword" text="Mostra password" />
             <Button fx:id="back" layoutX="57.0" layoutY="286.0" mnemonicParsing="false" onAction="#back" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #3b3131;" text="Torna indietro..." textFill="WHITE" />
             <Button fx:id="register" layoutX="514.0" layoutY="286.0" mnemonicParsing="false" onAction="#register" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #3b3131;" text="Registrami" textFill="WHITE" />
             <TextField fx:id="qualification" layoutX="448.0" layoutY="60.0" />
             <TextField fx:id="email" layoutX="448.0" layoutY="105.0" />
             <TextField fx:id="profession" layoutX="448.0" layoutY="150.0" />
             <Separator layoutX="329.0" layoutY="6.0" orientation="VERTICAL" prefHeight="222.0" prefWidth="8.0" />
-            <TextField fx:id="confirmtext" layoutX="135.0" layoutY="150.0" prefHeight="26.0" prefWidth="150.0" visible="false" />
          </children>
       </AnchorPane>
    </children>

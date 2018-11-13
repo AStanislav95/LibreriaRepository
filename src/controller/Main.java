@@ -20,7 +20,7 @@ public class Main {
 			System.out.println(x.getAutore());
 			System.out.println("okay");
 		}
-		
+	
 	}
 	
 }

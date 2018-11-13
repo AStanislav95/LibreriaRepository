@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="420.0" prefWidth="620.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.SearchByAuthorController">
+<AnchorPane id="AnchorPane" prefHeight="420.0" prefWidth="620.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.frontend.SearchByAuthorInterfaceController">
    <children>
       <Button fx:id="back" layoutX="467.0" layoutY="361.0" mnemonicParsing="false" onAction="#back" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #3b3131;" text="Indietro" textFill="WHITE" />
       <Label layoutX="316.0" layoutY="177.0" prefHeight="77.0" prefWidth="254.0" text="NOTA: SE LA LISTA DELLE OPERE RISULTA VUOTA &#10;VUOL DIRE CHE NON SONO STATE ANCORA PUBBLICATE &#10;DELLE OPERE O CHE LA RICERCA CHE  CON NOME CHE &#10;AVETE EFFEUTTUATO NON HA RISCONTRATO NESSUN RISULTATO&#10;NEL NOSTRO DATABASE.&#10;&#10;">

@@ -47,7 +47,13 @@ public class SearchByNameInterfaceController implements Initializable {
 
 	@FXML
 	private void back(ActionEvent e) throws Exception {
+		Stage stage = (Stage) back.getScene().getWindow(); //Source Stage!!
+		Parent homepage = FXMLLoader.load(getClass().getResource("/Interface/Homepage.fxml"));
 
+		Scene scene = new Scene(homepage);
+		stage.setTitle("Homepage");
+		stage.setScene(scene);
+		stage.show();
 	}
 
 	@Override

@@ -39,7 +39,13 @@ public class ProfileInterfaceController implements Initializable {
 
 	@FXML
 	private void back(ActionEvent e) throws Exception {
+		Stage stage = (Stage) back.getScene().getWindow();
+		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/Homepage.fxml"));
 
+		Scene scene = new Scene(parent, 1200, 800);
+		stage.setTitle("Homepage");
+		stage.setScene(scene);
+		stage.show();
 	}
 
 	@FXML

@@ -2,8 +2,12 @@ package view.frontend;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.stage.Stage;
 
 public class LoginInterfaceController {
 
@@ -15,7 +19,7 @@ public class LoginInterfaceController {
 	
 	@FXML
 	private void login() {
-		
+
 	}
 	
 	@FXML

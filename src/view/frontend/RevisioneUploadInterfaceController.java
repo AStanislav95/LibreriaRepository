@@ -52,8 +52,6 @@ public class RevisioneUploadInterfaceController implements Initializable {
 	@FXML
 	private TableView dbtable;
 	@FXML
-	private Button back;
-	@FXML
 	private ListView titolo;
 	@FXML
 	private ListView pagina;
@@ -62,7 +60,13 @@ public class RevisioneUploadInterfaceController implements Initializable {
 
 	@FXML
 	private void homepage(ActionEvent e) throws Exception {
+		Stage stage = (Stage) homepage.getScene().getWindow(); //Source Stage!!
+		Parent homepage = FXMLLoader.load(getClass().getResource("/view/gui/Homepage.fxml"));
 
+		Scene scene = new Scene(homepage);
+		stage.setTitle("Homepage");
+		stage.setScene(scene);
+		stage.show();
 	}
 
 	@FXML

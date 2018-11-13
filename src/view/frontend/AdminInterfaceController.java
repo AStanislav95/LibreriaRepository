@@ -77,7 +77,13 @@ public class AdminInterfaceController implements Initializable {
 
 	@FXML
 	private void back(ActionEvent e) throws Exception {
+		Stage stage = (Stage) back.getScene().getWindow();
+		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/Login.fxml"));
 
+		Scene scene = new Scene(parent, 1200, 800);
+		stage.setTitle("Login");
+		stage.setScene(scene);
+		stage.show();
 	}
 
 	@FXML
@@ -101,8 +107,18 @@ public class AdminInterfaceController implements Initializable {
 	}
 
 	@FXML
+	private void homepage() {
+		
+	}
+	@FXML
 	private void profile(ActionEvent e) throws Exception {
+		Stage stage = (Stage) profile.getScene().getWindow();
+		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/Profile.fxml"));
 
+		Scene scene = new Scene(parent, 1200, 800);
+		stage.setTitle("Profile");
+		stage.setScene(scene);
+		stage.show();
 	}
 
 	@FXML

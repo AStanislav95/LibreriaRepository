@@ -48,7 +48,13 @@ public class RegistrationInterfaceController implements Initializable {
 
 	@FXML
 	private void back(ActionEvent e) throws Exception {
+		Stage stage = (Stage) back.getScene().getWindow();
+		Parent parent = FXMLLoader.load(getClass().getResource("/view/gui/Login.fxml"));
 
+		Scene scene = new Scene(parent);
+		stage.setTitle("Login");
+		stage.setScene(scene);
+		stage.show();
 	}
 
 	@FXML

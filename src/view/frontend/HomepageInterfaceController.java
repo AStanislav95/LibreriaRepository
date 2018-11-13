@@ -7,12 +7,16 @@ import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class HomepageInterfaceController implements Initializable {
 
@@ -71,11 +75,24 @@ public class HomepageInterfaceController implements Initializable {
 
 	@FXML
 	public void profile(ActionEvent e) throws Exception {
+		Stage stage = (Stage) profile.getScene().getWindow();
+		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/Profile.fxml"));
 
+		Scene scene = new Scene(parent, 1200, 800);
+		stage.setTitle("Profile");
+		stage.setScene(scene);
+		stage.show();
 	}
 
 	@FXML
-	private void loginpage(ActionEvent e) throws Exception {
+	private void loginPage(ActionEvent e) throws Exception {
+		Stage stage = (Stage) back.getScene().getWindow();
+		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/Login.fxml"));
+
+		Scene scene = new Scene(parent, 1200, 800);
+		stage.setTitle("Login");
+		stage.setScene(scene);
+		stage.show();
 	}
 
 	@FXML
@@ -101,6 +118,10 @@ public class HomepageInterfaceController implements Initializable {
 	@FXML
 	private void interfacciacandidatura(ActionEvent e) throws Exception {
 
+	}
+	@FXML
+	private void uploadFile(ActionEvent e) {
+		
 	}
 
 	@Override

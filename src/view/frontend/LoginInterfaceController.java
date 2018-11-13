@@ -66,7 +66,7 @@ public class LoginInterfaceController implements Initializable{
 			
 			Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/Homepage.fxml"));
 			
-			Scene scene = new Scene(parent);
+			Scene scene = new Scene(parent,1200,800);
 			stage.setTitle("Homepage");
 			stage.setScene(scene);
 			stage.show();
@@ -76,8 +76,15 @@ public class LoginInterfaceController implements Initializable{
 	}
 	
 	@FXML
-	private void register(ActionEvent e) {
-		
+	private void register(ActionEvent e) throws Exception {
+		Stage stage = (Stage) register.getScene().getWindow();
+		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/Registration.fxml"));
+
+		Scene scene = new Scene(parent, 1200, 800);
+		stage.setTitle("Registrazione");
+		stage.setScene(scene);
+		stage.show();
+
 	}
 	
 	@FXML

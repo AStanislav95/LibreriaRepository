@@ -3,6 +3,7 @@ package view.frontend;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import controller.viewer.RegistrazioneController;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -35,15 +36,22 @@ public class RegistrationInterfaceController implements Initializable {
 	@FXML
 	private CheckBox checkpassword;
 	@FXML
-	private TextField passtext;
-	@FXML
 	private TextField confirmtext;
 	@FXML
 	private PasswordField passconfirm;
 
 	@FXML
 	private void register(ActionEvent e) throws Exception {
+		
+		RegistrazioneController.register(email.getText(), name.getText(), password.getText(), qualification.getText(), profession.getText());
+		
+		Stage stage = (Stage) register.getScene().getWindow();
+		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/Login.fxml"));
 
+		Scene scene = new Scene(parent, 1200, 800);
+		stage.setTitle("Login");
+		stage.setScene(scene);
+		stage.show();
 	}
 
 	@FXML

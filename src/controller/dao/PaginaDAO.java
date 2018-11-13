@@ -11,6 +11,14 @@ public class PaginaDAO {
 	private static String username = "root";
 	private static String psw = "root";
 
+	
+	public static ResultSet listPage() throws Exception {
+		Connection con = ConnectionDAO.getConnection();
+		Statement stm = con.createStatement();
+		ResultSet rs = stm.executeQuery("select * from Pagina");
+		
+		return rs;
+	}
 
 	 public static boolean uploadPage(int numero, int manoscritto,String scanPath) {
 			try {

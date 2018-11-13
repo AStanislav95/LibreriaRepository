@@ -3,9 +3,6 @@ package controller.dao;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
-
-import model.Pagina;
 
 public class ManoscrittoDAO {
 
@@ -21,6 +18,7 @@ public class ManoscrittoDAO {
 		return true;
 	}
 
+	
 	
 	public static ResultSet getManoscritti() throws Exception {
 		Connection con = ConnectionDAO.getConnection();

@@ -7,8 +7,6 @@ import java.sql.Statement;
 
 public class PaginaDAO {
 	
-
-
 	
 	public static ResultSet listPage() throws Exception {
 		Connection con = ConnectionDAO.getConnection();
@@ -17,16 +15,18 @@ public class PaginaDAO {
 		
 		return rs;
 	}
-
+	
+	
+	
+	//Metodo che uso per fare upload dalla schermata Home
 	 public static boolean uploadPage(int numero, int manoscritto,String scanPath) {
 			try {
 			 
 			    Connection con = ConnectionDAO.getConnection();
 			    Statement stm = con.createStatement();
-			    stm.executeUpdate("insert into Page (Numero, Manoscritto, Scanpath, Trascrizione) "
+			    stm.executeUpdate("insert into Page (Numero, Manoscritto, Scanpath) "
 				    + "values(" + numero + "," + manoscritto +"," + "'" + scanPath + "'" + ",\"Trascrizione non disponibile\")");
-			   System.out.println("insert into Page (Numero, Manoscritto, Scanpath, Trascrizione) "
-					    + "values(" + numero + "," + manoscritto +"," + "'" + scanPath + "'" + ",\"Trascrizione non disponibile\")");
+
 			    return true;
 			} catch (Exception e) {
 			    System.out.println(e.getMessage());

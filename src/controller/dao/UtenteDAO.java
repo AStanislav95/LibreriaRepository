@@ -56,6 +56,19 @@ public class UtenteDAO {
 		Utente u=new Utente(); 
 		return u;}}
 		
+	public static boolean setRichiesta(int val, int id) {
+		try {
+			conn=ConnectionDAO.getConnection();
+			Statement stmt=conn.createStatement();
+			stmt.executeUpdate("update utente set RichiestaTrascrittore= "+ val
+					+ " where ID= " + id);
+			return true;
+		}catch(Exception e) {System.out.println(e); return false;}
+		
+	}
+	
+	
+	
 	}
 	
 	

@@ -3,6 +3,7 @@ package view.frontend;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import controller.viewer.LoginController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -57,6 +58,7 @@ public class LoginInterfaceController implements Initializable{
 	private void login() {
 		//getUserData(String name, String password)
 		//DAO ->
+		LoginController.Login(email.getText(), passtext.getText());
 	}
 	
 	@FXML

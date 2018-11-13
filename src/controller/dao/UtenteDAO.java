@@ -68,9 +68,37 @@ public class UtenteDAO {
 	}
 	
 	
+	public static boolean setRuolo(int id, int ruolo) {
+		try {
+			conn=ConnectionDAO.getConnection();
+			Statement stmt=conn.createStatement();
+			stmt.executeUpdate("update utente set Ruolo="+ruolo+" where ID="+id);
+			return true;
+		}catch(Exception e) {System.out.println(e); return false;}
+		
+		
+	}
+	
+	public static boolean aggiungiPermessi(int ruolo, int permesso) {
+		try {
+			conn=ConnectionDAO.getConnection();
+			Statement stmt=conn.createStatement();
+			stmt.executeUpdate("insert into consente values ("+ruolo + "," +permesso +")");
+			return true;
+		}catch(Exception e) {System.out.println(e); return false;}
+	}
+	
+	public static boolean rimuoviPermessi(int ruolo, int permesso) {
+		try {
+			conn=ConnectionDAO.getConnection();
+			Statement stmt=conn.createStatement();
+			stmt.executeUpdate("delete from consente where IDRuolo="+ruolo+" and IDPermessi="+permesso+";");
+			return true;
+		}catch(Exception e) {System.out.println(e); return false;}
+	}
+	
 	
 	}
 	
 	
 		
-	

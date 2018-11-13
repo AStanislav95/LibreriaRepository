@@ -67,7 +67,7 @@ public class RegistrationInterfaceController implements Initializable {
 
 	@FXML
 	private void showPassword(ActionEvent e) {
-
+		
 	}
 
 	@Override

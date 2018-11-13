@@ -17,6 +17,9 @@ public class TrascrizioneDAO {
 	}
 	
 	
+	public static boolean insertTrascrizione() {
+		return true;
+	}
 	
 	
 }

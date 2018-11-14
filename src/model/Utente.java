@@ -123,32 +123,5 @@ public class Utente {
 	
 	
 	
-	public static void main(String[] args) {
-		Manoscritto m = new Manoscritto();
-		m.setAnno(100);
-		m.setAutore("Ciao");
-		m.setGenere("ciao");
-		m.setID(4);
-		m.setPubblicazione(1);
-		m.setTitolo("Ciao");
-		m.setSecolo(1454);
-		
-		Manoscritto b = new Manoscritto();
-		b.setAnno(1780);
-		b.setAutore("Ciao");
-		b.setGenere("ciao");
-		b.setID(4);
-		b.setPubblicazione(1);
-		b.setTitolo("pirla");
-		b.setSecolo(1454);
-		
-		ObjectContenitor.listaManoscritti.add(m);
-		ObjectContenitor.listaManoscritti.add(b);
-		
-		for (Manoscritto x: ObjectContenitor.listaManoscritti) {
-			System.out.println(x.getTitolo());
-		}
-		
-	}
 	
 }

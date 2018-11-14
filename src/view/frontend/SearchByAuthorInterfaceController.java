@@ -29,8 +29,8 @@ public class SearchByAuthorInterfaceController implements Initializable {
 	private ListView<String> resultList;
 	@FXML
 	private Button back;
+	private static String manoscrittoSelezionato;
 
-	private static String selectedWork;
 
 	@FXML
 	private void back(ActionEvent e) throws Exception {
@@ -45,7 +45,41 @@ public class SearchByAuthorInterfaceController implements Initializable {
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
+		
 		resultList.setItems(HomepageInterfaceController.getManoscritti());
+		resultList.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+		
+	    resultList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+		@Override
+		public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+		   
+			manoscrittoSelezionato = observable.getValue();
+		    
+		    //works
+		    Stage stage = (Stage) resultList.getScene().getWindow();
+		   
+		    try {
+		    	
+		    	Parent profile = FXMLLoader.load(getClass().getResource("/view/GUI/resultsFromSearch.fxml"));
+		    	Scene scene = new Scene(profile);
+		    	stage.setTitle("Risultati della ricerca");
+		    	stage.setScene(scene);
+		    	stage.show();
+		    	
+		    } catch (IOException ex) {
+		    	
+			Logger.getLogger(SearchByAuthorInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
+		    }
+			
+		}
+
+	    });//end selectionModel
+	    
+	}
+	
+	
+	public static String getSelectedWork() {
+		return manoscrittoSelezionato;
 	}
 
 }

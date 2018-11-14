@@ -27,12 +27,14 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import model.Pagina;
+
 import javax.imageio.ImageIO;
 
 public class SearchByNameInterfaceController implements Initializable {
 
 	@FXML
-	private ListView listView;
+	private ListView<ImageView> listView;
 	@FXML
 	private ImageView selectedImage;
 	@FXML
@@ -48,7 +50,7 @@ public class SearchByNameInterfaceController implements Initializable {
 	@FXML
 	private void back(ActionEvent e) throws Exception {
 		Stage stage = (Stage) back.getScene().getWindow(); //Source Stage!!
-		Parent homepage = FXMLLoader.load(getClass().getResource("/Interface/Homepage.fxml"));
+		Parent homepage = FXMLLoader.load(getClass().getResource("/view/GUI/Homepage.fxml"));
 
 		Scene scene = new Scene(homepage);
 		stage.setTitle("Homepage");
@@ -58,7 +60,43 @@ public class SearchByNameInterfaceController implements Initializable {
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
+		
+		ObservableList<ImageView> listImage = FXCollections.observableArrayList();
+		
+	
+		for(Pagina p: HomepageInterfaceController.getpagManoscritti()) {
+			
+			try {
+				
+				listImage.add(generateImage(p.getScanpath()));
+				//works ---> listImage.add(generateImage("/home/stas/Pictures/img1.png"));
+						
+			} catch (MalformedURLException e) {
+				
+				e.printStackTrace();
+			}
+		}
+		
+		
+		listView.setItems(listImage);
+		listView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+		listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<ImageView>() {
+		    @Override
+		    public void changed(ObservableValue<? extends ImageView> observable, ImageView oldValue, ImageView newValue) {
+			selectedImage.setImage(newValue.getImage());
+		    }
 
+	});
+		
 	}
+	
+	 public ImageView generateImage(String pathImage) throws MalformedURLException {
+
+			File file = new File(pathImage);
+			ImageView container = new ImageView(new Image(file.toURI().toURL().toExternalForm()));
+			container.setFitHeight(120);
+			container.setFitWidth(120);
+			return container;
+		}
 
 }

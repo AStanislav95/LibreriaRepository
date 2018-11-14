@@ -2,6 +2,9 @@ package model;
 
 import java.util.ArrayList;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 public class Manoscritto {
 
 	private int ID;
@@ -11,10 +14,10 @@ public class Manoscritto {
 	private String titolo;
 	private String autore;
 	private String genere;
-	private ArrayList<Pagina> listaPagine = new ArrayList<>();	
+	private ObservableList<Pagina> listaPagine = FXCollections.observableArrayList();
 	
 	
-	public Manoscritto(int ID, int pubblicazione, int anno, int secolo, String titolo, String autore, String genere, ArrayList<Pagina> listP) {
+	public Manoscritto(int ID, int pubblicazione, int anno, int secolo, String titolo, String autore, String genere, ObservableList<Pagina> listP) {
 		this.ID = ID;
 		this.pubblicazione = pubblicazione;
 		this.anno = anno;
@@ -78,7 +81,7 @@ public class Manoscritto {
 		this.genere = genere;
 	}
 	
-	public ArrayList<Pagina> getListaPagine() {
+	public ObservableList<Pagina> getListaPagine() {
 		return listaPagine;
 	}
 	public void setListaPagine(Pagina pag) {

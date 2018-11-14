@@ -26,7 +26,7 @@ import javafx.stage.Stage;
 public class SearchByAuthorInterfaceController implements Initializable {
 
 	@FXML
-	private ListView resultList;
+	private ListView<String> resultList;
 	@FXML
 	private Button back;
 
@@ -35,7 +35,7 @@ public class SearchByAuthorInterfaceController implements Initializable {
 	@FXML
 	private void back(ActionEvent e) throws Exception {
 		Stage stage = (Stage) back.getScene().getWindow(); //Source Stage!!
-		Parent homepage = FXMLLoader.load(getClass().getResource("/Interface/Homepage.fxml"));
+		Parent homepage = FXMLLoader.load(getClass().getResource("/view/GUI/Homepage.fxml"));
 
 		Scene scene = new Scene(homepage);
 		stage.setTitle("Homepage");
@@ -45,7 +45,7 @@ public class SearchByAuthorInterfaceController implements Initializable {
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-
+		resultList.setItems(HomepageInterfaceController.getManoscritti());
 	}
 
 }

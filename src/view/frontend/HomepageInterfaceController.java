@@ -3,11 +3,15 @@ package view.frontend;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import controller.entry;
+import controller.dao.ManoscrittoDAO;
+import controller.dao.PaginaDAO;
 import controller.uploader.UploadScansioniController;
+import controller.viewer.RicercaMetadatiController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -27,6 +31,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.Manoscritto;
 import model.ObjectContenitor;
+import model.Pagina;
 
 public class HomepageInterfaceController implements Initializable {
 
@@ -62,16 +67,50 @@ public class HomepageInterfaceController implements Initializable {
 	private TextField numPage;
 	@FXML
 	private Button interfacciacandidatura;
-	
+
 	private String url;
+
+	private static ObservableList<Pagina> pagManoscritti = FXCollections.observableArrayList();
+	private static ObservableList<String> manoscritti = FXCollections.observableArrayList();
 
 	@FXML
 	private void search(ActionEvent e) throws Exception {
 
-	}
+		if (searchByName.isSelected() && !searchByAuthor.isSelected()) {
 
-	@FXML
-	private void selectImage(ActionEvent e) throws SQLException, MalformedURLException {
+			if(!RicercaMetadatiController.ricercaNome(searchBar.getText()).isEmpty()) {
+				pagManoscritti = RicercaMetadatiController.ricercaNome(searchBar.getText());
+			
+				Stage stage = (Stage) search.getScene().getWindow();
+			
+				Parent resultSearch = FXMLLoader.load(getClass().getResource("/view/GUI/SearchByName.fxml"));
+
+				Scene scene = new Scene(resultSearch);
+				stage.setTitle("Risultati della ricerca");
+				stage.setScene(scene);
+				stage.show();
+			}
+
+		} else {
+			System.out.println("Nessuna corrispondeza");
+		}
+
+		if (searchByAuthor.isSelected() && !searchByName.isSelected()) {
+			
+				if(!RicercaMetadatiController.ricercaAutore(searchBar.getText()).isEmpty()) {
+					manoscritti = RicercaMetadatiController.ricercaAutore(searchBar.getText());
+					Stage stage = (Stage) search.getScene().getWindow(); 
+					Parent resultSearch = FXMLLoader.load(getClass().getResource("/view/GUI/SearchByAuthor.fxml"));
+					
+					Scene scene = new Scene(resultSearch);
+					stage.setTitle("Risultati della ricerca");
+					stage.setScene(scene);
+					stage.show();
+				
+				}
+		}else {
+			System.out.println("Nessuna corrispondeza");
+		}
 
 	}
 
@@ -99,25 +138,26 @@ public class HomepageInterfaceController implements Initializable {
 
 	@FXML
 	private void listWorks(ActionEvent e) throws Exception {
-		
+
 	}
 
 	@FXML
 	private void upload(ActionEvent e) throws Exception {
 
-	    FileChooser fileChooser = new FileChooser();
-	    fileChooser.setTitle("Seleziona l'immagine");
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.setTitle("Seleziona l'immagine");
 
-	    File selectedFile = fileChooser.showOpenDialog(entry.getStage());
+		File selectedFile = fileChooser.showOpenDialog(entry.getStage());
 
-	    url = selectedFile.toURI().toURL().toExternalForm();
-	    String newUrl = "/" + url.substring(5);
-	   
-	    if (selectedFile != null) {
-	    	boolean b = UploadScansioniController.uploadFile(workName.getText(), Integer.parseInt(numPage.getText()), newUrl);
-	    	System.out.println(b);
-	    }
-	   
+		url = selectedFile.toURI().toURL().toExternalForm();
+		String newUrl = "/" + url.substring(5);
+		String urlUbuntu = url.substring(5);
+
+		if (selectedFile != null) {
+			UploadScansioniController.uploadFile(Integer.parseInt(numPage.getText()), workName.getText(), urlUbuntu);
+			
+		}
+
 	}
 
 	@FXML
@@ -152,20 +192,38 @@ public class HomepageInterfaceController implements Initializable {
 		stage.setScene(scene);
 		stage.show();
 	}
+
 	@FXML
 	private void uploadFile(ActionEvent e) {
-		
+
+	}
+	
+	
+	
+	public static ObservableList<Pagina> getpagManoscritti(){
+		return pagManoscritti;
 	}
 
+	public static ObservableList<String> getManoscritti(){
+		return manoscritti;
+	}
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+
+		
 		ObservableList<String> listWorks = FXCollections.observableArrayList();
-		
-		for(Manoscritto m:ObjectContenitor.listaManoscritti) {
+
+		for (Manoscritto m : ObjectContenitor.listaManoscritti) {
 			listWorks.add(m.getTitolo());
+			System.out.println(m.getListaPagine().size());
 		}
-		
+
 		listView.setItems(listWorks);
+		
+		
+		
 
 	}
 

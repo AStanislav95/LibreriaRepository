@@ -11,13 +11,12 @@ import model.Pagina;
 public class UploadScansioniController {
 
 	
-	public static boolean uploadFile(String manoscrittoSelezionato, int numPag, String pathUrl) throws Exception {
+	public static boolean uploadFile(int numPag, String manoscrittoSelezionato, String pathUrl) throws Exception {
 		
 		for(Manoscritto m:ObjectContenitor.listaManoscritti) {
 			
-			if(!(manoscrittoSelezionato.equals(m.getTitolo()))) {
-				
-				
+			if(manoscrittoSelezionato.equals(m.getTitolo())) {
+			
 				if(PaginaDAO.uploadPage(numPag, m.getID(), pathUrl)) {
 					
 					m.setListaPagine(new Pagina(numPag, m.getID(), pathUrl));
@@ -30,6 +29,8 @@ public class UploadScansioniController {
 		
 		return false;
 	}
+
+
 	
 	
 }

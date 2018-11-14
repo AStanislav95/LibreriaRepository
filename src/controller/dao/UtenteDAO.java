@@ -59,7 +59,7 @@ public class UtenteDAO {
 		Utente u=new Utente(); 
 		return u;}}
 		
-	public static boolean setRichiesta(int val, int id) {
+	/*public static boolean setRichiesta(int val, int id) {
 		try {
 			conn=ConnectionDAO.getConnection();
 			Statement stmt=conn.createStatement();
@@ -68,7 +68,7 @@ public class UtenteDAO {
 			return true;
 		}catch(Exception e) {System.out.println(e); return false;}
 		
-	}
+	}FATTO
 	
 	
 	public static boolean setRuolo(int id, int ruolo) {
@@ -122,7 +122,7 @@ public class UtenteDAO {
 		return true;
 	}
 	
-	
+	*/
 	}
 	
 	

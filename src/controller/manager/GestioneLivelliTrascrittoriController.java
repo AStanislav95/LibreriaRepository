@@ -1,21 +1,22 @@
 package controller.manager;
 
-import controller.dao.UtenteDAO;
+import controller.dao.PermessiDAO;
+
 
 public class GestioneLivelliTrascrittoriController {
 	
 	
 	public boolean CambiaConNumero(int livello, int IDutente) throws Exception {
 		
-		return UtenteDAO.CambioLivelloTrascrittore(IDutente, livello);
+		return PermessiDAO.CambioLivelloTrascrittore(IDutente, livello);
 	}
-	public boolean AumentadiUno(int IDutente) throws Exception {
-		return UtenteDAO.AumentoLivelloTrascrittore(IDutente) ;
+	/*public boolean AumentadiUno(int IDutente) throws Exception {
+		return PermessiDAO.AumentoLivelloTrascrittore(IDutente) ;
 	}
 	public boolean DiminuiscidiUno(int IDutente) throws Exception {
-		return UtenteDAO.DiminuzioneLivelloTrascrittore(IDutente);
+		return PermessiDAO.DiminuzioneLivelloTrascrittore(IDutente);
 	}
-	
+	*/
 	
 	
 	

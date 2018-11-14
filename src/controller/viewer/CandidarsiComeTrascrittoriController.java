@@ -1,4 +1,5 @@
 package controller.viewer;
+import controller.dao.PermessiDAO;
 import controller.dao.UtenteDAO;
 import model.ObjectContenitor;
 
@@ -10,8 +11,8 @@ public class CandidarsiComeTrascrittoriController {
 		(ObjectContenitor.utenteAttivo.getPermessi()).setRequestTrascriber(1);
 	
 	//Fa la modifica sul DB
-	UtenteDAO.setRichiesta(1,ObjectContenitor.utenteAttivo.getID());
-	
+	PermessiDAO.setRichiesta(1,ObjectContenitor.utenteAttivo.getID());
+	ObjectContenitor.utenteAttivo.getPermessi().setRequestTrascriber(1);
 	return true;
 		
 	}

@@ -1,4 +1,5 @@
 package controller.dao;
+import model.Permessi;
 import model.Utente;
 import controller.dao.ConnectionDAO;
 import java.sql.*;
@@ -17,7 +18,7 @@ public class UtenteDAO {
 		String password=u.getPassword();
 		String titolodistudio=u.getQualification();
 		String professione=u.getProfession();
-		int ruolo=u.getRole();
+		int ruolo=u.getPermessi().getRole();
 		stmt.executeUpdate("insert into utente(Email,Nome,Password,TitoloDiStudio,"
 				+ "Professione,Ruolo) values ('" + email +"','"+ nome +"','" + password +"','" + titolodistudio
 				+"','"+ professione +"',"+ ruolo +");");
@@ -34,6 +35,7 @@ public class UtenteDAO {
 		Statement stmt=conn.createStatement();
 		ResultSet rs;
 		Utente u=null;
+		Permessi p=null;
 		rs=stmt.executeQuery("select * from utente where Nome='"+nome+ "'and Password= '"+pass+"';");
 		if (!(rs.next())){//ResultSet is empty
 			System.out.println("Accesso Negato");
@@ -42,9 +44,9 @@ public class UtenteDAO {
 		}
 		//Costruisce l'utente se esiste
 		else {System.out.println("Accesso concesso");
+		p=new Permessi(rs.getInt(7),rs.getInt(8),rs.getInt(9),rs.getInt(10));
 		u=new Utente(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
-				rs.getString(5),rs.getString(6),rs.getInt(7),rs.getInt(8),rs.getInt(9),
-				rs.getInt(10));
+				rs.getString(5),rs.getString(6), p);
 		conn.close();
 		return u;
 		

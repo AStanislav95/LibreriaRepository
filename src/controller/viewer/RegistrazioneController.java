@@ -3,22 +3,16 @@ package controller.viewer;
 import controller.dao.UtenteDAO;
 import model.Utente;
 import model.ObjectContenitor;
+import model.Permessi;
 
 public class RegistrazioneController {
 
 	public static boolean register(String email, String nome, String pass, String qualif, String prof) {
-
+		Permessi p= new Permessi();
 		// Crea un nuovo utente
-		Utente u = new Utente();
-		u.setName(nome);
-		u.setEmail(email);
-		u.setPassword(pass);
-		u.setQualification(qualif);
-		u.setProfession(prof);
-		u.setRole(1);
-		u.setRequestTrascriber(0);
-		u.setCanDownload(0);
-
+		Utente u = new Utente(nome,email,pass,qualif,prof,p);
+		
+		
 		// Lo passa alla sessione attiva
 		ObjectContenitor.utenteAttivo = u;
 
@@ -29,17 +23,13 @@ public class RegistrazioneController {
 	}
 
 	public static void register(String email, String nome, String pass) {
-
+		String s="Sconosciuto";
 		// Crea un nuovo utente
-		Utente u = new Utente();
-		u.setName(nome);
-		u.setEmail(email);
-		u.setPassword(pass);
-		u.setQualification("sconosciuto");
-		u.setProfession("sconosciuto");
-		u.setRole(1);
-		u.setRequestTrascriber(0);
-		u.setCanDownload(0);
+		
+		Permessi p= new Permessi();
+		Utente u= new Utente(email,nome,pass,s,s,p);
+	
+		
 
 		// Lo passa alla sessione attiva
 		ObjectContenitor.utenteAttivo = u;

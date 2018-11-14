@@ -8,25 +8,28 @@ public class Utente {
 	private String password;
 	private String qualification;
 	private String profession;
-	private int livello;
-	private int role;
-	private int canDownload;
-	private int requestTrascriber;
+	private Permessi Permessi;
 	
 	
-	public Utente(int ID, String email,String nome, String pass, String qualif, String prof, int role, int livello, int canDownload, int reqTrascriber) {
+	public Utente(int ID, String email,String nome, String pass, String qualif, String prof, Permessi Permessi) {
 		this.ID = ID;
 		this.email = email;
 		this.name=nome;
 		this.password = pass;
 		this.qualification = qualif;
 		this.profession = prof;
-		this.role = role;
-		this.livello=livello;
-		this.canDownload = canDownload;
-		this.requestTrascriber = reqTrascriber;
+		this.setPermessi(Permessi);
 	}
 	
+	public Utente( String email,String nome, String pass, String qualif, String prof, Permessi Permessi) {
+		
+		this.email = email;
+		this.name=nome;
+		this.password = pass;
+		this.qualification = qualif;
+		this.profession = prof;
+		this.setPermessi(Permessi);
+	}
 	public Utente() {
 		
 	}
@@ -91,35 +94,16 @@ public class Utente {
 		this.profession = profession;
 	}
 
+	public Permessi getPermessi() {
+		return Permessi;
+	}
 
-	public int getRole() {
-		return role;
+	public void setPermessi(Permessi permessi) {
+		Permessi = permessi;
 	}
 
 
-	public void setRole(int role) {
-		this.role = role;
-	}
 
-
-	public int getCanDownload() {
-		return canDownload;
-	}
-
-
-	public void setCanDownload(int canDownload) {
-		this.canDownload = canDownload;
-	}
-
-
-	public int getRequestTrascriber() {
-		return requestTrascriber;
-	}
-
-
-	public void setRequestTrascriber(int requestTrascriber) {
-		this.requestTrascriber = requestTrascriber;
-	}
 	
 	
 	

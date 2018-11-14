@@ -4,21 +4,32 @@ import java.io.File;
 import java.sql.ResultSet;
 import controller.dao.ConnectionDAO;
 import controller.dao.PaginaDAO;
+import model.Manoscritto;
+import model.ObjectContenitor;
+import model.Pagina;
 
 public class UploadScansioniController {
 
-	public static void uploadFile(File selectedFile, String manoscrittoSelezionato, int numPag) throws Exception {
+	
+	public static boolean uploadFile(String manoscrittoSelezionato, int numPag, String pathUrl) throws Exception {
+		
+		for(Manoscritto m:ObjectContenitor.listaManoscritti) {
+			
+			if(!(manoscrittoSelezionato.equals(m.getTitolo()))) {
+				
+				
+				if(PaginaDAO.uploadPage(numPag, m.getID(), pathUrl)) {
+					
+					m.setListaPagine(new Pagina(numPag, m.getID(), pathUrl));
+					return true;
+				}	
+				
+			}
 
-		String url = selectedFile.toURI().toURL().toExternalForm();
-		String newUrl = "/" + url.substring(5);
-
-		ResultSet idWork = ConnectionDAO.query("select ID from Manoscritto WHERE Titolo = '" + manoscrittoSelezionato + "'");
-
-		if (idWork.next()) {
-			PaginaDAO.uploadPage(numPag, idWork.getInt(1), newUrl);
-		} else {
-			System.out.println("The ResultSet is empty");
 		}
-
+		
+		return false;
 	}
+	
+	
 }

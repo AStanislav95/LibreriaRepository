@@ -2,8 +2,10 @@ package view.frontend;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
+import controller.dao.ManoscrittoDAO;
 import controller.viewer.LoginController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,6 +23,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import model.Manoscritto;
+import model.ObjectContenitor;
 
 
 public class LoginInterfaceController implements Initializable{
@@ -111,7 +115,19 @@ public class LoginInterfaceController implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-	
+		
+		try {
+			ResultSet ms = ManoscrittoDAO.getManoscritti();
+			
+			while(ms.next()) {
+				Manoscritto m = new Manoscritto(ms.getInt(1), ms.getInt(2), ms.getInt(3), ms.getInt(4), ms.getString(5), ms.getString(6), ms.getString(7));
+				ObjectContenitor.listaManoscritti.add(m);
+			}
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
 		
 	}
 }

@@ -14,6 +14,27 @@ public class Manoscritto {
 	private ArrayList<Pagina> listaPagine = new ArrayList<>();	
 	
 	
+	public Manoscritto(int ID, int pubblicazione, int anno, int secolo, String titolo, String autore, String genere, ArrayList<Pagina> listP) {
+		this.ID = ID;
+		this.pubblicazione = pubblicazione;
+		this.anno = anno;
+		this.secolo = secolo;
+		this.titolo = titolo;
+		this.autore = autore;
+		this.genere = genere;
+		this.listaPagine = listP;
+	}
+
+	public Manoscritto(int ID, int pubblicazione, int anno, int secolo, String titolo, String autore, String genere) {
+		this.ID = ID;
+		this.pubblicazione = pubblicazione;
+		this.anno = anno;
+		this.secolo = secolo;
+		this.titolo = titolo;
+		this.autore = autore;
+		this.genere = genere;
+	}
+	
 	public int getID() {
 		return ID;
 	}

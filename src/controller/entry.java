@@ -8,6 +8,8 @@ import javafx.stage.Stage;
 
 public class entry extends Application {
 
+	public static Stage mainStage;
+	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/GUI/Login.fxml"));
@@ -23,4 +25,8 @@ public class entry extends Application {
 		launch(args);
 	}
 
+	
+    public static Stage getStage(){
+    	return mainStage;
+    }
 }

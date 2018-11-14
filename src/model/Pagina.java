@@ -4,7 +4,7 @@ public class Pagina {
 	
 	private int ID;
 	private int numero;
-	private String manoscritto;
+	private int manoscritto;
 	private int accettato;
 	private String scanpath;
 	private String trascrizione;
@@ -12,6 +12,11 @@ public class Pagina {
 	
 	public Pagina() {
 		
+	}
+	public Pagina(int numero, int manoscritto, String scanpath ) {
+		this.numero = numero;
+		this.manoscritto = manoscritto;
+		this.scanpath = scanpath;
 	}
 	
 	
@@ -27,10 +32,10 @@ public class Pagina {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	public String getManoscritto() {
+	public int getManoscritto() {
 		return manoscritto;
 	}
-	public void setManoscritto(String manoscritto) {
+	public void setManoscritto(int manoscritto) {
 		this.manoscritto = manoscritto;
 	}
 	public int getAccettato() {

@@ -18,14 +18,14 @@ public class PaginaDAO {
 	
 	
 	
-	//Metodo che uso per fare upload dalla schermata Home
+
 	 public static boolean uploadPage(int numero, int manoscritto,String scanPath) {
 			try {
 			 
 			    Connection con = ConnectionDAO.getConnection();
 			    Statement stm = con.createStatement();
-			    stm.executeUpdate("insert into Page (Numero, Manoscritto, Scanpath) "
-				    + "values(" + numero + "," + manoscritto +"," + "'" + scanPath + "'" + ",\"Trascrizione non disponibile\")");
+			    stm.executeUpdate("insert into pagina (Numero, Manoscritto, Scanpath) "
+				    + "values(" + numero + "," + manoscritto +"," + "'" + scanPath + "');");
 
 			    return true;
 			} catch (Exception e) {

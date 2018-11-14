@@ -98,6 +98,28 @@ public class UtenteDAO {
 		}catch(Exception e) {System.out.println(e); return false;}
 	}
 	
+	public static boolean AumentoLivelloTrascrittore(int IDutente) throws Exception {
+		conn=ConnectionDAO.getConnection();
+		Statement stmt=conn.createStatement();
+		stmt.executeUpdate("update utente set LivelloTrascrittore=LivelloTrascrittore+1 where ID="+IDutente+";");
+		//segnalare che scritta così  l'applicazione è soggetta a injection e quindi a manipolazione troppo facile della query nel metodo
+		return true;
+	}
+	public static boolean DiminuzioneLivelloTrascrittore(int IDutente) throws Exception {
+		conn=ConnectionDAO.getConnection();
+		Statement stmt=conn.createStatement();
+		stmt.executeUpdate("update utente set LivelloTrascrittore=LivelloTrascrittore-1 where ID="+IDutente+";");
+		return true;
+		
+		
+	}
+	public static boolean CambioLivelloTrascrittore(int IDutente, int livello) throws Exception {
+		conn=ConnectionDAO.getConnection();
+		Statement stmt=conn.createStatement();
+		stmt.executeUpdate("update utente set LivelloTrascrittore="+livello+" where IDRuolo="+IDutente+";");
+		return true;
+	}
+	
 	
 	}
 	

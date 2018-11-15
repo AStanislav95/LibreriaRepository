@@ -1,6 +1,12 @@
 package controller.viewer;
 import controller.dao.PermessiDAO;
 import controller.dao.UtenteDAO;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Stage;
 import model.ObjectContenitor;
 
 public class CandidarsiComeTrascrittoriController {
@@ -16,6 +22,13 @@ public class CandidarsiComeTrascrittoriController {
 	return true;
 		
 	}
+	
+	Alert alert = new Alert(AlertType.ERROR);
+	
+	alert.setContentText("Hai già fatto richiesta.");
+
+	alert.showAndWait();
+	
 	return false;
 	}
 	

@@ -14,11 +14,6 @@ public class LoginController {
 		if (u != null) {
 			// Se esiste, inserisce l'utente come attivo
 			ObjectContenitor.utenteAttivo = u;
-			Alert alert = new Alert(AlertType.INFORMATION);
-			
-			alert.setContentText("Stas è un pagliaccio");
-
-			alert.showAndWait();
 			// Cambia scena (?) -->in LoginInterfaceController cambio scena
 			return true;
 

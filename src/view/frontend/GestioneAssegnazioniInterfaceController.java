@@ -1,5 +1,7 @@
 package view.frontend;
 
+import controller.manager.*;
+
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -63,7 +65,14 @@ public class GestioneAssegnazioniInterfaceController implements Initializable {
 
 	@FXML
 	private void confirm(ActionEvent e) throws Exception {
-
+		
+		int idutente=Integer.parseInt(utente.getText());
+	    int idpagina=Integer.parseInt(IDpage.getText());
+	
+			 if (AssegnazioneTrascrizioniController.doesitExist(idutente,idpagina))
+			 { AssegnazioneTrascrizioniController.TogliTrascrizione(idutente,idpagina);}
+			 else { AssegnazioneTrascrizioniController.AssegnaTrascrizione(idutente,idpagina);}
+					
 	}
 
 	@FXML

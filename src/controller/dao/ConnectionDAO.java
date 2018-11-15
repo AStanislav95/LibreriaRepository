@@ -7,17 +7,11 @@ import java.sql.Statement;
 
 
 public class ConnectionDAO {
-<<<<<<< HEAD
+
   private static String URL = "jdbc:mysql://localhost:3306/libreria?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
   
   private static String username = "root";
   private static String pass = "root";
-=======
-	private static String URL = "jdbc:mysql://localhost:3306/libreria?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
-	
-	private static String username = "root";
-	private static String pass = "root";
->>>>>>> branch 'master' of https://github.com/AStanislav95/LibreriaRepository.git
 
    
   

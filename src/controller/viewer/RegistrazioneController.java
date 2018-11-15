@@ -10,6 +10,8 @@ public class RegistrazioneController {
 	public static boolean register(String nome, String email	, String pass, String qualif, String prof) {
 		Permessi p= new Permessi();
 		// Crea un nuovo utente
+		
+		
 		Utente u = new Utente(nome,email,pass,qualif,prof,p);
 		
 		

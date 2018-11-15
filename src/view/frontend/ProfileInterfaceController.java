@@ -6,6 +6,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
+
+import controller.viewer.CandidarsiComeTrascrittoriController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -37,6 +39,8 @@ public class ProfileInterfaceController implements Initializable {
 	private Label qualification;
 	@FXML
 	private Button adminUI;
+	@FXML
+	private Button Candidate;
 
 	@FXML
 	private void back(ActionEvent e) throws Exception {
@@ -53,10 +57,23 @@ public class ProfileInterfaceController implements Initializable {
 	private void transcriber(ActionEvent e) throws Exception {
 
 	}
+	
+	@FXML
+	private void candidate(ActionEvent e) throws Exception {
+		
+		CandidarsiComeTrascrittoriController.candidatura();
+		
+	}
 
 	@FXML
 	private void Adminpage(ActionEvent e) throws Exception {
+		Stage stage = (Stage) back.getScene().getWindow();
+		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/AdminInterface1.fxml"));
 
+		Scene scene = new Scene(parent, 1200, 800);
+		stage.setTitle("Admin Interface");
+		stage.setScene(scene);
+		stage.show();
 	}
 
 	@Override

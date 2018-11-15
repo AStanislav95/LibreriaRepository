@@ -28,5 +28,6 @@
       <Button fx:id="back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #3b3131;" text="Torna Indietro" textFill="WHITE" />
       <Button fx:id="transcriber" layoutX="182.0" layoutY="341.0" mnemonicParsing="false" onAction="#transcriber" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: #3b3131;" text="Trascrivi" textFill="WHITE" visible="false" />
       <Button fx:id="adminUI" layoutX="20.0" layoutY="341.0" mnemonicParsing="false" onAction="#Adminpage" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #3b3131;" text="Interfaccia Admin" textFill="WHITE" />
+      <Button fx:id="Candidate" layoutX="283.0" layoutY="341.0" mnemonicParsing="false" onAction="#candidate" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #3b3131;" text="Candidati Trascrittore" textFill="WHITE" />
    </children>
 </AnchorPane>

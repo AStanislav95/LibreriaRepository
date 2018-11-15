@@ -26,11 +26,11 @@
       <VBox layoutX="322.0" layoutY="135.0" prefHeight="230.0" prefWidth="235.0" spacing="10.0">
          <children>
             <Label text="Email:" />
-            <TextField fx:id="qualification" promptText="Email" />
+            <TextField fx:id="email" promptText="Email" />
             <Label text="Professione:" />
-            <TextField fx:id="email" promptText="Professione" />
+            <TextField fx:id="profession" promptText="Professione" />
             <Label text="Titolo di Studio:" />
-            <TextField fx:id="profession" promptText="Titolo di Studio" />
+            <TextField fx:id="qualification" promptText="Titolo di Studio" />
          </children>
       </VBox>
    </children>

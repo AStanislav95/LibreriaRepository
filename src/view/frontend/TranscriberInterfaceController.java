@@ -2,6 +2,7 @@ package view.frontend;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -45,7 +46,7 @@ import model.Pagina;
 public class TranscriberInterfaceController implements Initializable {
 
 	static int idManoscritto;
-	
+
 	static int idPagina;
 	@FXML
 	private Button back;
@@ -87,6 +88,7 @@ public class TranscriberInterfaceController implements Initializable {
 
 		ObservableList<String> work = FXCollections.observableArrayList();
 		ObservableList<Integer> pag = FXCollections.observableArrayList();
+		ObservableList<Pagina> pagine = FXCollections.observableArrayList();
 
 		for (Manoscritto m : ObjectContenitor.listaManoscritti) {
 
@@ -99,17 +101,49 @@ public class TranscriberInterfaceController implements Initializable {
 		manoscritto.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 
 			@Override
-			public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
+			public void changed(ObservableValue<? extends String> arg0, String newValue, String oldValue) {
+			
+				pag.clear();
+				pagine.clear();
+				System.out.println(arg0.getValue());
+				for (Manoscritto m : ObjectContenitor.listaManoscritti) {
 
+					
+					if(m.getTitolo().equals(arg0.getValue())) {
+						
+					
+						for (Pagina p : m.getListaPagine()) {
+							pagine.add(p);
+							pag.add(p.getNumero());
+						}
+					}
+					
+				}
+				
+				pagina.setItems(pag);
+			
 			}
-
+		
+			
 		});// end
-
+		
 		pagina.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 		pagina.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Integer>() {
 
 			@Override
 			public void changed(ObservableValue<? extends Integer> arg0, Integer arg1, Integer arg2) {
+				for(Pagina p : pagine) {
+					if(p.getNumero() ==arg0.getValue()) {
+						
+						try {
+							
+							img.setImage(new Image(new FileInputStream(p.getScanpath())));
+						} catch (FileNotFoundException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+				}
 				
 			}
 

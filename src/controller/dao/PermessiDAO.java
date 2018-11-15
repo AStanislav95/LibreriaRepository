@@ -2,6 +2,7 @@ package controller.dao;
 
 import java.beans.Statement;
 import java.sql.Connection;
+import java.sql.SQLException;
 
 public class PermessiDAO {
 	static Connection conn;
@@ -56,10 +57,35 @@ public class PermessiDAO {
 		}
 	}
 
-	public static boolean CambioLivelloTrascrittore(int IDutente, int livello) throws Exception {
-		conn = ConnectionDAO.getConnection();
+	public static boolean CambioLivelloTrascrittore(int IDutente, int livello) {
+		try{
+			conn = ConnectionDAO.getConnection();
 		java.sql.Statement stmt = conn.createStatement();
-		stmt.executeUpdate("update utente set LivelloTrascrittore=" + livello + " where IDRuolo=" + IDutente + ";");
+		stmt.executeUpdate("update utente set LivelloTrascrittore=" + livello + " where ID=" + IDutente + ";");
 		return true;
+		} catch(Exception e){
+		System.out.println(e);
+		return false;
+		}
+	}
+	
+	public static boolean AggiungiDownlaod(int IDUtente) {
+		try{conn = ConnectionDAO.getConnection();
+		java.sql.Statement stmt = conn.createStatement();
+		stmt.executeUpdate("update utente set CanDownload=1 where ID=" + IDUtente + ";");
+		return true;	
+		} catch(Exception e){
+			System.out.println(e);
+			return false;
+			}
+	}
+	public static boolean TogliDownlaod(int IDUtente) {
+		try{conn = ConnectionDAO.getConnection();
+		java.sql.Statement stmt = conn.createStatement();
+		stmt.executeUpdate("update utente set CanDownload=0 where ID=" + IDUtente + ";");
+		return true;		} catch(Exception e){
+			System.out.println(e);
+			return false;
+			}
 	}
 }

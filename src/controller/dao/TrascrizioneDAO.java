@@ -28,7 +28,7 @@ public class TrascrizioneDAO {
 	public static boolean insertAssegnazione(int IDutente, int IDpagina) throws Exception {
 		Connection con = ConnectionDAO.getConnection();
 		Statement stm = con.createStatement();
-		stm.executeQuery("INSERT INTO Assegnazione(IDUtente, IDPagina)  values ( "+ IDutente + ", "+ IDpagina+ ");" );
+		stm.executeUpdate("INSERT INTO Assegnazione(IDUtente, IDPagina)  values ( "+ IDutente + ", "+ IDpagina+ ");" );
 		return true;
 		
 	}
@@ -36,7 +36,16 @@ public class TrascrizioneDAO {
 	public static boolean togliAssegnazione(int IDutente,int IDpagina) throws Exception {
 		Connection con = ConnectionDAO.getConnection();
 		Statement stm = con.createStatement();
-		stm.executeQuery("delete from assegnazione where IDUtente="+ IDutente + " and IDPagina="+ IDpagina+ ");" );
+		stm.executeUpdate("delete from assegnazione where IDUtente="+ IDutente + " and IDPagina="+ IDpagina+ ";" );
+		con.close();
 		return true;
+	}
+	
+	public static boolean doesitExist(int IDutente,int IDpagina) throws Exception{
+		Connection con = ConnectionDAO.getConnection();
+		Statement stm = con.createStatement();
+		ResultSet rs=stm.executeQuery("select * from assegnazione where IDUtente="+ IDutente + " and IDPagina=" + IDpagina);
+		if(rs.next()) {return true;}
+		else return false;
 	}
 }

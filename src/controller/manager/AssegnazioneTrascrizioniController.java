@@ -6,9 +6,11 @@ import model.ObjectContenitor;
 public class AssegnazioneTrascrizioniController {
 	
 	
+	public static boolean doesitExist(int IDutente, int IDPagina) throws Exception{
+		return TrascrizioneDAO.doesitExist(IDutente,IDPagina);
+	}
 	
-	
-	public boolean AssegnaTrascrizione(int IDutente,int IDpagina) throws Exception {
+	public static boolean AssegnaTrascrizione(int IDutente,int IDpagina) throws Exception {
 	//if((ObjectContenitor.utenteAttivo.getRole())==6|(ObjectContenitor.utenteAttivo.getRole())==7) {
 		
 		return TrascrizioneDAO.insertAssegnazione(IDutente, IDpagina);
@@ -21,7 +23,7 @@ public class AssegnazioneTrascrizioniController {
 	*/
 }
 	
-	public boolean TogliTrascrizione(int IDutente, int IDpagina) throws Exception {
+	public static boolean TogliTrascrizione(int IDutente, int IDpagina) throws Exception {
 		
 		return TrascrizioneDAO.togliAssegnazione(IDutente, IDpagina);
 

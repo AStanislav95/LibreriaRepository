@@ -105,7 +105,9 @@ public class TranscriberInterfaceController implements Initializable {
 			
 				pag.clear();
 				pagine.clear();
+			
 				System.out.println(arg0.getValue());
+				
 				for (Manoscritto m : ObjectContenitor.listaManoscritti) {
 
 					

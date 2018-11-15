@@ -45,6 +45,7 @@ import model.Pagina;
 public class TranscriberInterfaceController implements Initializable {
 
 	static int idManoscritto;
+	
 	static int idPagina;
 	@FXML
 	private Button back;
@@ -100,16 +101,6 @@ public class TranscriberInterfaceController implements Initializable {
 			@Override
 			public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
 
-				for (Manoscritto m : ObjectContenitor.listaManoscritti) {
-
-					if (m.getTitolo().equals(arg0.getValue())) {
-						for (Pagina p : m.getListaPagine()) {
-							pag.add(p.getNumero());
-						}
-					}
-				}
-
-				pagina.setItems(pag);
 			}
 
 		});// end

@@ -118,40 +118,40 @@ public class LoginInterfaceController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
-		try {
-			ResultSet ms = ManoscrittoDAO.getManoscritti();
-			
-			while(ms.next()) {
-				Manoscritto m = new Manoscritto(ms.getInt(1), ms.getInt(2), ms.getInt(3), ms.getInt(4), ms.getString(5), ms.getString(6), ms.getString(7));
-				ObjectContenitor.listaManoscritti.add(m);
-			}
-			
-		} catch (Exception e) {
-			
-			e.printStackTrace();
-		}
-		
-		
-		//getPages
-		for(Manoscritto m: ObjectContenitor.listaManoscritti) {
-			try {
-				//prs contiene tutte le pagine del manoscritto corrente
-				
-				ResultSet prs = PaginaDAO.getPages(m.getID());
-				//aggiungo le pagine al manoscritto
-				
-				while(prs.next()) {
-					
-					m.setListaPagine(new Pagina(prs.getInt(2), prs.getInt(3), prs.getString(5)));
-				}
-				
-				
-			} catch (Exception e) {
-				
-				e.printStackTrace();
-			}
-			
-		}
+//		try {
+//			ResultSet ms = ManoscrittoDAO.getManoscritti();
+//			
+//			while(ms.next()) {
+//				Manoscritto m = new Manoscritto(ms.getInt(1), ms.getInt(2), ms.getInt(3), ms.getInt(4), ms.getString(5), ms.getString(6), ms.getString(7));
+//				ObjectContenitor.listaManoscritti.add(m);
+//			}
+//			
+//		} catch (Exception e) {
+//			
+//			e.printStackTrace();
+//		}
+//		
+//		
+//		//getPages
+//		for(Manoscritto m: ObjectContenitor.listaManoscritti) {
+//			try {
+//				//prs contiene tutte le pagine del manoscritto corrente
+//				
+//				ResultSet prs = PaginaDAO.getPages(m.getID());
+//				//aggiungo le pagine al manoscritto
+//				
+//				while(prs.next()) {
+//					
+//					m.setListaPagine(new Pagina(prs.getInt(2), prs.getInt(3), prs.getString(5)));
+//				}
+//				
+//				
+//			} catch (Exception e) {
+//				
+//				e.printStackTrace();
+//			}
+//			
+//		}
 		
 	}
 }

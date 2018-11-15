@@ -9,10 +9,10 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.frontend.SearchByNameInterfaceController">
    <children>
-      <Button fx:id="download" layoutX="631.0" layoutY="527.0" mnemonicParsing="false" onAction="#download" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #3b3131;" text="Download" textFill="WHITE" visible="false" />
+      <Button fx:id="download" layoutX="472.0" layoutY="590.0" mnemonicParsing="false" onAction="#download" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #3b3131;" text="Download" textFill="WHITE" />
       <Button fx:id="back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #3b3131;" text="Indietro" textFill="WHITE" />
       <Label fx:id="trascrizione" layoutX="838.0" layoutY="196.0" prefHeight="361.0" prefWidth="328.0" />
-      <ImageView fx:id="selectedImage" fitHeight="361.0" fitWidth="439.0" layoutX="321.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="selectedImage" fitHeight="361.0" fitWidth="439.0" layoutX="281.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true" />
       <TitledPane animated="false" collapsible="false" layoutX="14.0" layoutY="102.0" prefHeight="528.0" prefWidth="202.0" text="Lista pagine">
          <content>
             <ListView fx:id="listView" prefHeight="455.0" prefWidth="200.0" />

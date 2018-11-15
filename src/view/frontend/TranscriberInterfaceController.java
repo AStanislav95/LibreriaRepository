@@ -14,7 +14,11 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
+import controller.dao.ConnectionDAO;
+import controller.dao.TrascrizioneDAO;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -32,7 +36,11 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.web.HTMLEditor;
 import javafx.stage.Stage;
+import model.Manoscritto;
+import model.ObjectContenitor;
+import model.Pagina;
 
 public class TranscriberInterfaceController implements Initializable {
 
@@ -45,16 +53,18 @@ public class TranscriberInterfaceController implements Initializable {
 	@FXML
 	private TextArea textArea;
 	@FXML
-	private ListView manoscritto;
+	private ListView<String> manoscritto;
 	@FXML
-	private ListView pagina;
+	private ListView<Integer> pagina;
 	@FXML
 	private ImageView img;
+	@FXML
+	private HTMLEditor editor;
 
 	@FXML
 	private void back(ActionEvent e) throws Exception {
-		Stage stage = (Stage) back.getScene().getWindow(); //Source Stage!!
-		Parent homepage = FXMLLoader.load(getClass().getResource("/Interface/Homepage.fxml"));
+		Stage stage = (Stage) back.getScene().getWindow(); // Source Stage!!
+		Parent homepage = FXMLLoader.load(getClass().getResource("/view/GUI/Homepage.fxml"));
 
 		Scene scene = new Scene(homepage);
 		stage.setTitle("Homepage");
@@ -65,12 +75,74 @@ public class TranscriberInterfaceController implements Initializable {
 	@FXML
 	private void submit(ActionEvent e) throws Exception {
 
+		String text = getText(editor.getHtmlText());
+		// inserisco nel db la trascrizione
+		TrascrizioneDAO.insertTrascrizione(idPagina, text, ObjectContenitor.utenteAttivo.getID());
+
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
+		ObservableList<String> work = FXCollections.observableArrayList();
+		ObservableList<Integer> pag = FXCollections.observableArrayList();
+
+		for (Manoscritto m : ObjectContenitor.listaManoscritti) {
+
+			work.add(m.getTitolo());
+
+		}
+
+		manoscritto.setItems(work);
+		manoscritto.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+		manoscritto.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+
+			@Override
+			public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
+
+				for (Manoscritto m : ObjectContenitor.listaManoscritti) {
+
+					if (m.getTitolo().equals(arg0.getValue())) {
+						for (Pagina p : m.getListaPagine()) {
+							pag.add(p.getNumero());
+						}
+					}
+				}
+
+				pagina.setItems(pag);
+			}
+
+		});// end
+
+		pagina.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+		pagina.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Integer>() {
+
+			@Override
+			public void changed(ObservableValue<? extends Integer> arg0, Integer arg1, Integer arg2) {
+				
+			}
+
+		});
+
+	}
+
+	public static String getText(String htmlText) {
+
+		String result = "";
+
+		Pattern pattern = Pattern.compile("<[^>]*>");
+		Matcher matcher = pattern.matcher(htmlText);
+		final StringBuffer text = new StringBuffer(htmlText.length());
+
+		while (matcher.find()) {
+			matcher.appendReplacement(text, " ");
+		}
+
+		matcher.appendTail(text);
+
+		result = text.toString().trim();
+
+		return result;
 	}
 
 }

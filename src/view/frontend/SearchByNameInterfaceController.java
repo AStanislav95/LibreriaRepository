@@ -31,6 +31,8 @@ import model.Pagina;
 
 import javax.imageio.ImageIO;
 
+import controller.entry;
+
 public class SearchByNameInterfaceController implements Initializable {
 
 	@FXML
@@ -44,6 +46,19 @@ public class SearchByNameInterfaceController implements Initializable {
 
 	@FXML
 	private void download(ActionEvent e) {
+		FileChooser fileChooser = new FileChooser();
+		
+		fileChooser.setTitle("Scegli dove salvare");
+		
+		File file = fileChooser.showSaveDialog(entry.getStage());
+		if(file != null){
+		    try{
+			ImageIO.write(SwingFXUtils.fromFXImage(selectedImage.getImage(),
+	                        null), "png", file);
+		    }catch(IOException ex){
+			System.out.println(ex.getMessage());
+		    }
+	}
 
 	}
 

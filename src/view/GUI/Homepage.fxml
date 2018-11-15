@@ -16,7 +16,6 @@
       <Button fx:id="search" layoutX="844.0" layoutY="189.0" mnemonicParsing="false" onAction="#search" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #3b3131;" text="Cerca" textFill="WHITE" />
       <RadioButton fx:id="searchByAuthor" layoutX="492.0" layoutY="233.0" mnemonicParsing="false" text="Autore" />
       <RadioButton fx:id="searchByName" layoutX="597.0" layoutY="233.0" mnemonicParsing="false" text="Nome Opera" />
-      <Button fx:id="back" layoutX="13.0" layoutY="18.0" mnemonicParsing="false" onAction="#loginPage" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #3b3131;" text="Login" textFill="WHITE" />
       <Button fx:id="revupload" defaultButton="true" layoutX="526.0" layoutY="18.0" minHeight="25.0" mnemonicParsing="false" onAction="#revisioneupload" prefHeight="32.0" prefWidth="200.0" style="-fx-background-color: #3b3131;" text="Revisione Upload" textFill="WHITE" />
       <Label layoutX="382.0" layoutY="118.0" prefHeight="58.0" prefWidth="592.0" text="Fai una ricerca per scoprire alcune meraviglie del passato">
          <font>

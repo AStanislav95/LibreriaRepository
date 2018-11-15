@@ -14,6 +14,22 @@ public class Trascrizione {
 		
 	}
 	
+	public Trascrizione(int ID, String testo, String annotazione, int accettato, int IDUtente, int IDCapotrascrittore) {
+		this.ID = ID;
+		this.testo = testo;
+		this.annotazione = annotazione;
+		this.accettato = accettato;
+		this.IDUtente = IDUtente;
+		this.IDCapotrascrittore = IDCapotrascrittore;
+	}
+	
+	public Trascrizione(int id, String testo, int IDUtente, int IDCapotrascrittore) {
+		this.ID = id;
+		this.testo = testo;
+		this.IDUtente = IDUtente;
+		this.IDCapotrascrittore = IDCapotrascrittore;
+	}
+	
 	public int getID() {
 		return ID;
 	}

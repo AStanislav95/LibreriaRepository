@@ -125,16 +125,7 @@ public class HomepageInterfaceController implements Initializable {
 		stage.show();
 	}
 
-	@FXML
-	private void loginPage(ActionEvent e) throws Exception {
-		Stage stage = (Stage) back.getScene().getWindow();
-		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/Login.fxml"));
 
-		Scene scene = new Scene(parent, 400, 400);
-		stage.setTitle("Login");
-		stage.setScene(scene);
-		stage.show();
-	}
 
 	@FXML
 	private void listWorks(ActionEvent e) throws Exception {
@@ -174,7 +165,7 @@ public class HomepageInterfaceController implements Initializable {
 	@FXML
 	private void revisioneupload(ActionEvent e) throws Exception {
 		Stage stage = (Stage) revupload.getScene().getWindow();
-		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/InterfacciaRevisioneUpload.fxml"));
+		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/Transcriber.fxml"));
 
 		Scene scene = new Scene(parent, 1200, 800);
 		stage.setTitle("Revisione Upload");

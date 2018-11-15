@@ -46,7 +46,7 @@ public class RegistrationInterfaceController implements Initializable {
 		Stage stage = (Stage) register.getScene().getWindow();
 		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/Login.fxml"));
 
-		Scene scene = new Scene(parent, 1200, 800);
+		Scene scene = new Scene(parent, 400, 400);
 		stage.setTitle("Login");
 		stage.setScene(scene);
 		stage.show();

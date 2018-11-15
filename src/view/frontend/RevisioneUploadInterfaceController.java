@@ -88,6 +88,7 @@ public class RevisioneUploadInterfaceController implements Initializable {
 		
 		pagina.setItems(idPagine);
 		
+		
 	}
 	
 	@FXML

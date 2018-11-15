@@ -36,6 +36,9 @@ public class UploadScansioniController {
 
 		}
 		
+		Alert alert = new Alert(AlertType.ERROR);
+		alert.setContentText("Upload Fallito. Controlla il titolo dell'opera.");
+		alert.showAndWait();
 		return false;
 	}
 

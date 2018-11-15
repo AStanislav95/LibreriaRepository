@@ -90,10 +90,16 @@ public class HomepageInterfaceController implements Initializable {
 				stage.setScene(scene);
 				stage.show();
 			}
+			else {
+				Alert alert = new Alert(AlertType.ERROR);
+				
+				alert.setContentText("Nessuna corrispondenza!");
 
-		} else {
-			System.out.println("Nessuna corrispondeza");
-		}
+				alert.showAndWait();
+				System.out.println("Nessuna corrispondenza");
+			}
+
+		} 
 
 		if (searchByAuthor.isSelected() && !searchByName.isSelected()) {
 			
@@ -108,8 +114,15 @@ public class HomepageInterfaceController implements Initializable {
 					stage.show();
 				
 				}
-		}else {
-			System.out.println("Nessuna corrispondeza");
+				else {
+					
+					Alert alert = new Alert(AlertType.ERROR);
+					
+					alert.setContentText("Nessuna corrispondenza!");
+
+					alert.showAndWait();
+					System.out.println("Nessuna corrispondenza");
+				}
 		}
 
 	}

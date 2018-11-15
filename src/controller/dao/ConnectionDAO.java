@@ -12,10 +12,6 @@ public class ConnectionDAO {
   
   private static String username = "root";
   private static String pass = "root";
-<<<<<<< HEAD
-
-=======
->>>>>>> branch 'master' of https://github.com/AStanislav95/LibreriaRepository.git
 
    
   

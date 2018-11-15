@@ -118,6 +118,10 @@ public class GestioneAssegnazioniInterfaceController implements Initializable {
 			 if (AssegnazioneTrascrizioniController.doesitExist(idutente,idpagina))
 			 { AssegnazioneTrascrizioniController.TogliTrascrizione(idutente,idpagina);}
 			 else { AssegnazioneTrascrizioniController.AssegnaTrascrizione(idutente,idpagina);}
+			String Sql="SELECT p.id, p.numero, m.titolo FROM pagina p, manoscritto m WHERE p.Trascrizione is NULL and p.accettato=0 and p.Manoscritto=m.ID;";
+			buildData(Sql, dbtable);
+			Sql="Select nome, ID from utente where ruolo="+4+"";
+			buildData(Sql,dbtable1);
 					
 	}
 

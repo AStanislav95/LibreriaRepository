@@ -11,12 +11,9 @@ public class ConnectionDAO {
   private static String URL = "jdbc:mysql://localhost:3308/libreria?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
   
   private static String username = "root";
-<<<<<<< HEAD
+
   private static String pass = "root";
 
-=======
-  private static String pass = "root";
->>>>>>> branch 'master' of https://github.com/AStanislav95/LibreriaRepository.git
 
    
   

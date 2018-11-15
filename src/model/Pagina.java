@@ -19,6 +19,10 @@ public class Pagina {
 		this.scanpath = scanpath;
 	}
 	
+	public Pagina(int id, String scanPath) {
+		this.ID = id;
+		this.scanpath = scanPath;
+	}
 	
 	public int getID() {
 		return ID;

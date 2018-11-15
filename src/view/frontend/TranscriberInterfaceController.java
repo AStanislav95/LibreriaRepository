@@ -106,7 +106,7 @@ public class TranscriberInterfaceController implements Initializable {
 				pag.clear();
 				pagine.clear();
 			
-				System.out.println(arg0.getValue());
+				
 				
 				for (Manoscritto m : ObjectContenitor.listaManoscritti) {
 
@@ -134,9 +134,13 @@ public class TranscriberInterfaceController implements Initializable {
 
 			@Override
 			public void changed(ObservableValue<? extends Integer> arg0, Integer arg1, Integer arg2) {
+				
+				//numero pagina
+				System.out.println(arg0.getValue());
+				
 				for(Pagina p : pagine) {
 					if(p.getNumero() ==arg0.getValue()) {
-						
+						idPagina = arg0.getValue();
 						try {
 							
 							img.setImage(new Image(new FileInputStream(p.getScanpath())));

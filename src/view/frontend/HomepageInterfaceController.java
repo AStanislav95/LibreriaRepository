@@ -178,7 +178,7 @@ public class HomepageInterfaceController implements Initializable {
 	@FXML
 	private void revisioneupload(ActionEvent e) throws Exception {
 		Stage stage = (Stage) revupload.getScene().getWindow();
-		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/Transcriber.fxml"));
+		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/RevisioneUpload.fxml"));
 
 		Scene scene = new Scene(parent, 1200, 800);
 		stage.setTitle("Revisione Upload");

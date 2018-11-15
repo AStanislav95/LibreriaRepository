@@ -40,5 +40,46 @@ public class PaginaDAO {
 			    return false;
 			}
 		}
+	 
+	 public static ResultSet listaScan() throws Exception {
+		 
+		 Connection con = ConnectionDAO.getConnection();
+		 Statement stm = con.createStatement();
+		 ResultSet listaScan = stm.executeQuery("select ID,Scanpath from pagina where Accettato = 0");
+		 
+		 return listaScan;
+	 }
+	 
+	public static boolean accettaScan(int id) {
+		
+		Connection con;
+		try {
+			con = ConnectionDAO.getConnection();
+			Statement stm = con.createStatement();
+			stm.executeUpdate("update pagina Set Accettato = 1 where id = "+ id);
+			
+			return true;
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+		return false;
+	}
 	
+	
+	public static boolean rifiutaScan(int id) {
+		
+		try {
+			Connection con = ConnectionDAO.getConnection();
+			Statement stm = con.createStatement();
+			stm.executeUpdate("delete from pagina where ID = "+ id + ";");
+			return true;
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
 }

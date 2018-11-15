@@ -1,5 +1,6 @@
 package view.frontend;
 
+import controller.dao.ConnectionDAO;
 import controller.manager.*;
 
 import java.net.URL;
@@ -8,6 +9,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
+
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
@@ -47,10 +49,54 @@ public class GestioneAssegnazioniInterfaceController implements Initializable {
 	@FXML
 	private TextField IDpage;
 
+	private ObservableList<ObservableList> data;
+	
+	public void buildData(String SQL, TableView dbtable)  {
+        
+        data = FXCollections.observableArrayList();
+        try {
+         ResultSet rs = ConnectionDAO.query(SQL);
+ 
+         
+            for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
+                //We are using non property style for making dynamic table
+                final int j = i;
+                TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1));
+                col.setPrefWidth(158);
+                col.setResizable(false);
+                col.setCellValueFactory(new Callback<CellDataFeatures<ObservableList, String>, ObservableValue<String>>() {
+                    public ObservableValue<String> call(CellDataFeatures<ObservableList, String> param) {
+                        return new SimpleStringProperty(param.getValue().get(j).toString());
+                       
+                    }
+                });
+                
+                dbtable.getColumns().addAll(col);
+                
+            }
+ 
+          
+            while (rs.next()) {
+                //Iterate Row
+                ObservableList<String> row = FXCollections.observableArrayList();
+                for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
+                    //Iterate Column
+                    row.add(rs.getString(i));
+                }
+                 
+                data.add(row);
+ 
+            }
+ 
+           
+            dbtable.setItems(data);
+        } catch (Exception exx) {
+            exx.printStackTrace();
+            System.out.println("Error on Building Data");
+        }
+    }
 
-	public void buildData(String SQL, TableView dbtable) {
 
-	}
 
 	@FXML
 	private void homepage(ActionEvent e) throws Exception {
@@ -88,6 +134,10 @@ public class GestioneAssegnazioniInterfaceController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		String Sql="SELECT p.id, p.numero, m.titolo FROM pagina p, manoscritto m WHERE p.Trascrizione is NULL and p.accettato=0 and p.Manoscritto=m.ID;";
+		buildData(Sql, dbtable);
+		Sql="Select nome, ID from utente where ruolo="+4+"";
+		buildData(Sql,dbtable1);
 
 	}
 

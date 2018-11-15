@@ -2,12 +2,29 @@ package controller.dao;
 import model.Permessi;
 import model.Utente;
 import controller.dao.ConnectionDAO;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
 import java.sql.*;
 
 public class UtenteDAO {
 	static Connection conn;
 
 	
+	public static boolean doesitExist(String nome) {
+		
+	try {	conn=ConnectionDAO.getConnection();
+		Statement stmt=conn.createStatement();
+		ResultSet rs= stmt.executeQuery("select * from utente where nome='"+nome+"';");
+		if(rs.next())
+		{return true;}
+		else return false;
+		
+	}catch(Exception e) {System.out.println(e); return true;
+	
+	}
+		
+	}
 	
 	public static boolean register(Utente u) {
 	try{
@@ -19,10 +36,21 @@ public class UtenteDAO {
 		String titolodistudio=u.getQualification();
 		String professione=u.getProfession();
 		int ruolo=u.getPermessi().getRole();
+		System.out.println(doesitExist(nome));
+		if (!(doesitExist(nome))) {
 		stmt.executeUpdate("insert into utente(Email,Nome,Password,TitoloDiStudio,"
 				+ "Professione,Ruolo) values ('" + email +"','"+ nome +"','" + password +"','" + titolodistudio
 				+"','"+ professione +"',"+ ruolo +");");
-		return true;
+		return true;}
+		else
+
+			{Alert alert = new Alert(AlertType.ERROR);
+			
+			alert.setContentText("Esiste già un utente con questo nome");
+
+			alert.showAndWait();
+			
+			return false;}
 		
 	}catch(Exception e) {System.out.println(e); return false;}}
 	

@@ -17,6 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
+import model.ObjectContenitor;
 
 public class ProfileInterfaceController implements Initializable {
 
@@ -60,6 +61,15 @@ public class ProfileInterfaceController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
+		name.setText(ObjectContenitor.utenteAttivo.getName());
+		email.setText(ObjectContenitor.utenteAttivo.getEmail());
+		password.setText(ObjectContenitor.utenteAttivo.getPassword());
+		profession.setText(ObjectContenitor.utenteAttivo.getProfession());
+		qualification.setText(ObjectContenitor.utenteAttivo.getQualification());
+		
+		
+		
 	}
 
 }

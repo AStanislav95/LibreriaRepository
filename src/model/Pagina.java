@@ -22,13 +22,7 @@ public class Pagina {
 		this.scanpath = scanPath;
 		this.trasc = trasc;
 	}
-	
-	public Pagina(int numero, int manoscritto, String scanPath, String trasc) {
-		this.numero = numero;
-		this.manoscritto = manoscritto;
-		this.scanpath = scanPath;
-		this.trascrizione = trasc;
-	}
+
 	
 	public Pagina(int numero, int manoscritto, String scanpath ) {
 		this.numero = numero;

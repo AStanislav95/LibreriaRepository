@@ -3,6 +3,7 @@ package view.frontend;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import controller.viewer.RicercaMetadatiController;
@@ -53,9 +54,11 @@ public class ResultsFromSearchInterfaceController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
 		ObservableList<Pagina> pagManoscritti = FXCollections.observableArrayList();
 		
 		ObservableList<ImageView> listImage = FXCollections.observableArrayList();
+		ArrayList<String> listTrascrizioni = new ArrayList<>();
 		
 		String manoscritto = SearchByAuthorInterfaceController.getSelectedWork();
 		
@@ -65,6 +68,7 @@ public class ResultsFromSearchInterfaceController implements Initializable {
 			
 			try {
 				
+				listTrascrizioni.add(p.getTrascrizione());
 				listImage.add(generateImage(p.getScanpath()));
 				//works ---> listImage.add(generateImage("/home/stas/Pictures/img1.png"));
 						
@@ -80,11 +84,15 @@ public class ResultsFromSearchInterfaceController implements Initializable {
 		listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<ImageView>() {
 		    @Override
 		    public void changed(ObservableValue<? extends ImageView> observable, ImageView oldValue, ImageView newValue) {
-			selectedImage.setImage(newValue.getImage());
-			
+
+		    	selectedImage.setImage(newValue.getImage()); 
+		    	
+		    	trascrizione.setText(listTrascrizioni.get(listView.getItems().indexOf(observable.getValue())));
+		    		
+		    	
 		    }
 
-	});
+		});
 		
 	}
 	

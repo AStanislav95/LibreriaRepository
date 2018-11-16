@@ -56,12 +56,12 @@ public class entry extends Application{
 			try {
 				//prs contiene tutte le pagine del manoscritto corrente
 				
-				ResultSet prs = PaginaDAO.getPages(m.getID());
+				ResultSet prs = PaginaDAO.getPagesTrascrizione(m.getID());
 				//aggiungo le pagine al manoscritto
 				
 				while(prs.next()) {
 					
-					m.setListaPagine(new Pagina(prs.getInt(2), prs.getInt(3), prs.getString(5)));
+					m.setListaPagine(new Pagina(prs.getInt(1), prs.getInt(2), prs.getString(3), prs.getString(4)));
 				}
 				
 				

@@ -25,6 +25,14 @@ public class PaginaDAO {
 		return rs;
 	}
 	
+	public static ResultSet getPagesTrascrizione(int idManoscritto) throws Exception {
+		Connection con = ConnectionDAO.getConnection();
+		Statement stm = con.createStatement();
+		ResultSet rs = stm.executeQuery("select p.numero,p.manoscritto,p.scanpath, t.testo from pagina p, trascrizione t where p.trascrizione=t.id and p.manoscritto=" +idManoscritto);
+		
+		return rs;
+	}
+	
 
 	 public static boolean uploadPage(int numero, int manoscritto,String scanPath) {
 			try {
@@ -81,5 +89,16 @@ public class PaginaDAO {
 		}
 		
 		return false;
+	}
+	
+	public static boolean isEmpty(int id) {
+		try {			Connection con = ConnectionDAO.getConnection();
+		Statement stm = con.createStatement();
+		
+		return true;
+		} catch (Exception e) {
+			System.out.println(e); return false;
+			
+		}
 	}
 }

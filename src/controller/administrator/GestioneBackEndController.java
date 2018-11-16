@@ -24,5 +24,18 @@ public class GestioneBackEndController {
 		public static boolean rimuoviPermessi(int ruolo, int permesso) {
 			return PermessiDAO.rimuoviPermessi(ruolo, permesso);
 		}
+		
+		public static boolean TogliDownload(int IDUtente) {
+			
+			return PermessiDAO.TogliDownlaod(IDUtente);
+		}
+		public static boolean AggiungiDownload(int IDUtente) {
+			return PermessiDAO.AggiungiDownlaod(IDUtente);
+		}
+		
+		public static boolean Cambialvltranscriber(int IDUtente, int livello) {
+			return PermessiDAO.CambioLivelloTrascrittore(IDUtente,livello);
+			
+		}
 	
 }

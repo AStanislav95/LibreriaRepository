@@ -5,29 +5,30 @@ public class Trascrizione {
 	private int ID;
 	private String testo;
 	private String annotazione;
+	private int pagina;
 	private int accettato;
 	private int IDUtente;
-	private int IDCapotrascrittore;
-	
+
 	
 	public Trascrizione() {
 		
 	}
 	
-	public Trascrizione(int ID, String testo, String annotazione, int accettato, int IDUtente, int IDCapotrascrittore) {
+	public Trascrizione(int ID, String testo, String annotazione, int pagina, int accettato, int IDUtente) {
 		this.ID = ID;
 		this.testo = testo;
 		this.annotazione = annotazione;
+		this.pagina = pagina;
 		this.accettato = accettato;
 		this.IDUtente = IDUtente;
-		this.IDCapotrascrittore = IDCapotrascrittore;
+		
 	}
 	
-	public Trascrizione(int id, String testo, int IDUtente, int IDCapotrascrittore) {
+	public Trascrizione(int id, String testo, int IDUtente) {
 		this.ID = id;
 		this.testo = testo;
 		this.IDUtente = IDUtente;
-		this.IDCapotrascrittore = IDCapotrascrittore;
+
 	}
 	
 	public int getID() {
@@ -60,12 +61,12 @@ public class Trascrizione {
 	public void setIDUtente(int iDUtente) {
 		IDUtente = iDUtente;
 	}
-	public int getIDCapotrascrittore() {
-		return IDCapotrascrittore;
-	}
-	public void setIDCapotrascrittore(int iDCapotrascrittore) {
-		IDCapotrascrittore = iDCapotrascrittore;
+	public void setPagina(int pagina) {
+		this.pagina = pagina;
 	}
 	
+	public int getPagina() {
+		return this.pagina;
+	}
 	
 }

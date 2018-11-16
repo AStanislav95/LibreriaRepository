@@ -8,11 +8,28 @@ public class Pagina {
 	private int accettato;
 	private String scanpath;
 	private String trascrizione;
+	private Trascrizione trasc = new Trascrizione();
 	
 	
 	public Pagina() {
 		
 	}
+	
+	
+	public Pagina(int numero, int manoscritto, String scanPath, Trascrizione trasc) {
+		this.numero = numero;
+		this.manoscritto = manoscritto;
+		this.scanpath = scanPath;
+		this.trasc = trasc;
+	}
+	
+	public Pagina(int numero, int manoscritto, String scanPath, String trasc) {
+		this.numero = numero;
+		this.manoscritto = manoscritto;
+		this.scanpath = scanPath;
+		this.trascrizione = trasc;
+	}
+	
 	public Pagina(int numero, int manoscritto, String scanpath ) {
 		this.numero = numero;
 		this.manoscritto = manoscritto;
@@ -61,6 +78,12 @@ public class Pagina {
 		this.trascrizione = trascrizione;
 	}
 	
+	public Trascrizione getTrasc() {
+		return this.trasc;
+	}
 	
+	public void setTrasc(Trascrizione t) {
+		this.trasc = t;
+	}
 
 }

@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 
 import controller.dao.ManoscrittoDAO;
 import controller.dao.PaginaDAO;
+import controller.dao.TrascrizioneDAO;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,6 +13,7 @@ import javafx.stage.Stage;
 import model.Manoscritto;
 import model.ObjectContenitor;
 import model.Pagina;
+import model.Trascrizione;
 
 public class entry extends Application{
 
@@ -38,6 +40,15 @@ public class entry extends Application{
 			
 			e.printStackTrace();
 		}
+		
+//		
+//		ResultSet tras = TrascrizioneDAO.getTrascrizioni();
+//		while(tras.next()) {
+//			
+//			ObjectContenitor.listaTrascrizione.add(new Trascrizione(tras.getInt(1), tras.getString(2), tras.getString(3), tras.getInt(4), tras.getInt(5), tras.getInt(6)));
+//		}
+//		
+		
 		
 		
 		//getPages

@@ -88,6 +88,7 @@ public class ResultsFromSearchInterfaceController implements Initializable {
 		    	selectedImage.setImage(newValue.getImage()); 
 		    	
 		    	trascrizione.setText(listTrascrizioni.get(listView.getItems().indexOf(observable.getValue())));
+		    	//DAJE
 		    		
 		    	
 		    }

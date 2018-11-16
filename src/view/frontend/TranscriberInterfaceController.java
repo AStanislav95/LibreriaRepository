@@ -80,6 +80,7 @@ public class TranscriberInterfaceController implements Initializable {
 		String text = getText(editor.getHtmlText());
 		// inserisco nel db la trascrizione
 		TrascrizioneDAO.insertTrascrizione(idPagina, text, ObjectContenitor.utenteAttivo.getID());
+		
 
 	}
 

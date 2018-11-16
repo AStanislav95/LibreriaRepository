@@ -17,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.image.Image;
@@ -26,6 +27,7 @@ import model.Manoscritto;
 import model.ObjectContenitor;
 import model.Pagina;
 
+
 public class ResultsFromSearchInterfaceController implements Initializable {
 	
 	@FXML
@@ -34,6 +36,8 @@ public class ResultsFromSearchInterfaceController implements Initializable {
 	private Button back;
 	@FXML
 	private ImageView selectedImage;
+	@FXML
+	private Label trascrizione;
 	
 	
 	@FXML
@@ -77,6 +81,7 @@ public class ResultsFromSearchInterfaceController implements Initializable {
 		    @Override
 		    public void changed(ObservableValue<? extends ImageView> observable, ImageView oldValue, ImageView newValue) {
 			selectedImage.setImage(newValue.getImage());
+			
 		    }
 
 	});

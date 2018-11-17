@@ -20,6 +20,7 @@ import java.util.regex.Pattern;
 
 import controller.dao.ConnectionDAO;
 import controller.dao.TrascrizioneDAO;
+import controller.transcriber.TrascrizioneEditorController;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -30,11 +31,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.web.HTMLEditor;
@@ -62,6 +65,8 @@ public class TranscriberInterfaceController implements Initializable {
 	private ImageView img;
 	@FXML
 	private HTMLEditor editor;
+	@FXML
+	private Button confirm;
 
 	@FXML
 	private void back(ActionEvent e) throws Exception {
@@ -71,12 +76,17 @@ public class TranscriberInterfaceController implements Initializable {
 
 	@FXML
 	private void submit(ActionEvent e) throws Exception {
-
 		String text = getText(editor.getHtmlText());
 		// inserisco nel db la trascrizione
-		TrascrizioneDAO.insertTrascrizione(idPagina, text, ObjectContenitor.utenteAttivo.getID());
+		TrascrizioneEditorController.insertTrascrizione(idPagina, text, ObjectContenitor.utenteAttivo.getID());
+		editor.setHtmlText("");
+	}
+	
+	@FXML
+	private void confirm(ActionEvent e) throws Exception{
+		String text=getText(editor.getHtmlText());
+		TrascrizioneEditorController.collegaTrascrizione(idManoscritto, idPagina, text, ObjectContenitor.utenteAttivo.getID());
 		
-
 	}
 
 	@Override

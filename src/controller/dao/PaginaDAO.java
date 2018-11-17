@@ -101,4 +101,18 @@ public class PaginaDAO {
 			
 		}
 	}
+	
+	public static int selezionaPagina(int numpag,int idman) {
+		try {
+			Connection con = ConnectionDAO.getConnection();
+			Statement stm = con.createStatement();
+			ResultSet rs=stm.executeQuery("select id from pagina where numero=" + numpag + " and manoscritto= "+idman);
+			rs.next();
+			return rs.getInt(1);
+		} 
+		catch (Exception e) {
+			System.out.println(e); 
+			return -1;
+		}
+	}
 }

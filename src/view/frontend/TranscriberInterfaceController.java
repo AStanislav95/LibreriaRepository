@@ -20,6 +20,7 @@ import java.util.regex.Pattern;
 
 import controller.dao.ConnectionDAO;
 import controller.dao.TrascrizioneDAO;
+import controller.transcriber.RevisioneTrascrizioneController;
 import controller.transcriber.TrascrizioneEditorController;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -65,7 +66,18 @@ public class TranscriberInterfaceController implements Initializable {
 	private ImageView img;
 	@FXML
 	private HTMLEditor editor;
-
+	@FXML
+	private Button confirm;
+	
+	@FXML
+	private void confirm(ActionEvent e) throws Exception {
+		
+		int idTrascrizione=TrascrizioneDAO.getID(idPagina);
+		RevisioneTrascrizioneController.accettaTrascrizione(idPagina, idTrascrizione);
+		
+	}
+	
+	
 	@FXML
 	private void back(ActionEvent e) throws Exception {
 		Button b= (Button)e.getSource();

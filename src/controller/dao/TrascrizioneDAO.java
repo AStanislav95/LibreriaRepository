@@ -58,6 +58,22 @@ public class TrascrizioneDAO {
 		return true;
 	}
 	
+	public static int getID(int IDPagina) {
+		try{Connection con = ConnectionDAO.getConnection();
+		Statement stm=con.createStatement();
+		ResultSet rs=stm.executeQuery("select * from trascrizione where pagina="+IDPagina);
+		if(rs.next())
+		return rs.getInt(1);
+		else
+			return -1;
+		}
+		catch (Exception e) {
+			System.out.println(e);
+			return -1;
+		}
+		}
+	
+	
 	public static void mettiAnnotazione(int idtrascrizione, String annotazione) throws Exception {
 		Connection con = ConnectionDAO.getConnection();
 		Statement stm=con.createStatement();

@@ -76,6 +76,8 @@ public class TranscriberInterfaceController implements Initializable {
 
 	@FXML
 	private void submit(ActionEvent e) throws Exception {
+		
+		
 		String text = getText(editor.getHtmlText());
 		// inserisco nel db la trascrizione
 		TrascrizioneEditorController.insertTrascrizione(idPagina, text, ObjectContenitor.utenteAttivo.getID());
@@ -151,7 +153,7 @@ public class TranscriberInterfaceController implements Initializable {
 					if(p.getNumero() ==arg0.getValue()) {
 					
 						idPagina = p.getID();
-					//	System.out.println("Valore idPagina: " + idPagina);
+					
 						try {
 							
 							img.setImage(new Image(new FileInputStream(p.getScanpath())));

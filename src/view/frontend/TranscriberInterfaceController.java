@@ -47,7 +47,7 @@ import model.ObjectContenitor;
 import model.Pagina;
 
 public class TranscriberInterfaceController implements Initializable {
-
+//Stas pagliaccio
 	static int idManoscritto;
 
 	static int idPagina;

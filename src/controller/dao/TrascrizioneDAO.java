@@ -51,29 +51,6 @@ public class TrascrizioneDAO {
 			return false;
 	}
 	
-	public static int selezionaTrascrizione(int pagina, String text, int idUtente) {
-		try{ Connection con = ConnectionDAO.getConnection();
-		Statement stm = con.createStatement();
-		ResultSet rs = stm.executeQuery("select id from trascrizione where testo='"+text+"';");
-		rs.next();
-		return rs.getInt(0);
-		
-		}
-		catch(Exception e) {
-			System.out.println(e);
-			return -1;
-		}}
-		
-	public static void collegaPagina(int idtrascrizione, int idpagina) {
-		try {
-			Connection con = ConnectionDAO.getConnection();
-			Statement stm= con.createStatement();
-			stm.executeQuery("update pagina set trascrizione="+idtrascrizione+" where pagina="+idpagina);
-		}
-		catch (Exception e) {
-			System.out.println(e);
-		}
-	}
 		
 	
 }

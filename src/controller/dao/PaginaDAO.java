@@ -103,5 +103,17 @@ public class PaginaDAO {
 		}
 	}
 	
+	public static ResultSet pagineAssegnate(int idUtente) {
+		try { Connection con= ConnectionDAO.getConnection();
+		Statement stm=con.createStatement();
+		ResultSet rs=stm.executeQuery("select a.idPagina, p.scanpath from "
+				+ "assegnazione a, pagina p where a.IDUtente="+idUtente
+				+" and a.IDPagina=p.ID;");
+		return rs;
+		
+		}catch(Exception e) {System.out.println(e);  ResultSet rs=null;
+		return rs;} 
+	}
+	
 	
 }

@@ -19,6 +19,18 @@ public class PermessiDAO {
 		}
 
 	}
+	public static boolean AccettaRichiesta(int id ) {
+		try {
+			conn = ConnectionDAO.getConnection();
+			java.sql.Statement stmt = conn.createStatement();
+			stmt.executeUpdate("update utente set Ruolo=4 where ID= " + id);
+			return true;
+		} catch (Exception e) {
+			System.out.println(e);
+			return false;
+		}
+		
+	}
 
 	public static boolean setRuolo(int id, int ruolo) {
 		try {

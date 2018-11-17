@@ -1,6 +1,7 @@
 package view.frontend;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -55,6 +56,8 @@ public class HomepageInterfaceController implements Initializable {
 	private ListView<String> listView;
 	@FXML
 	private Button back;
+	@FXML
+	private Button trascrittore;
 	@FXML
 	private Button GestioneAssegnazioni;
 	@FXML
@@ -135,10 +138,6 @@ public class HomepageInterfaceController implements Initializable {
 
 
 
-	@FXML
-	private void listWorks(ActionEvent e) throws Exception {
-
-	}
 
 	@FXML
 	private void upload(ActionEvent e) throws Exception {
@@ -178,10 +177,15 @@ public class HomepageInterfaceController implements Initializable {
 	}
 
 	@FXML
-	private void uploadFile(ActionEvent e) {
-
+	private void gestioneTrascrizioni(ActionEvent e) throws Exception {
+		Stage stage = (Stage) trascrittore.getScene().getWindow(); 
+		Parent resultSearch = FXMLLoader.load(getClass().getResource("/view/GUI/Transcriber.fxml"));
+		
+		Scene scene = new Scene(resultSearch);
+		stage.setTitle("Risultati della ricerca");
+		stage.setScene(scene);
+		stage.show();
 	}
-	
 	
 	
 	public static ObservableList<Pagina> getpagManoscritti(){

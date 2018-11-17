@@ -26,23 +26,6 @@ public class TrascrizioneEditorController {
 				return false;
 			}}
 	
-	public static boolean collegaTrascrizione(int idManoscritto, int idPagina, String text, int idUtente) {
-		int idtra=TrascrizioneDAO.selezionaTrascrizione(idPagina,text,idUtente);
-		if (idtra==-1) {
-			System.out.println("errore"); 
-			return false;
-		}
-		else {
-			int idpag=PaginaDAO.selezionaPagina(idManoscritto,idPagina);
-			if (idpag==-1) {
-				System.out.println("errore 2");
-				return false;
-			}		
-			else {
-				TrascrizioneDAO.collegaPagina(idtra,idpag);
-				return true;
-			}
-		}
-	}
+	
 	
 }

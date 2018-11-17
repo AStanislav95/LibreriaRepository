@@ -47,7 +47,7 @@ import model.ObjectContenitor;
 import model.Pagina;
 
 public class TranscriberInterfaceController implements Initializable {
-
+//Stas pagliaccio
 	static int idManoscritto;
 
 	static int idPagina;
@@ -65,8 +65,6 @@ public class TranscriberInterfaceController implements Initializable {
 	private ImageView img;
 	@FXML
 	private HTMLEditor editor;
-	@FXML
-	private Button confirm;
 
 	@FXML
 	private void back(ActionEvent e) throws Exception {
@@ -84,13 +82,7 @@ public class TranscriberInterfaceController implements Initializable {
 		editor.setHtmlText("");
 	}
 	
-	@FXML
-	private void confirm(ActionEvent e) throws Exception{
-		String text=getText(editor.getHtmlText());
-		TrascrizioneEditorController.collegaTrascrizione(idManoscritto, idPagina, text, ObjectContenitor.utenteAttivo.getID());
-		
-	}
-
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 

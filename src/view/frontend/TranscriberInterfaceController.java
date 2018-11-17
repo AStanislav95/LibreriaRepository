@@ -66,6 +66,10 @@ public class TranscriberInterfaceController implements Initializable {
 	@FXML
 	private HTMLEditor editor;
 
+	private ObservableList<Integer> idPagine = FXCollections.observableArrayList();
+	private ObservableList<Pagina> pagine = FXCollections.observableArrayList();
+	private static int index;
+	
 	@FXML
 	private void back(ActionEvent e) throws Exception {
 		Button b= (Button)e.getSource();
@@ -74,11 +78,15 @@ public class TranscriberInterfaceController implements Initializable {
 
 	@FXML
 	private void submit(ActionEvent e) throws Exception {
-		
+		// rimuove l'elemento selezionato e fa il refresh della tabella
+		idPagine.remove(index);
+		pagina.refresh();
 		
 		String text = getText(editor.getHtmlText());
-		// inserisco nel db la trascrizione
+	
+	//-----------Non funziona----------
 		TrascrizioneEditorController.insertTrascrizione(idPagina, text, ObjectContenitor.utenteAttivo.getID());
+	// ------------ !! ----------
 		editor.setHtmlText("");
 	}
 	
@@ -88,8 +96,8 @@ public class TranscriberInterfaceController implements Initializable {
 
 		
 
-		ObservableList<Pagina> pagine = FXCollections.observableArrayList();
-		ObservableList<Integer> idPagine = FXCollections.observableArrayList();
+		
+	
 		
 		ResultSet pagineAssegnate = PaginaDAO.pagineAssegnate(ObjectContenitor.utenteAttivo.getID());
 		
@@ -109,8 +117,11 @@ public class TranscriberInterfaceController implements Initializable {
 
 			@Override
 			public void changed(ObservableValue<? extends Integer> arg0, Integer arg1, Integer arg2) {
-		
 				
+				index = pagina.getSelectionModel().getSelectedIndex();
+				idPagina = arg0.getValue();
+
+
 				for(Pagina p: pagine) {
 					if(p.getID() == arg0.getValue()) {
 						

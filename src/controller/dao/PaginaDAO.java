@@ -28,7 +28,8 @@ public class PaginaDAO {
 	public static ResultSet getPagesTrascrizione(int idManoscritto) throws Exception {
 		Connection con = ConnectionDAO.getConnection();
 		Statement stm = con.createStatement();
-		ResultSet rs = stm.executeQuery("select p.numero,p.manoscritto,p.scanpath, t.testo from pagina p, trascrizione t where p.trascrizione=t.id and p.manoscritto=" +idManoscritto);
+		
+		ResultSet rs = stm.executeQuery("select p.id,p.numero,p.manoscritto,p.scanpath, t.testo from pagina p, trascrizione t where p.trascrizione=t.id and p.manoscritto=" +idManoscritto);
 		
 		return rs;
 	}

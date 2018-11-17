@@ -36,6 +36,16 @@ public class Pagina {
 		this.trascrizione = trascrizione;
 	}
 	
+	public Pagina(int ID, int numero, int manoscritto, String scanpath,String trascrizione ) {
+		this.ID = ID;
+		this.numero = numero;
+		this.manoscritto = manoscritto;
+		this.scanpath = scanpath;
+		this.trascrizione = trascrizione;
+	}
+	
+	
+	
 	public Pagina(int id, String scanPath) {
 		this.ID = id;
 		this.scanpath = scanPath;

@@ -60,8 +60,13 @@ public class entry extends Application{
 				//aggiungo le pagine al manoscritto
 				
 				while(prs.next()) {
-					
-					m.setListaPagine(new Pagina(prs.getInt(1), prs.getInt(2), prs.getString(3), prs.getString(4)));
+												//ID			//numero 		//manoscritto	//scanpath		//trascrizione
+					m.setListaPagine(new Pagina(prs.getInt(1), prs.getInt(2), prs.getInt(3), prs.getString(4),prs.getString(5)));
+					System.out.println("ID: " + prs.getInt(1));
+					System.out.println("N Pagina: " + prs.getInt(2));
+					System.out.println("Manoscritto: " + prs.getInt(3));
+					System.out.println("ScanPath: " + prs.getString(4));
+					System.out.println("Trascrizione: " + prs.getString(5));
 				}
 				
 				

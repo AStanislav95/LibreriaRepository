@@ -121,8 +121,11 @@ public class TranscriberInterfaceController implements Initializable {
 						
 					
 						for (Pagina p : m.getListaPagine()) {
-							pagine.add(p);
-							pag.add(p.getNumero());
+							if(p.getTrascrizione().equals("Trascrizione non disponibile")) {
+								pagine.add(p);
+								pag.add(p.getNumero());
+							}
+							
 						}
 					}
 					
@@ -144,9 +147,11 @@ public class TranscriberInterfaceController implements Initializable {
 			
 				
 				for(Pagina p : pagine) {
+					
 					if(p.getNumero() ==arg0.getValue()) {
+					
 						idPagina = p.getID();
-						System.out.println("Valore idPagina: " + idPagina);
+					//	System.out.println("Valore idPagina: " + idPagina);
 						try {
 							
 							img.setImage(new Image(new FileInputStream(p.getScanpath())));

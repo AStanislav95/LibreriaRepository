@@ -19,6 +19,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import controller.dao.ConnectionDAO;
+import controller.dao.PaginaDAO;
 import controller.dao.TrascrizioneDAO;
 import controller.transcriber.RevisioneTrascrizioneController;
 import controller.transcriber.TrascrizioneEditorController;
@@ -49,6 +50,7 @@ import model.Pagina;
 
 public class TranscriberInterfaceController implements Initializable {
 //Stas pagliaccio
+	
 	static int idManoscritto;
 
 	static int idPagina;
@@ -56,27 +58,19 @@ public class TranscriberInterfaceController implements Initializable {
 	private Button Homepage;
 	@FXML
 	private Button submit;
-	@FXML
-	private TextArea textArea;
-	@FXML
-	private ListView<String> manoscritto;
+
+
 	@FXML
 	private ListView<Integer> pagina;
 	@FXML
 	private ImageView img;
 	@FXML
 	private HTMLEditor editor;
-	@FXML
-	private Button confirm;
-	
-	@FXML
-	private void confirm(ActionEvent e) throws Exception {
-		
-		int idTrascrizione=TrascrizioneDAO.getID(idPagina);
-		RevisioneTrascrizioneController.accettaTrascrizione(idPagina, idTrascrizione);
-		
-	}
-	
+
+
+	private ObservableList<Integer> idPagine = FXCollections.observableArrayList();
+	private ObservableList<Pagina> pagine = FXCollections.observableArrayList();
+	private static int index;
 	
 	@FXML
 	private void back(ActionEvent e) throws Exception {
@@ -86,9 +80,16 @@ public class TranscriberInterfaceController implements Initializable {
 
 	@FXML
 	private void submit(ActionEvent e) throws Exception {
+		// rimuove l'elemento selezionato e fa il refresh della tabella
+		// idPagine.remove(index);
+		// ??? E' QUESTO SOPRA A NON FAR FUNZIONARE L'INSERTTRASCRIZIONE
+		pagina.refresh();
+		
 		String text = getText(editor.getHtmlText());
-		// inserisco nel db la trascrizione
+	
+	//-----------Non funziona----------
 		TrascrizioneEditorController.insertTrascrizione(idPagina, text, ObjectContenitor.utenteAttivo.getID());
+	// ------------ !! ----------
 		editor.setHtmlText("");
 	}
 	
@@ -96,79 +97,126 @@ public class TranscriberInterfaceController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
-		ObservableList<String> work = FXCollections.observableArrayList();
-		ObservableList<Integer> pag = FXCollections.observableArrayList();
-		ObservableList<Pagina> pagine = FXCollections.observableArrayList();
+		
 
-		for (Manoscritto m : ObjectContenitor.listaManoscritti) {
-
-			work.add(m.getTitolo());
-
+		
+	
+		
+		ResultSet pagineAssegnate = PaginaDAO.pagineAssegnate(ObjectContenitor.utenteAttivo.getID());
+		
+		try {
+			while(pagineAssegnate.next()) {
+				idPagine.add(pagineAssegnate.getInt(1));
+				pagine.add(new Pagina(pagineAssegnate.getInt(1), pagineAssegnate.getString(2) ));
+			}
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
 		}
 
-		manoscritto.setItems(work);
-		manoscritto.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-		manoscritto.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-
-			@Override
-			public void changed(ObservableValue<? extends String> arg0, String newValue, String oldValue) {
-			
-				pag.clear();
-				pagine.clear();
-			
-				
-				
-				for (Manoscritto m : ObjectContenitor.listaManoscritti) {
-
-					
-					if(m.getTitolo().equals(arg0.getValue())) {
-						
-					
-						for (Pagina p : m.getListaPagine()) {
-							if(p.getTrascrizione().equals("Trascrizione non disponibile")) {
-								pagine.add(p);
-								pag.add(p.getNumero());
-							}
-							
-						}
-					}
-					
-				}
-				
-				pagina.setItems(pag);
-			
-			}
-		
-			
-		});// end
-		
+		pagina.setItems(idPagine);
 		pagina.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 		pagina.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Integer>() {
 
 			@Override
 			public void changed(ObservableValue<? extends Integer> arg0, Integer arg1, Integer arg2) {
 				
-			
-				
-				for(Pagina p : pagine) {
-					
-					if(p.getNumero() ==arg0.getValue()) {
-					
-						idPagina = p.getID();
-					//	System.out.println("Valore idPagina: " + idPagina);
+				index = pagina.getSelectionModel().getSelectedIndex();
+				idPagina = arg0.getValue();
+
+
+				for(Pagina p: pagine) {
+					if(p.getID() == arg0.getValue()) {
+						
 						try {
-							
 							img.setImage(new Image(new FileInputStream(p.getScanpath())));
 						} catch (FileNotFoundException e) {
-							// TODO Auto-generated catch block
+							
 							e.printStackTrace();
 						}
 					}
 				}
 				
 			}
-
+			
 		});
+
+		
+		
+		
+//		ObservableList<String> work = FXCollections.observableArrayList();
+//		ObservableList<Integer> pag = FXCollections.observableArrayList();
+//		ObservableList<Pagina> pagine = FXCollections.observableArrayList();
+//
+//		for (Manoscritto m : ObjectContenitor.listaManoscritti) {
+//
+//			work.add(m.getTitolo());
+//
+//		}
+//
+//		manoscritto.setItems(work);
+//		manoscritto.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+//		manoscritto.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+//
+//			@Override
+//			public void changed(ObservableValue<? extends String> arg0, String newValue, String oldValue) {
+//			
+//				pag.clear();
+//				pagine.clear();
+//			
+//				//pagineAssegnate(idUtenteAttivo)
+//				
+//				for (Manoscritto m : ObjectContenitor.listaManoscritti) {
+//
+//					
+//					if(m.getTitolo().equals(arg0.getValue())) {
+//						
+//					
+//						for (Pagina p : m.getListaPagine()) {
+//							if(p.getTrascrizione().equals("Trascrizione non disponibile")) {
+//								pagine.add(p);
+//								pag.add(p.getNumero());
+//							}
+//							
+//						}
+//					}
+//					
+//				}
+//				
+//				pagina.setItems(pag);
+//			
+//			}
+//		
+//			
+//		});// end
+//		
+//		pagina.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+//		pagina.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Integer>() {
+//
+//			@Override
+//			public void changed(ObservableValue<? extends Integer> arg0, Integer arg1, Integer arg2) {
+//				
+//			
+//				
+//				for(Pagina p : pagine) {
+//					
+//					if(p.getNumero() ==arg0.getValue()) {
+//					
+//						idPagina = p.getID();
+//					
+//						try {
+//							
+//							img.setImage(new Image(new FileInputStream(p.getScanpath())));
+//						} catch (FileNotFoundException e) {
+//							// TODO Auto-generated catch block
+//							e.printStackTrace();
+//						}
+//					}
+//				}
+//				
+//			}
+//
+//		});
 
 	}
 

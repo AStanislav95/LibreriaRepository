@@ -49,7 +49,7 @@ public class TranscriberInterfaceController implements Initializable {
 
 	static int idPagina;
 	@FXML
-	private Button back;
+	private Button Homepage;
 	@FXML
 	private Button submit;
 	@FXML
@@ -65,13 +65,8 @@ public class TranscriberInterfaceController implements Initializable {
 
 	@FXML
 	private void back(ActionEvent e) throws Exception {
-		Stage stage = (Stage) back.getScene().getWindow(); // Source Stage!!
-		Parent homepage = FXMLLoader.load(getClass().getResource("/view/GUI/Homepage.fxml"));
-
-		Scene scene = new Scene(homepage);
-		stage.setTitle("Homepage");
-		stage.setScene(scene);
-		stage.show();
+		Button b= (Button)e.getSource();
+		CambiaScene.CambiaStage(b);
 	}
 
 	@FXML

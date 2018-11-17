@@ -48,13 +48,13 @@ public class RevisioneUploadInterfaceController implements Initializable {
 	static int idPagina;
 	static Object paginaSelezionata;
 	@FXML
-	private Button homepage;
+	private Button Homepage;
 	@FXML
 	private Button accetta;
 	@FXML
 	private Button rifiuta;
 	@FXML
-	private Button profile;
+	private Button Profile;
 	
 	@FXML
 	private ListView<Integer> pagina;
@@ -66,13 +66,8 @@ public class RevisioneUploadInterfaceController implements Initializable {
 
 	@FXML
 	private void homepage(ActionEvent e) throws Exception {
-		Stage stage = (Stage) homepage.getScene().getWindow(); //Source Stage!!
-		Parent homepage = FXMLLoader.load(getClass().getResource("/view/GUI/Homepage.fxml"));
-
-		Scene scene = new Scene(homepage,1200,800);
-		stage.setTitle("Homepage");
-		stage.setScene(scene);
-		stage.show();
+		Button b= (Button)e.getSource();
+		CambiaScene.CambiaStage(b);
 	}
 
 	@FXML
@@ -109,13 +104,8 @@ public class RevisioneUploadInterfaceController implements Initializable {
 
 	@FXML
 	private void profile(ActionEvent e) throws Exception {
-		Stage stage = (Stage) profile.getScene().getWindow();
-		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/Profile.fxml"));
-
-		Scene scene = new Scene(parent, 500, 400);
-		stage.setTitle("Profile");
-		stage.setScene(scene);
-		stage.show();
+		Button b= (Button)e.getSource();
+		CambiaScene.CambiaStage(b);
 	}
 
 	@Override

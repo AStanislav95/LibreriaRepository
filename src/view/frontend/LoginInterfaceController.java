@@ -33,10 +33,10 @@ public class LoginInterfaceController implements Initializable{
 
 
     @FXML
-    private Button login;
+    private Button Homepage;
 
     @FXML
-    private Button register;
+    private Button Registration;
 
     @FXML
     private TextField email;
@@ -68,16 +68,12 @@ public class LoginInterfaceController implements Initializable{
 	
 	@FXML
 	private void login() throws Exception {
-		Stage stage = (Stage) login.getScene().getWindow();
+		
 		
 		if(LoginController.Login(email.getText(), password.getText())) {
 			
-			Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/Homepage.fxml"));
 			
-			Scene scene = new Scene(parent,1200,800);
-			stage.setTitle("Homepage");
-			stage.setScene(scene);
-			stage.show();
+			CambiaScene.CambiaStage(Homepage);
 		}else {
 			Alert alert = new Alert(AlertType.ERROR);
 			
@@ -91,13 +87,8 @@ public class LoginInterfaceController implements Initializable{
 	
 	@FXML
 	private void register(ActionEvent e) throws Exception {
-		Stage stage = (Stage) register.getScene().getWindow();
-		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/Registration.fxml"));
-
-		Scene scene = new Scene(parent, 600, 500);
-		stage.setTitle("Registrazione");
-		stage.setScene(scene);
-		stage.show();
+		Button b= (Button)e.getSource();
+		CambiaScene.CambiaStage(b);
 
 	}
 	

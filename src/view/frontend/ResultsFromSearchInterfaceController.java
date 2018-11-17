@@ -34,7 +34,7 @@ public class ResultsFromSearchInterfaceController implements Initializable {
 	@FXML
 	private ListView<ImageView> listView;
 	@FXML
-	private Button back;
+	private Button Homepage;
 	@FXML
 	private ImageView selectedImage;
 	@FXML
@@ -43,13 +43,8 @@ public class ResultsFromSearchInterfaceController implements Initializable {
 	
 	@FXML
 	private void back(ActionEvent e) throws Exception {
-		Stage stage = (Stage) back.getScene().getWindow(); //Source Stage!!
-		Parent homepage = FXMLLoader.load(getClass().getResource("/view/GUI/Homepage.fxml"));
-
-		Scene scene = new Scene(homepage);
-		stage.setTitle("Homepage");
-		stage.setScene(scene);
-		stage.show();
+		Button b= (Button)e.getSource();
+		CambiaScene.CambiaStage(b);
 	}
 
 	@Override

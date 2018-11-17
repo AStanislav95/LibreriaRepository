@@ -24,7 +24,7 @@ import model.ObjectContenitor;
 public class ProfileInterfaceController implements Initializable {
 
 	@FXML
-	private Button back;
+	private Button Homepage;
 	@FXML
 	private Button transcriber;
 	@FXML
@@ -38,24 +38,19 @@ public class ProfileInterfaceController implements Initializable {
 	@FXML
 	private Label qualification;
 	@FXML
-	private Button adminUI;
+	private Button AdminInterface1;
 	@FXML
 	private Button Candidate;
 
 	@FXML
 	private void back(ActionEvent e) throws Exception {
-		Stage stage = (Stage) back.getScene().getWindow();
-		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/Homepage.fxml"));
-
-		Scene scene = new Scene(parent, 1200, 800);
-		stage.setTitle("Homepage");
-		stage.setScene(scene);
-		stage.show();
+		Button b= (Button)e.getSource();
+		CambiaScene.CambiaStage(b);
 	}
 
 	@FXML
 	private void transcriber(ActionEvent e) throws Exception {
-
+		
 	}
 	
 	@FXML
@@ -67,13 +62,8 @@ public class ProfileInterfaceController implements Initializable {
 
 	@FXML
 	private void Adminpage(ActionEvent e) throws Exception {
-		Stage stage = (Stage) back.getScene().getWindow();
-		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/AdminInterface1.fxml"));
-
-		Scene scene = new Scene(parent, 1200, 800);
-		stage.setTitle("Admin Interface");
-		stage.setScene(scene);
-		stage.show();
+		Button b= (Button)e.getSource();
+		CambiaScene.CambiaStage(b);
 	}
 
 	@Override

@@ -10,8 +10,8 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.frontend.RevisioneUploadInterfaceController">
    <children>
       <Button fx:id="rifiuta" layoutX="619.0" layoutY="588.0" mnemonicParsing="false" onAction="#accettaScan" prefHeight="32.0" prefWidth="105.0" style="-fx-background-color: #3b3131;" text="Accetta" textFill="WHITE" />
-      <Button fx:id="homepage" layoutX="14.0" layoutY="21.0" mnemonicParsing="false" onAction="#homepage" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #3b3131;" text="Torna Indietro" textFill="WHITE" />
-      <Button fx:id="profile" layoutX="839.0" layoutY="21.0" mnemonicParsing="false" onAction="#profile" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #3b3131;" text="Profile" textFill="WHITE" />
+      <Button fx:id="Homepage" layoutX="14.0" layoutY="21.0" mnemonicParsing="false" onAction="#homepage" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #3b3131;" text="Torna Indietro" textFill="WHITE" />
+      <Button fx:id="Profile" layoutX="839.0" layoutY="21.0" mnemonicParsing="false" onAction="#profile" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #3b3131;" text="Profile" textFill="WHITE" />
       <Button fx:id="accetta" layoutX="442.0" layoutY="588.0" mnemonicParsing="false" onAction="#rifiutaScan" prefHeight="32.0" prefWidth="105.0" style="-fx-background-color: #3b3131;" text="Rifiuta" textFill="WHITE" />
       <ImageView fx:id="img" fitHeight="296.0" fitWidth="387.0" layoutX="354.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true" />
       <TitledPane animated="false" collapsible="false" layoutX="20.0" layoutY="147.0" prefHeight="427.0" prefWidth="90.0" text="Pagina">

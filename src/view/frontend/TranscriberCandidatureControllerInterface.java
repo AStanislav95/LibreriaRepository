@@ -40,9 +40,9 @@ public class TranscriberCandidatureControllerInterface implements Initializable 
 	@FXML
 	private TableView dbtable;
 	@FXML
-	private Button adminInterface;
+	private Button AdminInterface1;
 	@FXML
-	private Button homepage;
+	private Button Homepage;
 	@FXML
 	private TextField utente;
 
@@ -58,25 +58,15 @@ public class TranscriberCandidatureControllerInterface implements Initializable 
 	
 	@FXML
 	private void adminInterface(ActionEvent e) throws IOException {
-		Stage stage = (Stage) adminInterface.getScene().getWindow();
-		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/AdminInterface1.fxml"));
-
-		Scene scene = new Scene(parent, 1200, 800);
-		stage.setTitle("Profile");
-		stage.setScene(scene);
-		stage.show();
+		Button b= (Button)e.getSource();
+		CambiaScene.CambiaStage(b);
 	}
 	
 	
 	@FXML
 	private void homepage(ActionEvent e) throws Exception {
-		Stage stage = (Stage) homepage.getScene().getWindow();
-		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/Homepage.fxml"));
-
-		Scene scene = new Scene(parent, 1200, 800);
-		stage.setTitle("Profile");
-		stage.setScene(scene);
-		stage.show();
+		Button b= (Button)e.getSource();
+		CambiaScene.CambiaStage(b);
 	}
 
 	@Override

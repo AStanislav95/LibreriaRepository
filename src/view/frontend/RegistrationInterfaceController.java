@@ -20,7 +20,7 @@ import javafx.stage.Stage;
 public class RegistrationInterfaceController implements Initializable {
 
 	@FXML
-	private Button back;
+	private Button Login;
 	@FXML
 	private Button register;
 	@FXML
@@ -43,24 +43,14 @@ public class RegistrationInterfaceController implements Initializable {
 		
 		RegistrazioneController.register(email.getText(), name.getText(), password.getText(), qualification.getText(), profession.getText());
 		
-		Stage stage = (Stage) register.getScene().getWindow();
-		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/Login.fxml"));
-
-		Scene scene = new Scene(parent, 400, 400);
-		stage.setTitle("Login");
-		stage.setScene(scene);
-		stage.show();
+		
+		CambiaScene.CambiaStage(Login);
 	}
 
 	@FXML
 	private void back(ActionEvent e) throws Exception {
-		Stage stage = (Stage) back.getScene().getWindow();
-		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/Login.fxml"));
-
-		Scene scene = new Scene(parent);
-		stage.setTitle("Login");
-		stage.setScene(scene);
-		stage.show();
+		Button b= (Button)e.getSource();
+		CambiaScene.CambiaStage(b);
 	}
 
 	@FXML

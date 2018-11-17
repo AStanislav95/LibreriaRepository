@@ -8,12 +8,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.frontend.TranscriberCandidatureControllerInterface">
    <children>
-      <Button fx:id="adminInterface" layoutX="1026.0" layoutY="21.0" mnemonicParsing="false" onAction="#adminInterface" prefHeight="32.0" prefWidth="160.0" style="-fx-background-color: #3b3131;" text="Interfaccia Admin" textFill="WHITE" />
+      <Button fx:id="AdminInterface1" layoutX="1026.0" layoutY="21.0" mnemonicParsing="false" onAction="#adminInterface" prefHeight="32.0" prefWidth="160.0" style="-fx-background-color: #3b3131;" text="Interfaccia Admin" textFill="WHITE" />
       <TextField fx:id="utente" layoutX="495.0" layoutY="322.0" promptText="inserisci ID profilo..." />
       <TableView fx:id="dbtable" layoutX="14.0" layoutY="143.0" prefHeight="501.0" prefWidth="263.0" style="-fx-background-color: white;" />
       <Button fx:id="accept" layoutX="392.0" layoutY="434.0" mnemonicParsing="false" onAction="#candidature" prefHeight="32.0" prefWidth="160.0" style="-fx-background-color: #3b3131;" text="Accetta Candidatura" textFill="WHITE" />
       <Button fx:id="decline" layoutX="572.0" layoutY="434.0" mnemonicParsing="false" onAction="#candidature" prefHeight="32.0" prefWidth="160.0" style="-fx-background-color: #3b3131;" text="Rifiuta Candidatura" textFill="WHITE" />
-      <Button fx:id="homepage" layoutX="14.0" layoutY="21.0" mnemonicParsing="false" onAction="#homepage" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #3b3131;" text="Homepage" textFill="WHITE" />
+      <Button fx:id="Homepage" layoutX="14.0" layoutY="21.0" mnemonicParsing="false" onAction="#homepage" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #3b3131;" text="Homepage" textFill="WHITE" />
       <Label layoutX="408.0" layoutY="327.0" text="ID Profilo:" />
    </children>
 </AnchorPane>

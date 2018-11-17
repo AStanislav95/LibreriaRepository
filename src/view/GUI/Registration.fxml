@@ -10,8 +10,8 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.frontend.RegistrationInterfaceController">
    <children>
-      <Button fx:id="back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" prefHeight="32.0" prefWidth="135.0" style="-fx-background-color: #3b3131;" text="Torna indietro" textFill="WHITE" />
-      <Button fx:id="register" layoutX="240.0" layoutY="415.0" mnemonicParsing="false" onAction="#register" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #3b3131;" text="Registrami" textFill="WHITE" />
+      <Button fx:id="Login" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" prefHeight="32.0" prefWidth="135.0" style="-fx-background-color: #3b3131;" text="Torna indietro" textFill="WHITE" />
+      <Button fx:id="Registration" layoutX="240.0" layoutY="415.0" mnemonicParsing="false" onAction="#register" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #3b3131;" text="Registrami" textFill="WHITE" />
       <VBox layoutX="32.0" layoutY="135.0" prefHeight="230.0" prefWidth="235.0" spacing="10.0">
          <children>
             <Label text="Nome Utente:" />

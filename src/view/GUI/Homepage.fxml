@@ -11,12 +11,12 @@
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.frontend.HomepageInterfaceController">
    <children>
-      <Button fx:id="gestioneassegnazione" defaultButton="true" layoutX="306.0" layoutY="18.0" minHeight="25.0" mnemonicParsing="false" onAction="#gestioneAssegnazione" prefHeight="32.0" prefWidth="200.0" style="-fx-background-color: #3b3131;" text="Gestione Assegnazioni" textFill="WHITE" />
+      <Button fx:id="GestioneAssegnazioni" defaultButton="true" layoutX="306.0" layoutY="18.0" minHeight="25.0" mnemonicParsing="false" onAction="#gestioneAssegnazione" prefHeight="32.0" prefWidth="200.0" style="-fx-background-color: #3b3131;" text="Gestione Assegnazioni" textFill="WHITE" />
       <TextField fx:id="searchBar" layoutX="389.0" layoutY="192.0" prefHeight="26.0" prefWidth="430.0" promptText="Cerca..." />
       <Button fx:id="search" layoutX="844.0" layoutY="189.0" mnemonicParsing="false" onAction="#search" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #3b3131;" text="Cerca" textFill="WHITE" />
       <RadioButton fx:id="searchByAuthor" layoutX="492.0" layoutY="233.0" mnemonicParsing="false" text="Autore" />
       <RadioButton fx:id="searchByName" layoutX="597.0" layoutY="233.0" mnemonicParsing="false" text="Nome Opera" />
-      <Button fx:id="revupload" defaultButton="true" layoutX="526.0" layoutY="18.0" minHeight="25.0" mnemonicParsing="false" onAction="#revisioneupload" prefHeight="32.0" prefWidth="200.0" style="-fx-background-color: #3b3131;" text="Revisione Upload" textFill="WHITE" />
+      <Button fx:id="RevisioneUpload" defaultButton="true" layoutX="526.0" layoutY="18.0" minHeight="25.0" mnemonicParsing="false" onAction="#revisioneupload" prefHeight="32.0" prefWidth="200.0" style="-fx-background-color: #3b3131;" text="Revisione Upload" textFill="WHITE" />
       <Label layoutX="382.0" layoutY="118.0" prefHeight="58.0" prefWidth="592.0" text="Fai una ricerca per scoprire alcune meraviglie del passato">
          <font>
             <Font size="20.0" />
@@ -38,8 +38,8 @@
       <Button fx:id="selectImage" layoutX="964.0" layoutY="702.0" mnemonicParsing="false" onAction="#upload" prefHeight="32.0" prefWidth="158.0" style="-fx-background-color: #3b3131;" text="Scegli l'immagine" textFill="WHITE" />
       <TextField fx:id="workName" layoutX="418.0" layoutY="705.0" prefHeight="26.0" prefWidth="251.0" promptText="Nome dell'opera della pagina" />
       <TextField fx:id="numPage" layoutX="700.0" layoutY="705.0" prefHeight="26.0" prefWidth="239.0" promptText="Numero della pagina" />
-      <Button fx:id="interfacciacandidatura" layoutX="739.0" layoutY="19.0" mnemonicParsing="false" onAction="#interfacciacandidatura" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #3b3131;" text="Interfaccia Candidature" textFill="WHITE" />
-      <Button fx:id="profile" layoutX="1024.0" layoutY="14.0" mnemonicParsing="false" onAction="#profile" opacity="0.0" prefHeight="58.0" prefWidth="131.0" style="-fx-background-color: WHITE;" text="profile" textFill="#992424" />
+      <Button fx:id="TranscriberCandidatureInterface" layoutX="739.0" layoutY="19.0" mnemonicParsing="false" onAction="#interfacciacandidatura" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #3b3131;" text="Interfaccia Candidature" textFill="WHITE" />
+      <Button fx:id="Profile" layoutX="1024.0" layoutY="14.0" mnemonicParsing="false" onAction="#profile" opacity="0.0" prefHeight="58.0" prefWidth="131.0" style="-fx-background-color: WHITE;" text="profile" textFill="#992424" />
       <Label layoutX="421.0" layoutY="633.0" prefHeight="58.0" prefWidth="292.0" text="Fai l'upload di un'immagine :)" textAlignment="CENTER">
          <font>
             <Font size="18.0" />

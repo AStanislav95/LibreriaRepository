@@ -40,7 +40,7 @@ public class HomepageInterfaceController implements Initializable {
 	@FXML
 	private Button search;
 	@FXML
-	private Button profile;
+	private Button Profile;
 	@FXML
 	private Button listWorks;
 	@FXML
@@ -56,9 +56,9 @@ public class HomepageInterfaceController implements Initializable {
 	@FXML
 	private Button back;
 	@FXML
-	private Button gestioneassegnazione;
+	private Button GestioneAssegnazioni;
 	@FXML
-	private Button revupload;
+	private Button RevisioneUpload;
 	@FXML
 	private Button selectImage;
 	@FXML
@@ -66,7 +66,7 @@ public class HomepageInterfaceController implements Initializable {
 	@FXML
 	private TextField numPage;
 	@FXML
-	private Button interfacciacandidatura;
+	private Button TranscriberCandidatureInterface;
 
 	private String url;
 
@@ -129,13 +129,8 @@ public class HomepageInterfaceController implements Initializable {
 
 	@FXML
 	public void profile(ActionEvent e) throws Exception {
-		Stage stage = (Stage) profile.getScene().getWindow();
-		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/Profile.fxml"));
-
-		Scene scene = new Scene(parent, 500, 400);
-		stage.setTitle("Profile");
-		stage.setScene(scene);
-		stage.show();
+		Button b= (Button)e.getSource();
+		CambiaScene.CambiaStage(b);
 	}
 
 
@@ -166,35 +161,20 @@ public class HomepageInterfaceController implements Initializable {
 
 	@FXML
 	private void gestioneAssegnazione(ActionEvent e) throws Exception {
-		Stage stage = (Stage) gestioneassegnazione.getScene().getWindow();
-		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/GestioneAssegnazioni.fxml"));
-
-		Scene scene = new Scene(parent, 1200, 800);
-		stage.setTitle("Gestione Assegnazioni");
-		stage.setScene(scene);
-		stage.show();
+		Button b= (Button)e.getSource();
+		CambiaScene.CambiaStage(b);
 	}
 
 	@FXML
 	private void revisioneupload(ActionEvent e) throws Exception {
-		Stage stage = (Stage) revupload.getScene().getWindow();
-		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/RevisioneUpload.fxml"));
-
-		Scene scene = new Scene(parent, 1200, 800);
-		stage.setTitle("Revisione Upload");
-		stage.setScene(scene);
-		stage.show();
+		Button b= (Button)e.getSource();
+		CambiaScene.CambiaStage(b);
 	}
 
 	@FXML
 	private void interfacciacandidatura(ActionEvent e) throws Exception {
-		Stage stage = (Stage) interfacciacandidatura.getScene().getWindow();
-		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/TranscriberCandidatureInterface.fxml"));
-
-		Scene scene = new Scene(parent, 1200, 800);
-		stage.setTitle("Modulo Trascrittore");
-		stage.setScene(scene);
-		stage.show();
+		Button b= (Button)e.getSource();
+		CambiaScene.CambiaStage(b);
 	}
 
 	@FXML

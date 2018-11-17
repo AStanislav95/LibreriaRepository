@@ -17,7 +17,7 @@
       <TextField fx:id="ruolo" layoutX="458.0" layoutY="614.0" promptText="inserisci N° Ruolo..." />
       <TextField fx:id="lvt" layoutX="458.0" layoutY="469.0" promptText="inserisci Lv Trascrittore" />
       <Button fx:id="changetranscriber" layoutX="273.0" layoutY="466.0" mnemonicParsing="false" onAction="#changelvtranscriber" prefHeight="32.0" style="-fx-background-color: #3b3131;" text="Cambia Livello" textFill="WHITE" />
-      <Button fx:id="back" layoutX="771.0" layoutY="705.0" mnemonicParsing="false" onAction="#back" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #3b3131;" text="Pagina Accesso" textFill="WHITE" />
+      <Button fx:id="Login" layoutX="771.0" layoutY="705.0" mnemonicParsing="false" onAction="#back" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #3b3131;" text="Pagina Accesso" textFill="WHITE" />
       <Label layoutX="770.0" layoutY="157.0" text="Elenco Ruoli:" />
       <Button fx:id="changerole" layoutX="272.0" layoutY="611.0" mnemonicParsing="false" onAction="#changerole" prefHeight="32.0" style="-fx-background-color: #3b3131;" text="Cambia Ruolo " textFill="WHITE" />
       <TextField fx:id="utente" layoutX="58.0" layoutY="538.0" promptText="inserisci ID profilo..." />
@@ -27,7 +27,7 @@
          </image>
       </ImageView>
       <TableView fx:id="dbtable" layoutX="45.0" layoutY="119.0" prefHeight="282.0" prefWidth="590.0" style="-fx-background-color: white;" />
-      <Button fx:id="homepage" layoutX="780.0" layoutY="598.0" mnemonicParsing="false" onAction="#homepage" prefHeight="30.0" prefWidth="101.0" style="-fx-background-color: #3b3131;" text="Homepage" textFill="WHITE" />
+      <Button fx:id="Homepage" layoutX="780.0" layoutY="598.0" mnemonicParsing="false" onAction="#homepage" prefHeight="30.0" prefWidth="101.0" style="-fx-background-color: #3b3131;" text="Homepage" textFill="WHITE" />
       <VBox layoutX="737.0" layoutY="189.0" prefHeight="200.0" prefWidth="150.0">
          <children>
             <Button fx:id="ruolo1" mnemonicParsing="false" onAction="#elencoruoli" prefHeight="26.0" prefWidth="176.0" text="Utente N° 1" />
@@ -41,13 +41,13 @@
       </VBox>
       <Button fx:id="cd1" layoutX="255.0" layoutY="535.0" mnemonicParsing="false" onAction="#canDownload" prefHeight="32.0" style="-fx-background-color: #3b3131;" text="Permetti Downlaod 1" textFill="WHITE" />
       <Button fx:id="cd0" layoutX="455.0" layoutY="535.0" mnemonicParsing="false" onAction="#canDownload" prefHeight="32.0" style="-fx-background-color: #3b3131;" text="Non Permetti Downlaod 0" textFill="WHITE" />
-      <Button fx:id="profile" layoutX="837.0" layoutY="46.0" mnemonicParsing="false" onAction="#profile" prefHeight="32.0" prefWidth="101.0" style="-fx-background-color: #3b3131;" text="Profile" textFill="WHITE" />
+      <Button fx:id="Profile" layoutX="837.0" layoutY="46.0" mnemonicParsing="false" onAction="#profile" prefHeight="32.0" prefWidth="101.0" style="-fx-background-color: #3b3131;" text="Profile" textFill="WHITE" />
       <Label layoutX="305.0" layoutY="37.0" text="Interfaccia Amministratore">
          <font>
             <Font size="33.0" />
          </font>
       </Label>
-      <Button fx:id="interfacciacandidatura" layoutX="748.0" layoutY="467.0" mnemonicParsing="false" onAction="#interfacciacandidatura" prefHeight="30.0" prefWidth="165.0" style="-fx-background-color: #3b3131;" text="Interfaccia Candidature" textFill="WHITE" />
+      <Button fx:id="TranscriberCandidatureInterface" layoutX="748.0" layoutY="467.0" mnemonicParsing="false" onAction="#interfacciacandidatura" prefHeight="30.0" prefWidth="165.0" style="-fx-background-color: #3b3131;" text="Interfaccia Candidature" textFill="WHITE" />
       <Label layoutX="115.0" layoutY="695.0" prefHeight="84.0" prefWidth="445.0" text="NOTA: LA TABELLA IN ALTO MOSTRA UN VISIONE DEL DATABASE DOVE SONO PRESENTI GLI UTENTI ">
          <font>
             <Font size="8.0" />

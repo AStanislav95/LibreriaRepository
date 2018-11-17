@@ -1,5 +1,6 @@
 package view.frontend;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -32,17 +33,17 @@ import javafx.util.Callback;
 
 public class AdminInterfaceController implements Initializable {
 	@FXML
-	private Button homepage;
+	private Button Homepage;
 	@FXML
 	private Button changerole;
 	@FXML
-	private Button profile;
+	private Button Profile;
 	@FXML
 	private Button changetranscriber;
 	@FXML
 	private TableView dbtable;
 	@FXML
-	private Button back;
+	private Button Login;
 	@FXML
 	private TextField utente;
 	@FXML
@@ -68,7 +69,7 @@ public class AdminInterfaceController implements Initializable {
 	@FXML
 	private Button cd1;
 	@FXML
-	private Button interfacciacandidatura;
+	private Button TranscriberCandidatureInterface;
 
 	private ObservableList<ObservableList> data;
 	private String Sql="select ID, Nome , Ruolo, LivelloTrascrittore , CanDownload  from utente";
@@ -120,13 +121,8 @@ public class AdminInterfaceController implements Initializable {
 
 	@FXML
 	private void back(ActionEvent e) throws Exception {
-		Stage stage = (Stage) back.getScene().getWindow();
-		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/Login.fxml"));
-
-		Scene scene = new Scene(parent, 1200, 800);
-		stage.setTitle("Login");
-		stage.setScene(scene);
-		stage.show();
+		Button b= (Button)e.getSource();
+		CambiaScene.CambiaStage(b);
 	}
 
 	@FXML
@@ -185,23 +181,20 @@ public class AdminInterfaceController implements Initializable {
 	}
 
 	@FXML
-	private void homepage() {
-		
+	private void homepage(ActionEvent e) throws IOException {
+		Button b= (Button)e.getSource();
+		CambiaScene.CambiaStage(b);
 	}
 	@FXML
 	private void profile(ActionEvent e) throws Exception {
-		Stage stage = (Stage) profile.getScene().getWindow();
-		Parent parent = FXMLLoader.load(getClass().getResource("/view/GUI/Profile.fxml"));
-
-		Scene scene = new Scene(parent, 1200, 800);
-		stage.setTitle("Profile");
-		stage.setScene(scene);
-		stage.show();
+		Button b= (Button)e.getSource();
+		CambiaScene.CambiaStage(b);
 	}
 
 	@FXML
 	private void interfacciacandidatura(ActionEvent e) throws Exception {
-
+		Button b= (Button)e.getSource();
+		CambiaScene.CambiaStage(b);
 	}
 
 	@Override

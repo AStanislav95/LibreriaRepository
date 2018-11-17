@@ -11,14 +11,9 @@
 <AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.frontend.TranscriberInterfaceController">
    <children>
       <Button fx:id="Homepage" layoutX="14.0" layoutY="23.0" mnemonicParsing="false" onAction="#back" prefHeight="32.0" prefWidth="137.0" style="-fx-background-color: #3b3131;" text="Indietro" textFill="WHITE" />
-      <ImageView fx:id="img" fitHeight="249.0" fitWidth="300.0" layoutX="310.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="img" fitHeight="334.0" fitWidth="442.0" layoutX="152.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true" />
       <Button fx:id="submit" layoutX="877.0" layoutY="607.0" mnemonicParsing="false" onAction="#submit" prefHeight="27.0" prefWidth="162.0" style="-fx-background-color: #3b3131;" text="Presenta Trascrizione" textFill="WHITE" />
-      <TitledPane collapsible="false" layoutX="14.0" layoutY="130.0" prefHeight="626.0" prefWidth="178.0" text="Manoscritto">
-         <content>
-            <ListView fx:id="manoscritto" prefHeight="580.0" prefWidth="176.0" />
-         </content>
-      </TitledPane>
-      <TitledPane animated="false" collapsible="false" layoutX="192.0" layoutY="130.0" prefHeight="626.0" prefWidth="90.0" text="Pagina">
+      <TitledPane animated="false" collapsible="false" layoutX="14.0" layoutY="127.0" prefHeight="626.0" prefWidth="90.0" text="Pagina">
          <content>
             <ListView fx:id="pagina" prefHeight="398.0" prefWidth="90.0">
                <padding>

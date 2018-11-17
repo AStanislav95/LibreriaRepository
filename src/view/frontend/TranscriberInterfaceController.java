@@ -106,7 +106,7 @@ public class TranscriberInterfaceController implements Initializable {
 				pag.clear();
 				pagine.clear();
 			
-				
+				//pagineAssegnate(idUtenteAttivo)
 				
 				for (Manoscritto m : ObjectContenitor.listaManoscritti) {
 

@@ -51,6 +51,17 @@ public class TrascrizioneDAO {
 			return false;
 	}
 	
-		
+	public static boolean accettaTrascrizione(int IDpagina, int IDTrascrizione) throws Exception	{
+		Connection con = ConnectionDAO.getConnection();
+		Statement stm=con.createStatement();
+		stm.executeUpdate("update pagina set trascrizione="+IDTrascrizione+" where id="+IDpagina+" ;");
+		return true;
+	}
+	
+	public static void mettiAnnotazione(int idtrascrizione, String annotazione) throws Exception {
+		Connection con = ConnectionDAO.getConnection();
+		Statement stm=con.createStatement();
+		stm.executeUpdate("update trascrizione set annotazione='"+annotazione+"' where id="+idtrascrizione);
+	}
 	
 }

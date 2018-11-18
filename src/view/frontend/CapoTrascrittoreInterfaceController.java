@@ -99,6 +99,7 @@ public class CapoTrascrittoreInterfaceController implements Initializable {
 				try {
 					
 					img.setImage(new Image(new FileInputStream(scanPathTrascrizioni.get(ind))));
+					
 					editor.setHtmlText(tras.get(ind));
 					
 				} catch (FileNotFoundException e) {

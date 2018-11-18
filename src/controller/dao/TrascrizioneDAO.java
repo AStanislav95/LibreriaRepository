@@ -19,6 +19,7 @@ public class TrascrizioneDAO {
 		Statement stm = con.createStatement();
 		stm.executeUpdate("INSERT INTO Trascrizione(Pagina, Testo, IDUtente) values (" + idPag + ",'" + text + "',"
 				+ IDUtente + ");");
+		stm.executeUpdate("delete from Assegnazione where IDPagina="+idPag+" and IDUtente="+IDUtente);
 		return true;
 	}
 
@@ -56,6 +57,21 @@ public class TrascrizioneDAO {
 		Statement stm=con.createStatement();
 		stm.executeUpdate("update pagina set trascrizione="+IDTrascrizione+" where id="+IDpagina+" ;");
 		return true;
+	}
+	
+	//Per il capotrascrittore.
+	public static ResultSet getTrascrizioniDaRevisionare() {
+		try { Connection con = ConnectionDAO.getConnection();
+		Statement stm=con.createStatement();
+		ResultSet rs=stm.executeQuery("select t.ID,t.testo,t.IDUtente,p.ID,p.scanpath from pagina p, trascrizione t\r\n" + 
+				"where t.pagina=p.ID and t.accettato=0;");
+		return rs;
+		} catch (Exception e)
+		{
+			System.out.println(e);
+			ResultSet rs=null;
+			return rs;
+		}
 	}
 	
 	public static int getID(int IDPagina) {

@@ -5,10 +5,21 @@ public class Trascrizione {
 	private int ID;
 	private String testo;
 	private String annotazione;
-	private int pagina;
+	private int idPagina;
+	private String scanPagina;
 	private int accettato;
 	private int IDUtente;
 
+	//t.ID,t.testo,t.IDUtente,p.ID,p.scanpath
+	
+	public Trascrizione(int ID, String text, int IDUtente, int idPagina, String scanPagina) {
+		this.ID = ID;
+		this.testo = text;
+		this.IDUtente = IDUtente;
+		this.idPagina = idPagina;
+		this.scanPagina = scanPagina;
+	}
+	
 	
 	public Trascrizione() {
 		
@@ -18,7 +29,7 @@ public class Trascrizione {
 		this.ID = ID;
 		this.testo = testo;
 		this.annotazione = annotazione;
-		this.pagina = pagina;
+		this.idPagina = pagina;
 		this.accettato = accettato;
 		this.IDUtente = IDUtente;
 		
@@ -29,6 +40,14 @@ public class Trascrizione {
 		this.testo = testo;
 		this.IDUtente = IDUtente;
 
+	}
+	
+	public String getScanPagina() {
+		return this.scanPagina;
+	}
+	
+	public void setScanPagina(String scanPagina) {
+		this.scanPagina = scanPagina;
 	}
 	
 	public int getID() {
@@ -61,12 +80,12 @@ public class Trascrizione {
 	public void setIDUtente(int iDUtente) {
 		IDUtente = iDUtente;
 	}
-	public void setPagina(int pagina) {
-		this.pagina = pagina;
+	public void setidPagina(int pagina) {
+		this.idPagina = pagina;
 	}
 	
-	public int getPagina() {
-		return this.pagina;
+	public int getidPagina() {
+		return this.idPagina;
 	}
 	
 }

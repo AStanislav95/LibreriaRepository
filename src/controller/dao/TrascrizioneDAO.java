@@ -96,7 +96,7 @@ public class TrascrizioneDAO {
 	public static void mettiAnnotazione(int idtrascrizione, String annotazione) throws Exception {
 		Connection con = ConnectionDAO.getConnection();
 		Statement stm=con.createStatement();
-		stm.executeUpdate("update trascrizione set annotazione='"+annotazione+"' where id="+idtrascrizione);
+		stm.executeUpdate("update trascrizione set annotazioni='"+annotazione+"' where id="+idtrascrizione);
 	}
 	
 	public static ResultSet TrascrizioniAnnotazioniUtente(int idutente) {

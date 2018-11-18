@@ -122,7 +122,10 @@ public class TranscriberInterfaceController implements Initializable {
 					if(p.getID() == arg0.getValue()) {
 						
 						try {
+							
 							img.setImage(new Image(new FileInputStream(p.getScanpath())));
+							editor.setHtmlText(null);
+							
 						} catch (FileNotFoundException e) {
 							
 							e.printStackTrace();

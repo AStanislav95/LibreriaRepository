@@ -36,6 +36,9 @@ import model.Pagina;
 
 public class HomepageInterfaceController implements Initializable {
 
+	
+	@FXML
+	private Button revisioneTrascrizioni;
 	@FXML
 	private TextField searchBar;
 	@FXML
@@ -137,7 +140,16 @@ public class HomepageInterfaceController implements Initializable {
 	}
 
 
-
+	@FXML
+	private void revisione(ActionEvent e) throws Exception {
+		Stage stage = (Stage) revisioneTrascrizioni.getScene().getWindow(); 
+		Parent resultSearch = FXMLLoader.load(getClass().getResource("/view/GUI/CapoTrascrittore.fxml"));
+		
+		Scene scene = new Scene(resultSearch);
+		stage.setTitle("Revisione Trascrizioni");
+		stage.setScene(scene);
+		stage.show();
+	}
 
 	@FXML
 	private void upload(ActionEvent e) throws Exception {

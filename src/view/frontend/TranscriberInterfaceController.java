@@ -80,9 +80,9 @@ public class TranscriberInterfaceController implements Initializable {
 
 	@FXML
 	private void submit(ActionEvent e) throws Exception {
-		// rimuove l'elemento selezionato e fa il refresh della tabella
+		
 		 idPagine.remove(ind);
-		// ??? E' QUESTO SOPRA A NON FAR FUNZIONARE L'INSERTTRASCRIZIONE
+		
 		pagina.refresh();
 		
 		String text = getText(editor.getHtmlText());

@@ -99,4 +99,18 @@ public class TrascrizioneDAO {
 		stm.executeUpdate("update trascrizione set annotazione='"+annotazione+"' where id="+idtrascrizione);
 	}
 	
+	public static ResultSet TrascrizioniAnnotazioniUtente(int idutente) {
+		try {Connection con = ConnectionDAO.getConnection();
+		Statement stm=con.createStatement();
+		ResultSet rs=stm.executeQuery("select t.id as idtrascrizione, t.testo, t.annotazioni from trascrizione t, utente u\r\n" + 
+				"where t.IDUtente=u.ID and u.ID="+idutente);
+		return rs;
+		}catch(Exception e) {
+			System.out.println(e);
+			ResultSet rs=null;
+			return rs;
+		}
+		
+		
+	}
 }

@@ -1,5 +1,7 @@
 package controller.transcriber;
 
+import java.sql.ResultSet;
+
 import controller.dao.TrascrizioneDAO;
 
 public class RevisioneTrascrizioneController {
@@ -20,5 +22,10 @@ public class RevisioneTrascrizioneController {
 		}
 		}
 
+	public static ResultSet TrascrizioniAnnotazioniUtente(int idutente) {
+		
+		ResultSet rs=TrascrizioneDAO.TrascrizioniAnnotazioniUtente(idutente);
+		return rs;
+	}
 	
 }

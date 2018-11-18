@@ -81,11 +81,8 @@ public class TranscriberInterfaceController implements Initializable {
 	@FXML
 	private void submit(ActionEvent e) throws Exception {
 
-	
-		
 		String text = getText(editor.getHtmlText());
 	
-		
 		TrascrizioneEditorController.insertTrascrizione(idPagina, text, ObjectContenitor.utenteAttivo.getID());
 		idPagine.remove(ind);
 

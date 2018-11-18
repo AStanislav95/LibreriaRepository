@@ -10,6 +10,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import controller.dao.TrascrizioneDAO;
+import controller.transcriber.RevisioneTrascrizioneController;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -27,6 +28,8 @@ import javafx.scene.web.HTMLEditor;
 public class CapoTrascrittoreInterfaceController implements Initializable {
 
 	@FXML
+	private Button rimanda;
+	@FXML
 	private Button Homepage;
 	@FXML
 	private Button submit;
@@ -42,8 +45,14 @@ public class CapoTrascrittoreInterfaceController implements Initializable {
 	private ObservableList<Integer> idTrascrizioni = FXCollections.observableArrayList();
 	private ObservableList<String> tras = FXCollections.observableArrayList();
 	private ObservableList<String> scanPathTrascrizioni = FXCollections.observableArrayList();
+	private ObservableList<Integer> idPagina = FXCollections.observableArrayList();
 	
-
+	@FXML
+	private void rimanda(ActionEvent e) {
+		
+	}
+	
+	
 	@FXML
 	private void back(ActionEvent e) throws Exception {
 		Button b = (Button) e.getSource();
@@ -52,17 +61,8 @@ public class CapoTrascrittoreInterfaceController implements Initializable {
 
 	@FXML
 	private void submit(ActionEvent e) throws Exception {
-
-//		idPagine.remove(ind);
-//
-//		pagina.refresh();
-//
-//		String text = getText(editor.getHtmlText());
-//
-//		// -----------Non funziona----------
-//		TrascrizioneEditorController.insertTrascrizione(idPagina, text, ObjectContenitor.utenteAttivo.getID());
-//		// ------------ !! ----------
-//		editor.setHtmlText("");
+		
+		RevisioneTrascrizioneController.accettaTrascrizione(idTrascrizioni.get(ind), idPagina.get(ind));
 	}
 
 	@Override
@@ -76,6 +76,7 @@ public class CapoTrascrittoreInterfaceController implements Initializable {
 				idTrascrizioni.add(trascrizioni.getInt(1));
 				tras.add(trascrizioni.getString(2));
 				scanPathTrascrizioni.add(trascrizioni.getString(5));
+				idPagina.add(trascrizioni.getInt(4));
 				
 			}
 		} catch (SQLException e) {
@@ -91,7 +92,7 @@ public class CapoTrascrittoreInterfaceController implements Initializable {
 			public void changed(ObservableValue<? extends Integer> arg0, Integer arg1, Integer arg2) {
 				
 				ind = idTrasc.getSelectionModel().getSelectedIndex();
-				
+
 				try {
 					
 					img.setImage(new Image(new FileInputStream(scanPathTrascrizioni.get(ind))));

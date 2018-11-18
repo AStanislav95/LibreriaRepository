@@ -81,15 +81,15 @@ public class TranscriberInterfaceController implements Initializable {
 	@FXML
 	private void submit(ActionEvent e) throws Exception {
 
-		 idPagine.remove(ind);
+		idPagine.remove(ind);
 
 		pagina.refresh();
 		
 		String text = getText(editor.getHtmlText());
 	
-	//-----------Non funziona----------
-		TrascrizioneEditorController.insertTrascrizione(idPagina, text, ObjectContenitor.utenteAttivo.getID());
-	// ------------ !! ----------
+		
+		TrascrizioneEditorController.insertTrascrizione(idPagina -1, text, ObjectContenitor.utenteAttivo.getID());
+
 		editor.setHtmlText("");
 	}
 	
@@ -117,7 +117,7 @@ public class TranscriberInterfaceController implements Initializable {
 			public void changed(ObservableValue<? extends Integer> arg0, Integer arg1, Integer arg2) {
 				
 				ind = pagina.getSelectionModel().getSelectedIndex();
-				idPagina = arg0.getValue();
+				idPagina = arg2;
 
 
 				for(Pagina p: pagine) {
@@ -135,83 +135,6 @@ public class TranscriberInterfaceController implements Initializable {
 			}
 			
 		});
-
-		
-		
-		
-//		ObservableList<String> work = FXCollections.observableArrayList();
-//		ObservableList<Integer> pag = FXCollections.observableArrayList();
-//		ObservableList<Pagina> pagine = FXCollections.observableArrayList();
-//
-//		for (Manoscritto m : ObjectContenitor.listaManoscritti) {
-//
-//			work.add(m.getTitolo());
-//
-//		}
-//
-//		manoscritto.setItems(work);
-//		manoscritto.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-//		manoscritto.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-//
-//			@Override
-//			public void changed(ObservableValue<? extends String> arg0, String newValue, String oldValue) {
-//			
-//				pag.clear();
-//				pagine.clear();
-//			
-//				//pagineAssegnate(idUtenteAttivo)
-//				
-//				for (Manoscritto m : ObjectContenitor.listaManoscritti) {
-//
-//					
-//					if(m.getTitolo().equals(arg0.getValue())) {
-//						
-//					
-//						for (Pagina p : m.getListaPagine()) {
-//							if(p.getTrascrizione().equals("Trascrizione non disponibile")) {
-//								pagine.add(p);
-//								pag.add(p.getNumero());
-//							}
-//							
-//						}
-//					}
-//					
-//				}
-//				
-//				pagina.setItems(pag);
-//			
-//			}
-//		
-//			
-//		});// end
-//		
-//		pagina.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-//		pagina.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Integer>() {
-//
-//			@Override
-//			public void changed(ObservableValue<? extends Integer> arg0, Integer arg1, Integer arg2) {
-//				
-//			
-//				
-//				for(Pagina p : pagine) {
-//					
-//					if(p.getNumero() ==arg0.getValue()) {
-//					
-//						idPagina = p.getID();
-//					
-//						try {
-//							
-//							img.setImage(new Image(new FileInputStream(p.getScanpath())));
-//						} catch (FileNotFoundException e) {
-//							// TODO Auto-generated catch block
-//							e.printStackTrace();
-//						}
-//					}
-//				}
-//				
-//			}
-//
-//		});
 
 	}
 

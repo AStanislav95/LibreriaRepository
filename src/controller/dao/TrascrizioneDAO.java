@@ -56,8 +56,8 @@ public class TrascrizioneDAO {
 	public static boolean accettaTrascrizione(int IDpagina, int IDTrascrizione) throws Exception	{
 		Connection con = ConnectionDAO.getConnection();
 		Statement stm=con.createStatement();
-		stm.executeUpdate("update pagina set trascrizione="+IDTrascrizione+" where id="+IDpagina+" ;"
-				+ "update trascrizione set accettato=1 where id="+IDTrascrizione+";");
+		stm.executeUpdate("update pagina set trascrizione="+IDTrascrizione+" where id="+IDpagina+" ;");
+		stm.executeUpdate("update trascrizione set accettato=1 where id="+IDTrascrizione+";");
 		return true;
 	}
 	

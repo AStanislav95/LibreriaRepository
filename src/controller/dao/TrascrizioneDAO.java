@@ -57,7 +57,8 @@ public class TrascrizioneDAO {
 		Connection con = ConnectionDAO.getConnection();
 		Statement stm=con.createStatement();
 		stm.executeUpdate("update pagina set trascrizione="+IDTrascrizione+" where id="+IDpagina+" ;");
-		stm.executeUpdate("update trascrizione set accettato=1 where id="+IDTrascrizione+";");
+		Statement stm2=con.createStatement();
+		stm2.executeUpdate("update trascrizione set accettato=1 where id="+IDTrascrizione+";");
 		return true;
 	}
 	

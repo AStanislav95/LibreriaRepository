@@ -9,9 +9,7 @@ import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import controller.dao.PaginaDAO;
 import controller.dao.TrascrizioneDAO;
-import controller.transcriber.TrascrizioneEditorController;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -25,8 +23,6 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.web.HTMLEditor;
-import model.ObjectContenitor;
-import model.Pagina;
 
 public class CapoTrascrittoreInterfaceController implements Initializable {
 

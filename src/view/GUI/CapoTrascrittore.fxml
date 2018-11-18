@@ -12,7 +12,7 @@
    <children>
       <Button fx:id="Homepage" layoutX="14.0" layoutY="23.0" mnemonicParsing="false" onAction="#back" prefHeight="32.0" prefWidth="137.0" style="-fx-background-color: #3b3131;" text="Indietro" textFill="WHITE" />
       <ImageView fx:id="img" fitHeight="334.0" fitWidth="442.0" layoutX="152.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="submit" layoutX="667.0" layoutY="609.0" mnemonicParsing="false" onAction="#submit" prefHeight="27.0" prefWidth="162.0" style="-fx-background-color: #3b3131;" text="Presenta Trascrizione" textFill="WHITE" />
+      <Button fx:id="submit" layoutX="667.0" layoutY="609.0" mnemonicParsing="false" onAction="#submit" prefHeight="27.0" prefWidth="162.0" style="-fx-background-color: #3b3131;" text="AccettaTrascrizione" textFill="WHITE" />
       <TitledPane fx:id="id" animated="false" collapsible="false" layoutX="14.0" layoutY="127.0" prefHeight="626.0" prefWidth="90.0" text="id Trascrizioni">
          <content>
             <ListView fx:id="idTrasc" prefHeight="398.0" prefWidth="90.0">

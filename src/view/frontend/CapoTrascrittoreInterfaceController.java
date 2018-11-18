@@ -61,8 +61,9 @@ public class CapoTrascrittoreInterfaceController implements Initializable {
 
 	@FXML
 	private void submit(ActionEvent e) throws Exception {
-		
-		RevisioneTrascrizioneController.accettaTrascrizione(idTrascrizioni.get(ind), idPagina.get(ind));
+		System.out.println(idTrascrizioni.get(ind));
+		System.out.println(idPagina.get(ind));
+		RevisioneTrascrizioneController.accettaTrascrizione(idPagina.get(ind),idTrascrizioni.get(ind));
 	}
 
 	@Override

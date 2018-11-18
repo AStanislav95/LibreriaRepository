@@ -59,6 +59,21 @@ public class TrascrizioneDAO {
 		return true;
 	}
 	
+	//Per il capotrascrittore.
+	public static ResultSet getTrascrizioniDaRevisionare() {
+		try { Connection con = ConnectionDAO.getConnection();
+		Statement stm=con.createStatement();
+		ResultSet rs=stm.executeQuery("select t.ID,t.testo,t.IDUtente,p.ID,p.scanpath from pagina p, trascrizione t\r\n" + 
+				"where t.pagina=p.ID and t.accettato=0;");
+		return rs;
+		} catch (Exception e)
+		{
+			System.out.println(e);
+			ResultSet rs=null;
+			return rs;
+		}
+	}
+	
 	public static int getID(int IDPagina) {
 		try{Connection con = ConnectionDAO.getConnection();
 		Statement stm=con.createStatement();

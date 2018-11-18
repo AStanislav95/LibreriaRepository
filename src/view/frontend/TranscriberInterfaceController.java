@@ -70,7 +70,7 @@ public class TranscriberInterfaceController implements Initializable {
 
 	private ObservableList<Integer> idPagine = FXCollections.observableArrayList();
 	private ObservableList<Pagina> pagine = FXCollections.observableArrayList();
-	private static int index;
+	private static int ind;
 	
 	@FXML
 	private void back(ActionEvent e) throws Exception {
@@ -80,8 +80,10 @@ public class TranscriberInterfaceController implements Initializable {
 
 	@FXML
 	private void submit(ActionEvent e) throws Exception {
-		 idPagine.remove(index);
-	
+
+		// rimuove l'elemento selezionato e fa il refresh della tabella
+		 idPagine.remove(ind);
+		// ??? E' QUESTO SOPRA A NON FAR FUNZIONARE L'INSERTTRASCRIZIONE
 		pagina.refresh();
 		
 		String text = getText(editor.getHtmlText());
@@ -94,12 +96,7 @@ public class TranscriberInterfaceController implements Initializable {
 	
 	
 	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-
-		
-
-		
-	
+	public void initialize(URL location, ResourceBundle resources) {	
 		
 		ResultSet pagineAssegnate = PaginaDAO.pagineAssegnate(ObjectContenitor.utenteAttivo.getID());
 		
@@ -120,7 +117,7 @@ public class TranscriberInterfaceController implements Initializable {
 			@Override
 			public void changed(ObservableValue<? extends Integer> arg0, Integer arg1, Integer arg2) {
 				
-				index = pagina.getSelectionModel().getSelectedIndex();
+				ind = pagina.getSelectionModel().getSelectedIndex();
 				idPagina = arg0.getValue();
 
 

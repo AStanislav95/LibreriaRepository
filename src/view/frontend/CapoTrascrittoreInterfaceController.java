@@ -10,6 +10,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import controller.dao.TrascrizioneDAO;
+import controller.manager.AssegnazioneTrascrizioniController;
 import controller.transcriber.RevisioneTrascrizioneController;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -24,6 +25,7 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.web.HTMLEditor;
+import model.Trascrizione;
 
 public class CapoTrascrittoreInterfaceController implements Initializable {
 
@@ -43,12 +45,21 @@ public class CapoTrascrittoreInterfaceController implements Initializable {
 	
 	private static int ind;
 	private ObservableList<Integer> idTrascrizioni = FXCollections.observableArrayList();
-	private ObservableList<String> tras = FXCollections.observableArrayList();
-	private ObservableList<String> scanPathTrascrizioni = FXCollections.observableArrayList();
-	private ObservableList<Integer> idPagina = FXCollections.observableArrayList();
+	
+	private ObservableList<Trascrizione> trasc = FXCollections.observableArrayList();
 	
 	@FXML
-	private void rimanda(ActionEvent e) {
+	private void rimanda(ActionEvent e) throws Exception {
+		
+		String annotazione = getText(editor.getHtmlText());
+		System.out.println(idTrascrizioni.get(ind));
+		RevisioneTrascrizioneController.mettiAnnotazione(idTrascrizioni.get(ind), annotazione);
+		
+		AssegnazioneTrascrizioniController.AssegnaTrascrizione(trasc.get(ind).getIDUtente(), trasc.get(ind).getidPagina());
+		
+		idTrascrizioni.remove(ind);
+		idTrasc.refresh();
+
 		
 	}
 	
@@ -61,23 +72,29 @@ public class CapoTrascrittoreInterfaceController implements Initializable {
 
 	@FXML
 	private void submit(ActionEvent e) throws Exception {
-		System.out.println(idTrascrizioni.get(ind));
-		System.out.println(idPagina.get(ind));
-		RevisioneTrascrizioneController.accettaTrascrizione(idPagina.get(ind),idTrascrizioni.get(ind));
+	
+		RevisioneTrascrizioneController.accettaTrascrizione(trasc.get(ind).getidPagina(),trasc.get(ind).getID());
+		
+		idTrascrizioni.remove(ind);
+
+		idTrasc.refresh();
+
 	}
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
-		ResultSet trascrizioni = TrascrizioneDAO.getTrascrizioniDaRevisionare();
+		ResultSet tr = TrascrizioneDAO.getTrascrizioniDaRevisionare();
 		
 		try {
-			while(trascrizioni.next()) {
+			while(tr.next()) {
 				
-				idTrascrizioni.add(trascrizioni.getInt(1));
-				tras.add(trascrizioni.getString(2));
-				scanPathTrascrizioni.add(trascrizioni.getString(5));
-				idPagina.add(trascrizioni.getInt(4));
+				//t.ID,t.testo,t.IDUtente,p.ID,p.scanpath
+				
+				trasc.add(new Trascrizione(tr.getInt(1), tr.getString(2), tr.getInt(3), tr.getInt(4), tr.getString(5)));
+						
+				idTrascrizioni.add(tr.getInt(1));
+
 				
 			}
 		} catch (SQLException e) {
@@ -96,9 +113,9 @@ public class CapoTrascrittoreInterfaceController implements Initializable {
 
 				try {
 					
-					img.setImage(new Image(new FileInputStream(scanPathTrascrizioni.get(ind))));
+					img.setImage(new Image(new FileInputStream(trasc.get(ind).getScanPagina())));
 					
-					editor.setHtmlText(tras.get(ind));
+					editor.setHtmlText(trasc.get(ind).getTesto());
 					
 				} catch (FileNotFoundException e) {
 				

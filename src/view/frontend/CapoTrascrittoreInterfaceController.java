@@ -52,8 +52,9 @@ public class CapoTrascrittoreInterfaceController implements Initializable {
 	private void rimanda(ActionEvent e) throws Exception {
 		
 		String annotazione = getText(editor.getHtmlText());
-		System.out.println(idTrascrizioni.get(ind));
-		RevisioneTrascrizioneController.mettiAnnotazione(idTrascrizioni.get(ind), annotazione);
+		
+		
+		RevisioneTrascrizioneController.mettiAnnotazione(trasc.get(ind).getID(), annotazione);
 		
 		AssegnazioneTrascrizioniController.AssegnaTrascrizione(trasc.get(ind).getIDUtente(), trasc.get(ind).getidPagina());
 		

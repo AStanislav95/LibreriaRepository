@@ -47,6 +47,7 @@ import javafx.stage.Stage;
 import model.Manoscritto;
 import model.ObjectContenitor;
 import model.Pagina;
+import model.Trascrizione;
 
 public class TranscriberInterfaceController implements Initializable {
 //Stas pagliaccio
@@ -67,9 +68,13 @@ public class TranscriberInterfaceController implements Initializable {
 	@FXML
 	private HTMLEditor editor;
 
-
+	String annotazione = null;
 	private ObservableList<Integer> idPagine = FXCollections.observableArrayList();
 	private ObservableList<Pagina> pagine = FXCollections.observableArrayList();
+	private ObservableList<Trascrizione> tr = FXCollections.observableArrayList();
+	
+	private ObservableList<Pagina> pagComplete = FXCollections.observableArrayList();
+	
 	private static int ind;
 	
 	@FXML
@@ -95,18 +100,26 @@ public class TranscriberInterfaceController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {	
 		
-		ResultSet pagineAssegnate = PaginaDAO.pagineAssegnate(ObjectContenitor.utenteAttivo.getID());
+		//idPagina,Scanpath,trascrizione, annotazione	
+		ResultSet rs = RevisioneTrascrizioniController.infoTrascrizioni(ObjectContenitor.utenteAttivo.getID());
 		
 		try {
-			while(pagineAssegnate.next()) {
-				idPagine.add(pagineAssegnate.getInt(1));
-				pagine.add(new Pagina(pagineAssegnate.getInt(1), pagineAssegnate.getString(2) ));
+			while(rs.next()) {
+				idPagine.add(rs.getInt(1));
+				
+				if(rs.getString(3) != null) {
+					pagComplete.add(new Pagina(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4)));
+				}else {
+					pagComplete.add(new Pagina(rs.getInt(1), rs.getString(2), "Trascrizione non disponibile", rs.getString(4)));
+				}
+				
 			}
-		} catch (SQLException e) {
-			
-			e.printStackTrace();
+		} catch (SQLException e1) {
+		
+			e1.printStackTrace();
 		}
-
+		
+		
 		pagina.setItems(idPagine);
 		pagina.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 		pagina.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Integer>() {
@@ -118,19 +131,38 @@ public class TranscriberInterfaceController implements Initializable {
 				idPagina = arg2;
 
 
-				for(Pagina p: pagine) {
-					if(p.getID() == arg0.getValue()) {
-						
-						try {
-							
-							img.setImage(new Image(new FileInputStream(p.getScanpath())));
-							editor.setHtmlText(null);
-							
-						} catch (FileNotFoundException e) {
-							
-							e.printStackTrace();
-						}
+//				for(Pagina p: pagine) {
+//					
+//					if(p.getID() == arg0.getValue()) {
+//						
+//						try {
+//							
+//							img.setImage(new Image(new FileInputStream(p.getScanpath())));
+//							editor.setHtmlText(null);
+//							
+//						} catch (FileNotFoundException e) {
+//							
+//							e.printStackTrace();
+//						}
+//					}
+//				}
+				try {
+					
+					img.setImage(new Image(new FileInputStream(pagComplete.get(ind).getScanpath())));
+					
+					if(pagComplete.get(ind).getAnnotazione() == null) {
+						annotazione = "";
+					}else {
+						annotazione = "<br><hr> Annotazioni:<br> <b>" + pagComplete.get(ind).getAnnotazione() + "</b>";
 					}
+					
+					
+					editor.setHtmlText(pagComplete.get(ind).getTrascrizione()+ annotazione);
+					
+					
+				} catch (FileNotFoundException e) {
+					
+					e.printStackTrace();
 				}
 				
 			}

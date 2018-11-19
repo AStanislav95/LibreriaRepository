@@ -21,6 +21,13 @@ public class Trascrizione {
 	}
 	
 	
+	//t.id, t.testo, t.annotazioni
+	public Trascrizione(int id, String text, String annotazione) {
+		this.ID = id;
+		this.testo = text;
+		this.annotazione = annotazione;
+	}
+	
 	public Trascrizione() {
 		
 	}

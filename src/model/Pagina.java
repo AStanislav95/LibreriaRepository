@@ -8,20 +8,22 @@ public class Pagina {
 	private int accettato;
 	private String scanpath;
 	private String trascrizione;
-	private Trascrizione trasc = new Trascrizione();
+	private String annotazione;
+
 	
 	
 	public Pagina() {
 		
 	}
 	
-	
-	public Pagina(int numero, int manoscritto, String scanPath, Trascrizione trasc) {
-		this.numero = numero;
-		this.manoscritto = manoscritto;
-		this.scanpath = scanPath;
-		this.trasc = trasc;
+	//idPagina,Scanpath,trascrizione, annotazione	
+	public Pagina(int idPagina, String scanpath, String trasc, String annotazione) {
+		this.ID = idPagina;
+		this.scanpath = scanpath;
+		this.trascrizione = trasc;
+		this.annotazione = annotazione;
 	}
+	
 
 	
 	public Pagina(int numero, int manoscritto, String scanpath ) {
@@ -87,13 +89,14 @@ public class Pagina {
 	public void setTrascrizione(String trascrizione) {
 		this.trascrizione = trascrizione;
 	}
-	
-	public Trascrizione getTrasc() {
-		return this.trasc;
+
+	public String getAnnotazione() {
+		return annotazione;
 	}
-	
-	public void setTrasc(Trascrizione t) {
-		this.trasc = t;
+
+	public void setAnnotazione(String annotazione) {
+		this.annotazione = annotazione;
 	}
+
 
 }

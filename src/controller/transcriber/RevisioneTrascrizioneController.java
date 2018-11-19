@@ -28,4 +28,9 @@ public class RevisioneTrascrizioneController {
 		return rs;
 	}
 	
+	public static ResultSet infoTrascrizioni(int idutente) {
+		
+		return TrascrizioneDAO.infoTrascrizioni(idutente);
+	}
+	
 }

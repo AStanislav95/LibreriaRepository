@@ -19,11 +19,10 @@ public class TrascrizioneDAO {
 		Statement stm = con.createStatement();
 		stm.executeUpdate("INSERT INTO Trascrizione(Pagina, Testo, IDUtente) values (" + idPag + ",'" + text + "',"
 				+ IDUtente + ");");
-		stm.executeUpdate("delete from Assegnazione where IDPagina="+idPag+" and IDUtente="+IDUtente);
+		stm.executeUpdate("delete from Assegnazione where IDPagina=" + idPag + " and IDUtente=" + IDUtente);
 		return true;
 	}
 
-	
 	public static boolean insertAssegnazione(int IDutente, int IDpagina) throws Exception {
 		Connection con = ConnectionDAO.getConnection();
 		Statement stm = con.createStatement();
@@ -51,66 +50,93 @@ public class TrascrizioneDAO {
 		} else
 			return false;
 	}
-	
-	//Per il capotrascrittore
-	public static boolean accettaTrascrizione(int IDpagina, int IDTrascrizione) throws Exception	{
+
+	// Per il capotrascrittore
+	public static boolean accettaTrascrizione(int IDpagina, int IDTrascrizione) throws Exception {
 		Connection con = ConnectionDAO.getConnection();
-		Statement stm=con.createStatement();
-		stm.executeUpdate("update pagina set trascrizione="+IDTrascrizione+" where id="+IDpagina+" ;");
-		Statement stm2=con.createStatement();
-		stm2.executeUpdate("update trascrizione set accettato=1 where id="+IDTrascrizione+";");
+		Statement stm = con.createStatement();
+		stm.executeUpdate("update pagina set trascrizione=" + IDTrascrizione + " where id=" + IDpagina + " ;");
+		Statement stm2 = con.createStatement();
+		stm2.executeUpdate("update trascrizione set accettato=1 where id=" + IDTrascrizione + ";");
 		return true;
 	}
-	
-	//Per il capotrascrittore.
+
+	// Per il capotrascrittore.
 	public static ResultSet getTrascrizioniDaRevisionare() {
-		try { Connection con = ConnectionDAO.getConnection();
-		Statement stm=con.createStatement();
-		ResultSet rs=stm.executeQuery("select t.ID,t.testo,t.IDUtente,p.ID,p.scanpath from pagina p, trascrizione t\r\n" + 
-				"where t.pagina=p.ID and t.accettato=0;");
-		return rs;
-		} catch (Exception e)
-		{
+		try {
+			Connection con = ConnectionDAO.getConnection();
+			Statement stm = con.createStatement();
+			ResultSet rs = stm
+					.executeQuery("select t.ID,t.testo,t.IDUtente,p.ID,p.scanpath from pagina p, trascrizione t\r\n"
+							+ "where t.pagina=p.ID and t.accettato=0;");
+			return rs;
+		} catch (Exception e) {
 			System.out.println(e);
-			ResultSet rs=null;
+			ResultSet rs = null;
 			return rs;
 		}
 	}
-	
+
 	public static int getID(int IDPagina) {
-		try{Connection con = ConnectionDAO.getConnection();
-		Statement stm=con.createStatement();
-		ResultSet rs=stm.executeQuery("select * from trascrizione where pagina="+IDPagina);
-		if(rs.next())
-		return rs.getInt(1);
-		else
-			return -1;
-		}
-		catch (Exception e) {
+		try {
+			Connection con = ConnectionDAO.getConnection();
+			Statement stm = con.createStatement();
+			ResultSet rs = stm.executeQuery("select * from trascrizione where pagina=" + IDPagina);
+			if (rs.next())
+				return rs.getInt(1);
+			else
+				return -1;
+		} catch (Exception e) {
 			System.out.println(e);
 			return -1;
 		}
-		}
-	
-	
+	}
+
 	public static void mettiAnnotazione(int idtrascrizione, String annotazione) throws Exception {
 		Connection con = ConnectionDAO.getConnection();
-		Statement stm=con.createStatement();
-		stm.executeUpdate("update trascrizione set annotazioni='"+annotazione+"' where id="+idtrascrizione);
+		Statement stm = con.createStatement();
+		stm.executeUpdate("update trascrizione set annotazioni='" + annotazione + "' where id=" + idtrascrizione);
 	}
-	
+
 	public static ResultSet TrascrizioniAnnotazioniUtente(int idutente) {
-		try {Connection con = ConnectionDAO.getConnection();
-		Statement stm=con.createStatement();
-		ResultSet rs=stm.executeQuery("select t.id, t.testo, t.annotazioni from trascrizione t, utente u\r\n" + 
-				"where t.IDUtente=u.ID and u.ID="+idutente);
-		return rs;
-		}catch(Exception e) {
+		try {
+			Connection con = ConnectionDAO.getConnection();
+			Statement stm = con.createStatement();
+			ResultSet rs = stm.executeQuery("select t.id, t.testo, t.annotazioni from trascrizione t, utente u\r\n"
+					+ "where t.IDUtente=u.ID and u.ID=" + idutente);
+			return rs;
+		} catch (Exception e) {
 			System.out.println(e);
-			ResultSet rs=null;
+			ResultSet rs = null;
 			return rs;
 		}
-		
-		
+	}
+
+	public static ResultSet infoTrascrizioni(int idutente) {
+		try {
+			Connection con = ConnectionDAO.getConnection();
+			Statement stm = con.createStatement();
+			stm.executeUpdate("create or replace view pagineassegnate as "
+					+ "select p.id, p.scanpath from pagina p, assegnazione a, utente u " + "where a.idutente="
+					+ idutente + " and p.id=a.idpagina and u.id=a.idutente");
+			Statement stm2 = con.createStatement();
+			stm2.executeUpdate("create or replace view  trascrizioniUtente as "
+					+ "select t.testo, t.annotazioni, t.pagina from trascrizione t, utente u "
+					+ "where t.IDUtente=u.id and u.id=" + idutente);
+			Statement stm3 = con.createStatement();
+			stm3.executeUpdate("create or replace view infoTrascrizioni as"
+					+ "select pagineassegnate.id, pagineassegnate.scanpath, trascrizioniutente.testo,"
+					+ " trascrizioniutente.annotazioni "
+					+ "from pagineassegnate LEFT JOIN trascrizioniutente on (pagineassegnate.id=trascrizioniutente.pagina);");
+			Statement stm4 = con.createStatement();
+			ResultSet rs = stm4.executeQuery("select * from infoTrascrizioni");
+			return rs;
+
+		} catch (Exception e) {
+			ResultSet rs = null;
+			System.out.println(e);
+			return rs;
+		}
+
 	}
 }

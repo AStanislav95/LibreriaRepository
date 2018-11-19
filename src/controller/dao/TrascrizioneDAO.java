@@ -68,7 +68,7 @@ public class TrascrizioneDAO {
 			Statement stm = con.createStatement();
 			ResultSet rs = stm
 					.executeQuery("select t.ID,t.testo,t.IDUtente,p.ID,p.scanpath from pagina p, trascrizione t\r\n"
-							+ "where t.pagina=p.ID and t.accettato=0;");
+							+ "where t.pagina=p.ID and t.accettato=0 and t.annotazioni is null ;");
 			return rs;
 		} catch (Exception e) {
 			System.out.println(e);

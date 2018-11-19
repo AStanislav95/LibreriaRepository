@@ -25,9 +25,10 @@ public class TrascrizioneDAO {
 	public static boolean insertTrascrizione(int idPag, String text, int IDUtente) throws Exception {
 		Connection con = ConnectionDAO.getConnection();
 		Statement stm = con.createStatement();
-		
+		Statement stm2=con.createStatement();
 		if (haTrascrizione(idPag)) {
-		stm.executeUpdate("Update trascrizione set testo='"+text+"' where pagina="+idPag);
+		stm.executeUpdate("SET SQL_SAFE_UPDATES = 0;");
+		stm2.executeUpdate("Update trascrizione set testo='"+text+"' where pagina="+idPag);
 		return true;
 		}
 		else {

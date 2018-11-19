@@ -124,7 +124,7 @@ public class TrascrizioneDAO {
 					+ "select t.testo, t.annotazioni, t.pagina from trascrizione t, utente u "
 					+ "where t.IDUtente=u.id and u.id=" + idutente);
 			Statement stm3 = con.createStatement();
-			stm3.executeUpdate("create or replace view infoTrascrizioni as"
+			stm3.executeUpdate("create or replace view infoTrascrizioni as "
 					+ "select pagineassegnate.id, pagineassegnate.scanpath, trascrizioniutente.testo,"
 					+ " trascrizioniutente.annotazioni "
 					+ "from pagineassegnate LEFT JOIN trascrizioniutente on (pagineassegnate.id=trascrizioniutente.pagina);");

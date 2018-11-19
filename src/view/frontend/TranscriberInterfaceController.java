@@ -101,7 +101,7 @@ public class TranscriberInterfaceController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {	
 		
 		//idPagina,Scanpath,trascrizione, annotazione	
-		ResultSet rs = RevisioneTrascrizioniController.infoTrascrizioni(ObjectContenitor.utenteAttivo.getID());
+		ResultSet rs = RevisioneTrascrizioneController.infoTrascrizioni(ObjectContenitor.utenteAttivo.getID());
 		
 		try {
 			while(rs.next()) {

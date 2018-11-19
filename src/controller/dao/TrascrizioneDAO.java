@@ -14,13 +14,27 @@ public class TrascrizioneDAO {
 		return rs;
 	}
 
+	public static boolean haTrascrizione(int idpag) throws Exception {
+		Connection con = ConnectionDAO.getConnection();
+		Statement stm = con.createStatement();
+		ResultSet rs=stm.executeQuery("select * from trascrizione where pagina="+idpag);
+		return rs.next();
+		
+	}
+	
 	public static boolean insertTrascrizione(int idPag, String text, int IDUtente) throws Exception {
 		Connection con = ConnectionDAO.getConnection();
 		Statement stm = con.createStatement();
+		
+		if (haTrascrizione(idPag)) {
+		stm.executeUpdate("Update trascrizione set testo='"+text+"' where pagina="+idPag);
+		return true;
+		}
+		else {
 		stm.executeUpdate("INSERT INTO Trascrizione(Pagina, Testo, IDUtente) values (" + idPag + ",'" + text + "',"
 				+ IDUtente + ");");
 		stm.executeUpdate("delete from Assegnazione where IDPagina=" + idPag + " and IDUtente=" + IDUtente);
-		return true;
+		return true;}
 	}
 
 	public static boolean insertAssegnazione(int IDutente, int IDpagina) throws Exception {

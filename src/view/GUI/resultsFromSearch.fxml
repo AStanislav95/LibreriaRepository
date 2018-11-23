@@ -1,22 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.frontend.ResultsFromSearchInterfaceController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.frontend.ResultsFromSearchInterfaceController">
    <children>
-      <Button fx:id="Homepage" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #3b3131;" text="Indietro" textFill="WHITE" />
-      <ImageView fx:id="selectedImage" fitHeight="361.0" fitWidth="439.0" layoutX="321.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true" />
-      <TitledPane animated="false" collapsible="false" layoutX="14.0" layoutY="102.0" prefHeight="528.0" prefWidth="202.0" text="Lista pagine">
+      <AnchorPane fx:id="header" layoutX="36.0" layoutY="8.0" prefHeight="150.0" prefWidth="1200.0" AnchorPane.bottomAnchor="650.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="170.0" fitWidth="335.0" layoutX="48.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images%20Interface/ZAPPA.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="483.0" layoutY="50.0" text="Risultati Della Ricerca">
+               <font>
+                  <Font size="33.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="Homepage" buttonType="RAISED" contentDisplay="TOP" layoutX="970.0" layoutY="21.0" minHeight="108.0" minWidth="142.0" onAction="#back" prefHeight="108.0" prefWidth="142.0" text="Homepage">
+               <graphic>
+                  <ImageView fitHeight="45.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images%20Interface/Interfacce%20imagini/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="selectedImage" fitHeight="361.0" fitWidth="439.0" layoutX="328.0" layoutY="292.0" pickOnBounds="true" preserveRatio="true" />
+      <TitledPane animated="false" collapsible="false" layoutX="79.0" layoutY="187.0" prefHeight="528.0" prefWidth="202.0" text="Lista pagine">
          <content>
             <ListView fx:id="listView" prefHeight="455.0" prefWidth="200.0" />
          </content>
       </TitledPane>
-      <Label fx:id="trascrizione" layoutX="810.0" layoutY="185.0" prefHeight="379.0" prefWidth="344.0" />
-      <Button fx:id="download" layoutX="501.0" layoutY="656.0" mnemonicParsing="false" onAction="#download" prefHeight="26.0" prefWidth="140.0" text="Download" />
+      <Label fx:id="trascrizione" layoutX="791.0" layoutY="309.0" prefHeight="285.0" prefWidth="344.0" />
+      <Label layoutX="373.0" layoutY="229.0" prefHeight="49.0" prefWidth="324.0" text="Anteprima Pagina:">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="824.0" layoutY="229.0" prefHeight="49.0" prefWidth="324.0" text="Anteprima Trascrizione:">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

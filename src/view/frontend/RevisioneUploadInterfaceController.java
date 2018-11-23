@@ -45,6 +45,8 @@ import model.Pagina;
 
 public class RevisioneUploadInterfaceController implements Initializable {
 
+	static int idPagina;
+	static Object paginaSelezionata;
 	@FXML
 	private Button Homepage;
 	@FXML
@@ -53,83 +55,93 @@ public class RevisioneUploadInterfaceController implements Initializable {
 	private Button rifiuta;
 	@FXML
 	private Button Profile;
-
+	
 	@FXML
 	private ListView<Integer> pagina;
 	@FXML
 	private ImageView img;
-
-	private static int ind;
-	private static int paginaSelezionata;
-
+	
 	private ObservableList<Pagina> listaPagine = FXCollections.observableArrayList();
 	private ObservableList<Integer> idPagine = FXCollections.observableArrayList();
 
 	@FXML
 	private void homepage(ActionEvent e) throws Exception {
-		Button b = (Button) e.getSource();
+		Button b= (Button)e.getSource();
 		CambiaScene.CambiaStage(b);
 	}
 
 	@FXML
 	private void accettaScan(ActionEvent e) throws Exception {
-		PaginaDAO.accettaScan(paginaSelezionata);
-
-		idPagine.remove(ind);
-		pagina.refresh();
+		PaginaDAO.accettaScan(idPagina);
+		pagina.getItems().remove(0, idPagine.size());
 		img.setImage(null);
-
+		ResultSet rs = PaginaDAO.listaScan();
+		while(rs.next()) {
+			idPagine.add(rs.getInt(1));
+		}
+		
+		
+		pagina.setItems(idPagine);
+		
+		
 	}
-
+	
 	@FXML
 	private void rifiutaScan(ActionEvent e) throws Exception {
-		PaginaDAO.rifiutaScan(paginaSelezionata);
-		
-		idPagine.remove(ind);
-		pagina.refresh();
+		PaginaDAO.rifiutaScan(idPagina);
+		pagina.getItems().remove(0, idPagine.size());
 		img.setImage(null);
-
+		ResultSet rs = PaginaDAO.listaScan();
+		while(rs.next()) {
+			idPagine.add(rs.getInt(1));
+		}
+		
+		
+		pagina.setItems(idPagine);
+	
 	}
+
 
 	@FXML
 	private void profile(ActionEvent e) throws Exception {
-		Button b = (Button) e.getSource();
+		Button b= (Button)e.getSource();
 		CambiaScene.CambiaStage(b);
 	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-
+		
 		try {
 			ResultSet pagineDaAccettare = PaginaDAO.listaScan();
-
-			while (pagineDaAccettare.next()) {
-
+			
+			while(pagineDaAccettare.next()) {
+				
 				idPagine.add(pagineDaAccettare.getInt(1));
-
+				
+				
 				listaPagine.add(new Pagina(pagineDaAccettare.getInt(1), pagineDaAccettare.getString(2)));
-
+				
 			}
-
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		
+		
 		pagina.setItems(idPagine);
 		pagina.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 		pagina.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Integer>() {
 
 			@Override
 			public void changed(ObservableValue<? extends Integer> arg0, Integer arg1, Integer arg2) {
-				paginaSelezionata = arg0.getValue();
+				paginaSelezionata = arg0;
 				for (Pagina p : listaPagine) {
-
-					if (p.getID() == arg0.getValue()) {
+					
+					
+					if(p.getID() == arg0.getValue()) {
 						try {
-
-							ind = pagina.getSelectionModel().getSelectedIndex();
-
+							idPagina = p.getID();
 							img.setImage(new Image(new FileInputStream(p.getScanpath())));
 						} catch (FileNotFoundException e) {
 							// TODO Auto-generated catch block
@@ -138,9 +150,10 @@ public class RevisioneUploadInterfaceController implements Initializable {
 					}
 				}
 			}
-
+			
 		});
-
+		
+		
 	}
 
 }

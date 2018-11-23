@@ -92,7 +92,6 @@ public class TranscriberCandidatureControllerInterface implements Initializable 
             dbtable.setItems(data);
         } catch (Exception exx) {
             exx.printStackTrace();
-            System.out.println("Error on Building Data");
         }
     }
 
@@ -114,7 +113,7 @@ public class TranscriberCandidatureControllerInterface implements Initializable 
 		}
 	
 	@FXML
-	private void adminInterface(ActionEvent e) throws IOException {
+	private void Adminpage(ActionEvent e) throws IOException {
 		Button b= (Button)e.getSource();
 		CambiaScene.CambiaStage(b);
 	}

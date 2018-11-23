@@ -6,7 +6,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,7 +21,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.image.Image;
@@ -45,8 +43,6 @@ public class SearchByNameInterfaceController implements Initializable {
 	private Button Homepage;
 	@FXML
 	private Button download;
-	@FXML
-	private Label trascrizione;
 
 	@FXML
 	private void download(ActionEvent e) {
@@ -60,7 +56,6 @@ public class SearchByNameInterfaceController implements Initializable {
 			ImageIO.write(SwingFXUtils.fromFXImage(selectedImage.getImage(),
 	                        null), "png", file);
 		    }catch(IOException ex){
-			System.out.println(ex.getMessage());
 		    }
 	}
 
@@ -76,12 +71,12 @@ public class SearchByNameInterfaceController implements Initializable {
 	public void initialize(URL url, ResourceBundle rb) {
 		
 		ObservableList<ImageView> listImage = FXCollections.observableArrayList();
-		ArrayList<String> listTrascrizioni = new ArrayList<>();
+		
 	
 		for(Pagina p: HomepageInterfaceController.getpagManoscritti()) {
 			
 			try {
-				listTrascrizioni.add(p.getTrascrizione());
+				
 				listImage.add(generateImage(p.getScanpath()));
 				//works ---> listImage.add(generateImage("/home/stas/Pictures/img1.png"));
 						
@@ -98,7 +93,6 @@ public class SearchByNameInterfaceController implements Initializable {
 		    @Override
 		    public void changed(ObservableValue<? extends ImageView> observable, ImageView oldValue, ImageView newValue) {
 			selectedImage.setImage(newValue.getImage());
-			trascrizione.setText(listTrascrizioni.get(listView.getItems().indexOf(observable.getValue())));
 		    }
 
 	});

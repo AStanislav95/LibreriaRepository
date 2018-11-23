@@ -1,0 +1,27 @@
+.ripple-button .flat{
+    -fx-background-color: transparent;
+    -fx-font-size: 13;
+    -fx-text-fill:-color-dark-primary;
+}
+
+.ripple-button.flat:hover{
+    -fx-background-color: rgba(153,153,153,0.20);
+}
+.ripple-button.flat:pressed{
+    -fx-background-color: rgba(153,153,153,0.40);
+}
+
+
+.ripple-button.toggle{
+    -fx-padding: 8 16 8 16 !important;
+    -fx-font-weight:bold;
+}
+.action-item
+{   -fx-background-color:transparent;
+    -fx-effect: none;
+
+}
+.tab-layout .action-item{
+    -fx-padding: 16;
+    -fx-text-origin: bottom;
+}

@@ -1,0 +1,20 @@
+/*CHECKBOX*/
+.check-box .box{
+    -fx-background-color: transparent;
+    -fx-border-color:rgba(0,0,0,0.5);
+    -fx-border-width: 2px;
+    -fx-border-radius: 3px;
+}
+.check-box:selected .box{
+    -fx-background-color: black;
+    -fx-border-color:gray;
+}
+.check-box .mark{
+    -fx-shape: "M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z";
+    -fx-fill: transparent;
+    -fx-background-color: transparent;
+}
+.check-box:selected .mark{
+    -fx-fill: white;
+    -fx-background-color: white;
+}

@@ -1,19 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.frontend.TranscriberCandidatureControllerInterface">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.frontend.TranscriberCandidatureControllerInterface">
    <children>
-      <Button fx:id="AdminInterface1" layoutX="1026.0" layoutY="21.0" mnemonicParsing="false" onAction="#adminInterface" prefHeight="32.0" prefWidth="160.0" style="-fx-background-color: #3b3131;" text="Interfaccia Admin" textFill="WHITE" />
-      <TextField fx:id="utente" layoutX="495.0" layoutY="322.0" promptText="inserisci ID profilo..." />
-      <TableView fx:id="dbtable" layoutX="14.0" layoutY="143.0" prefHeight="501.0" prefWidth="263.0" style="-fx-background-color: white;" />
-      <Button fx:id="accept" layoutX="392.0" layoutY="434.0" mnemonicParsing="false" onAction="#candidature" prefHeight="32.0" prefWidth="160.0" style="-fx-background-color: #3b3131;" text="Accetta Candidatura" textFill="WHITE" />
-      <Button fx:id="decline" layoutX="572.0" layoutY="434.0" mnemonicParsing="false" onAction="#candidature" prefHeight="32.0" prefWidth="160.0" style="-fx-background-color: #3b3131;" text="Rifiuta Candidatura" textFill="WHITE" />
-      <Button fx:id="Homepage" layoutX="14.0" layoutY="21.0" mnemonicParsing="false" onAction="#homepage" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #3b3131;" text="Homepage" textFill="WHITE" />
-      <Label layoutX="408.0" layoutY="327.0" text="ID Profilo:" />
+      <AnchorPane fx:id="header" layoutX="36.0" layoutY="8.0" prefHeight="150.0" prefWidth="1200.0" AnchorPane.bottomAnchor="650.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="170.0" fitWidth="335.0" layoutX="48.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images%20Interface/ZAPPA.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="483.0" layoutY="50.0" text="Interfaccia Candidature">
+               <font>
+                  <Font size="33.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="Homepage" contentDisplay="TOP" layoutX="966.0" layoutY="30.0" minHeight="91.0" minWidth="142.0" onAction="#homepage" prefHeight="91.0" prefWidth="142.0" text="Homepage">
+               <graphic>
+                  <ImageView fitHeight="45.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images%20Interface/Interfacce%20imagini/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <TableView fx:id="dbtable" layoutX="86.0" layoutY="208.0" prefHeight="525.0" prefWidth="409.0" style="-fx-background-color: white;" />
+      <JFXTextField fx:id="utente" labelFloat="true" layoutX="707.0" layoutY="337.0" promptText="ID profilo" />
+      <JFXButton fx:id="AdminInterface1" contentDisplay="TOP" graphicTextGap="10.0" layoutX="955.0" layoutY="630.0" minHeight="130.0" minWidth="180.0" onAction="#Adminpage" text="Interfaccia Admin">
+         <graphic>
+            <ImageView fitHeight="45.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images%20Interface/Interfacce%20imagini/user(3).png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="decline" contentDisplay="TOP" graphicTextGap="10.0" layoutX="825.0" layoutY="453.0" minHeight="130.0" minWidth="180.0" onAction="#candidature" text="Rifiuta Candidatura">
+         <graphic>
+            <ImageView fitHeight="45.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images%20Interface/Interfacce%20imagini/user(6).png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="accept" contentDisplay="TOP" graphicTextGap="10.0" layoutX="590.0" layoutY="445.0" minHeight="130.0" minWidth="180.0" onAction="#candidature" text="Accetta Candidatura">
+         <graphic>
+            <ImageView fitHeight="45.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images%20Interface/Interfacce%20imagini/user(10).png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
    </children>
 </AnchorPane>

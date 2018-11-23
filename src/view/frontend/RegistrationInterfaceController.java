@@ -22,7 +22,7 @@ public class RegistrationInterfaceController implements Initializable {
 	@FXML
 	private Button Login;
 	@FXML
-	private Button register;
+	private Button Registration;
 	@FXML
 	private TextField email;
 	@FXML
@@ -53,10 +53,6 @@ public class RegistrationInterfaceController implements Initializable {
 		CambiaScene.CambiaStage(b);
 	}
 
-	@FXML
-	private void showPassword(ActionEvent e) {
-		
-	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {			

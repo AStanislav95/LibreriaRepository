@@ -1,0 +1,52 @@
+
+*{
+    -color-primary:#3F51B5;
+    -color-accent:#F44336;
+    -color-secondary:#1E88E5;
+    -color-dark-primary:#1976D2;
+    -color-body:#F5F5F5;
+}
+
+.text-input{
+    -fx-highlight-fill: rgba(0,0,0,0.15);
+    -fx-highlight-text-fill: blue;
+    -fx-font-size:16;
+}
+
+
+.label{
+    -fx-font-size:16;
+}
+
+
+/* EditText*/
+.edit-text{
+    -fx-baseline-color: red;
+    -fx-baseline-focus-color: -color-accent;
+    -fx-padding: 16 0 8 0;
+}
+.edit-text.hint{
+   -fx-padding: 16 0 8 0;
+}
+
+.edit-text .text-input{
+    -fx-background-color: transparent;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding:0 0 8 0;
+    -fx-border-width: 0 0 1 0 ;
+    -fx-border-color: rgba(0,0,0,0.15);
+}
+
+.edit-text .label{
+    -fx-text-fill:black;
+}
+.edit-text  .label.up  {
+    -fx-text-fill:black;
+}
+.edit-text .bar{
+    -fx-stroke: black;
+}
+
+
+
+

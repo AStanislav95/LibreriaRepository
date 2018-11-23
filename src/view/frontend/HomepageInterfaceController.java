@@ -7,12 +7,19 @@ import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import com.jfoenix.controls.JFXDrawer;
+import com.jfoenix.controls.JFXHamburger;
+import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
 
 import controller.entry;
 import controller.dao.ManoscrittoDAO;
 import controller.dao.PaginaDAO;
 import controller.uploader.UploadScansioniController;
 import controller.viewer.RicercaMetadatiController;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -28,6 +35,9 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.Manoscritto;
@@ -73,7 +83,10 @@ public class HomepageInterfaceController implements Initializable {
 	private TextField numPage;
 	@FXML
 	private Button TranscriberCandidatureInterface;
-
+	@FXML
+	private JFXDrawer drawer;
+	@FXML
+	private Button exit;
 	private String url;
 
 	private static ObservableList<Pagina> pagManoscritti = FXCollections.observableArrayList();
@@ -102,7 +115,6 @@ public class HomepageInterfaceController implements Initializable {
 				alert.setContentText("Nessuna corrispondenza!");
 
 				alert.showAndWait();
-				System.out.println("Nessuna corrispondenza");
 			}
 
 		} 
@@ -111,13 +123,33 @@ public class HomepageInterfaceController implements Initializable {
 			
 				if(!RicercaMetadatiController.ricercaAutore(searchBar.getText()).isEmpty()) {
 					manoscritti = RicercaMetadatiController.ricercaAutore(searchBar.getText());
-					Stage stage = (Stage) search.getScene().getWindow(); 
+					 try {
+				            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/GUI/SearchByAuthor.fxml"));
+				            AnchorPane box= loader.load();
+				            
+				           
+				            
+				            drawer.setMinSize(550, 800);
+							drawer.setSidePane(box);
+				        } catch (IOException ex) {
+				           
+				        }
+					
+					 if (drawer.isOpened()) {
+							drawer.setDisable(true);
+				            drawer.close();
+				        } else {
+				        	drawer.setDisable(false);
+				            drawer.open();
+				        }
+						
+					/*Stage stage = (Stage) search.getScene().getWindow(); 
 					Parent resultSearch = FXMLLoader.load(getClass().getResource("/view/GUI/SearchByAuthor.fxml"));
 					
 					Scene scene = new Scene(resultSearch);
 					stage.setTitle("Risultati della ricerca");
 					stage.setScene(scene);
-					stage.show();
+					stage.show();*/
 				
 				}
 				else {
@@ -127,7 +159,6 @@ public class HomepageInterfaceController implements Initializable {
 					alert.setContentText("Nessuna corrispondenza!");
 
 					alert.showAndWait();
-					System.out.println("Nessuna corrispondenza");
 				}
 		}
 
@@ -135,8 +166,26 @@ public class HomepageInterfaceController implements Initializable {
 
 	@FXML
 	public void profile(ActionEvent e) throws Exception {
-		Button b= (Button)e.getSource();
-		CambiaScene.CambiaStage(b);
+		 try {
+	            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/GUI/Profile.fxml"));
+	            AnchorPane box= loader.load();
+	            
+	           
+
+	            drawer.setMinSize(550, 600);
+				drawer.setSidePane(box);
+	        } catch (IOException ex) {
+	           
+	        }
+		
+		if (drawer.isOpened()) {
+			drawer.setDisable(true);
+            drawer.close();
+        } else {
+        	drawer.setDisable(false);
+            drawer.open();
+        }
+		
 	}
 
 
@@ -198,7 +247,13 @@ public class HomepageInterfaceController implements Initializable {
 		stage.setScene(scene);
 		stage.show();
 	}
-	
+	 @FXML
+	  
+	private void exit(ActionEvent e) {
+			Button B=(Button)e.getSource();
+			Stage Stage= (javafx.stage.Stage) B.getScene().getWindow();
+			Stage.close();
+		}
 	
 	public static ObservableList<Pagina> getpagManoscritti(){
 		return pagManoscritti;
@@ -211,13 +266,28 @@ public class HomepageInterfaceController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
+		
+		
+		   /*try {
+	            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/GUI/Profile.fxml"));
+	            AnchorPane box= loader.load();
+	            
+	           
+	           
+				drawer.setSidePane(box);
+	        } catch (IOException ex) {
+	           
+	        }*/
+
+	        
+	       
+		
 
 		
 		ObservableList<String> listWorks = FXCollections.observableArrayList();
 
 		for (Manoscritto m : ObjectContenitor.listaManoscritti) {
 			listWorks.add(m.getTitolo());
-			System.out.println(m.getListaPagine().size());
 		}
 
 		listView.setItems(listWorks);

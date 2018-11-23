@@ -1,31 +1,50 @@
 package controller;
 
+import java.io.IOException;
 import java.sql.ResultSet;
 
 import controller.dao.ManoscrittoDAO;
 import controller.dao.PaginaDAO;
 import controller.dao.TrascrizioneDAO;
+import javafx.animation.FadeTransition;
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.util.Duration;
 import model.Manoscritto;
 import model.ObjectContenitor;
 import model.Pagina;
 import model.Trascrizione;
 
 public class entry extends Application{
-
+	public static Boolean isSplashLoaded = false;
+	 
 	public static Stage mainStage;
+
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		Parent root = FXMLLoader.load(getClass().getResource("/view/GUI/Login.fxml"));
-		Scene scene = new Scene(root, 400, 400);
 		
-		primaryStage.setTitle("Login");
+		
+		Parent root = FXMLLoader.load(getClass().getResource("/view/GUI/Login.fxml"));
+		Scene scene = new Scene(root, 520, 500);
+		
+
+	
+
+		scene.getStylesheets().add("/view/GUI/style/Border.css");
+		primaryStage.initStyle(StageStyle.TRANSPARENT);
+		scene.setFill(Color.TRANSPARENT);
+		primaryStage.setResizable(false);
 		primaryStage.setScene(scene);
+		primaryStage.centerOnScreen();
 		primaryStage.show();
 		
 		try {
@@ -60,13 +79,8 @@ public class entry extends Application{
 				//aggiungo le pagine al manoscritto
 				
 				while(prs.next()) {
-												//ID			//numero 		//manoscritto	//scanpath		//trascrizione
-					m.setListaPagine(new Pagina(prs.getInt(1), prs.getInt(2), prs.getInt(3), prs.getString(4),prs.getString(5)));
-					System.out.println("ID: " + prs.getInt(1));
-					System.out.println("N Pagina: " + prs.getInt(2));
-					System.out.println("Manoscritto: " + prs.getInt(3));
-					System.out.println("ScanPath: " + prs.getString(4));
-					System.out.println("Trascrizione: " + prs.getString(5));
+					
+					m.setListaPagine(new Pagina(prs.getInt(1), prs.getInt(2), prs.getString(3), prs.getString(4)));
 				}
 				
 				
@@ -87,4 +101,6 @@ public class entry extends Application{
     public static Stage getStage(){
     	return mainStage;
     }
+    
 }
+

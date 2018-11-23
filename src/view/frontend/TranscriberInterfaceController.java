@@ -19,10 +19,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import controller.dao.ConnectionDAO;
-import controller.dao.PaginaDAO;
 import controller.dao.TrascrizioneDAO;
-import controller.transcriber.RevisioneTrascrizioneController;
-import controller.transcriber.TrascrizioneEditorController;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -33,13 +30,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.web.HTMLEditor;
@@ -47,11 +42,9 @@ import javafx.stage.Stage;
 import model.Manoscritto;
 import model.ObjectContenitor;
 import model.Pagina;
-import model.Trascrizione;
 
 public class TranscriberInterfaceController implements Initializable {
-//Stas pagliaccio
-	
+
 	static int idManoscritto;
 
 	static int idPagina;
@@ -59,8 +52,10 @@ public class TranscriberInterfaceController implements Initializable {
 	private Button Homepage;
 	@FXML
 	private Button submit;
-
-
+	@FXML
+	private TextArea textArea;
+	@FXML
+	private ListView<String> manoscritto;
 	@FXML
 	private ListView<Integer> pagina;
 	@FXML
@@ -68,15 +63,6 @@ public class TranscriberInterfaceController implements Initializable {
 	@FXML
 	private HTMLEditor editor;
 
-	String annotazione = null;
-	private ObservableList<Integer> idPagine = FXCollections.observableArrayList();
-	private ObservableList<Pagina> pagine = FXCollections.observableArrayList();
-	private ObservableList<Trascrizione> tr = FXCollections.observableArrayList();
-	
-	private ObservableList<Pagina> pagComplete = FXCollections.observableArrayList();
-	
-	private static int ind;
-	
 	@FXML
 	private void back(ActionEvent e) throws Exception {
 		Button b= (Button)e.getSource();
@@ -87,86 +73,80 @@ public class TranscriberInterfaceController implements Initializable {
 	private void submit(ActionEvent e) throws Exception {
 
 		String text = getText(editor.getHtmlText());
-	
-		TrascrizioneEditorController.insertTrascrizione(idPagina, text, ObjectContenitor.utenteAttivo.getID());
-		idPagine.remove(ind);
+		// inserisco nel db la trascrizione
+		TrascrizioneDAO.insertTrascrizione(idPagina, text, ObjectContenitor.utenteAttivo.getID());
+		
 
-		pagina.refresh();
-
-		editor.setHtmlText("");
 	}
-	
-	
+
 	@Override
-	public void initialize(URL location, ResourceBundle resources) {	
-		
-		//idPagina,Scanpath,trascrizione, annotazione	
-		ResultSet rs = RevisioneTrascrizioneController.infoTrascrizioni(ObjectContenitor.utenteAttivo.getID());
-		
-		try {
-			while(rs.next()) {
-				idPagine.add(rs.getInt(1));
+	public void initialize(URL location, ResourceBundle resources) {
+
+		ObservableList<String> work = FXCollections.observableArrayList();
+		ObservableList<Integer> pag = FXCollections.observableArrayList();
+		ObservableList<Pagina> pagine = FXCollections.observableArrayList();
+
+		for (Manoscritto m : ObjectContenitor.listaManoscritti) {
+
+			work.add(m.getTitolo());
+
+		}
+
+		manoscritto.setItems(work);
+		manoscritto.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+		manoscritto.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+
+			@Override
+			public void changed(ObservableValue<? extends String> arg0, String newValue, String oldValue) {
+			
+				pag.clear();
+				pagine.clear();
+			
 				
-				if(rs.getString(3) != null) {
-					pagComplete.add(new Pagina(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4)));
-				}else {
-					pagComplete.add(new Pagina(rs.getInt(1), rs.getString(2), "Trascrizione non disponibile", rs.getString(4)));
+				
+				for (Manoscritto m : ObjectContenitor.listaManoscritti) {
+
+					
+					if(m.getTitolo().equals(arg0.getValue())) {
+						
+					
+						for (Pagina p : m.getListaPagine()) {
+							pagine.add(p);
+							pag.add(p.getNumero());
+						}
+					}
+					
 				}
 				
+				pagina.setItems(pag);
+			
 			}
-		} catch (SQLException e1) {
 		
-			e1.printStackTrace();
-		}
+			
+		});// end
 		
-		
-		pagina.setItems(idPagine);
 		pagina.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 		pagina.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Integer>() {
 
 			@Override
 			public void changed(ObservableValue<? extends Integer> arg0, Integer arg1, Integer arg2) {
 				
-				ind = pagina.getSelectionModel().getSelectedIndex();
-				idPagina = arg2;
-
-
-//				for(Pagina p: pagine) {
-//					
-//					if(p.getID() == arg0.getValue()) {
-//						
-//						try {
-//							
-//							img.setImage(new Image(new FileInputStream(p.getScanpath())));
-//							editor.setHtmlText(null);
-//							
-//						} catch (FileNotFoundException e) {
-//							
-//							e.printStackTrace();
-//						}
-//					}
-//				}
-				try {
-					
-					img.setImage(new Image(new FileInputStream(pagComplete.get(ind).getScanpath())));
-					
-					if(pagComplete.get(ind).getAnnotazione() == null) {
-						annotazione = "";
-					}else {
-						annotazione = "<br><hr> Annotazioni:<br> <b>" + pagComplete.get(ind).getAnnotazione() + "</b>";
+				
+				for(Pagina p : pagine) {
+					if(p.getNumero() ==arg0.getValue()) {
+						idPagina = arg0.getValue();
+						try {
+							
+							img.setImage(new Image(new FileInputStream(p.getScanpath())));
+						} catch (FileNotFoundException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 					}
-					
-					
-					editor.setHtmlText(pagComplete.get(ind).getTrascrizione()+ annotazione);
-					
-					
-				} catch (FileNotFoundException e) {
-					
-					e.printStackTrace();
 				}
 				
 			}
-			
+
 		});
 
 	}

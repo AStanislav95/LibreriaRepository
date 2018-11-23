@@ -1,22 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="500.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.frontend.ProfileInterfaceController">
+<AnchorPane prefHeight="600.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.frontend.ProfileInterfaceController">
    <children>
-      <VBox layoutX="66.0" layoutY="87.0" prefHeight="190.0" prefWidth="136.0">
+      <AnchorPane fx:id="header" layoutX="36.0" layoutY="8.0" prefHeight="150.0" prefWidth="575.0" AnchorPane.bottomAnchor="450.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="170.0" fitWidth="335.0" layoutX="48.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images%20Interface/ZAPPA.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="383.0" layoutY="50.0" text="Profilo">
+               <font>
+                  <Font size="33.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <VBox layoutX="58.0" layoutY="185.0" prefHeight="190.0" prefWidth="136.0" spacing="15.0">
          <children>
             <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="35.0" prefWidth="181.0" text="Nome:" />
             <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="80.0" prefHeight="35.0" prefWidth="181.0" text="Email:" />
             <Label alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="181.0" text="Password:" />
             <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="150.0" prefHeight="35.0" prefWidth="181.0" text="Professione:" />
-            <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="185.0" prefHeight="35.0" prefWidth="181.0" text="Titolo di Studio:" />
+            <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="185.0" prefHeight="39.0" prefWidth="152.0" text="Titolo di Studio:" />
          </children>
       </VBox>
-      <VBox layoutX="210.0" layoutY="87.0" prefHeight="190.0" prefWidth="181.0">
+      <VBox layoutX="202.0" layoutY="185.0" prefHeight="190.0" prefWidth="181.0" spacing="15.0">
          <children>
             <Label fx:id="name" layoutX="10.0" layoutY="10.0" prefHeight="35.0" prefWidth="181.0" />
             <Label fx:id="email" layoutX="10.0" layoutY="80.0" prefHeight="35.0" prefWidth="181.0" />
@@ -25,9 +42,28 @@
             <Label fx:id="qualification" layoutX="10.0" layoutY="185.0" prefHeight="35.0" prefWidth="181.0" />
          </children>
       </VBox>
-      <Button fx:id="Homepage" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #3b3131;" text="Torna Indietro" textFill="WHITE" />
-      <Button fx:id="transcriber" layoutX="182.0" layoutY="341.0" mnemonicParsing="false" onAction="#transcriber" prefHeight="32.0" prefWidth="126.0" style="-fx-background-color: #3b3131;" text="Trascrivi" textFill="WHITE" visible="false" />
-      <Button fx:id="AdminInterface1" layoutX="20.0" layoutY="341.0" mnemonicParsing="false" onAction="#Adminpage" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #3b3131;" text="Interfaccia Admin" textFill="WHITE" />
-      <Button fx:id="Candidate" layoutX="283.0" layoutY="341.0" mnemonicParsing="false" onAction="#candidate" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #3b3131;" text="Candidati Trascrittore" textFill="WHITE" />
+      <JFXButton fx:id="AdminInterface1" contentDisplay="TOP" graphicTextGap="10.0" layoutX="40.0" layoutY="427.0" minHeight="130.0" minWidth="180.0" onAction="#Adminpage" text="Interfaccia Admin">
+         <graphic>
+            <ImageView fitHeight="45.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images%20Interface/Interfacce%20imagini/user(3).png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="Candidate" contentDisplay="TOP" graphicTextGap="10.0" layoutX="324.0" layoutY="427.0" minHeight="130.0" minWidth="180.0" onAction="#candidate" text="Candidati Trascrittore">
+         <graphic>
+            <ImageView fitHeight="45.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images%20Interface/Interfacce%20imagini/develop.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <ImageView fitHeight="107.0" fitWidth="104.0" layoutX="406.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images%20Interface/Interfacce%20imagini/user(11).png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

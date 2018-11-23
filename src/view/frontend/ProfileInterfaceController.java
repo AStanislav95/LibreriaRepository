@@ -48,10 +48,7 @@ public class ProfileInterfaceController implements Initializable {
 		CambiaScene.CambiaStage(b);
 	}
 
-	@FXML
-	private void transcriber(ActionEvent e) throws Exception {
-		
-	}
+
 	
 	@FXML
 	private void candidate(ActionEvent e) throws Exception {

@@ -1,22 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.frontend.SearchByNameInterfaceController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.frontend.SearchByNameInterfaceController">
    <children>
-      <Button fx:id="download" layoutX="472.0" layoutY="590.0" mnemonicParsing="false" onAction="#download" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #3b3131;" text="Download" textFill="WHITE" />
-      <Button fx:id="Homepage" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #3b3131;" text="Indietro" textFill="WHITE" />
-      <Label fx:id="trascrizione" layoutX="838.0" layoutY="196.0" prefHeight="361.0" prefWidth="328.0" />
-      <ImageView fx:id="selectedImage" fitHeight="361.0" fitWidth="439.0" layoutX="281.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true" />
-      <TitledPane animated="false" collapsible="false" layoutX="14.0" layoutY="102.0" prefHeight="528.0" prefWidth="202.0" text="Lista pagine">
+      <AnchorPane fx:id="header" layoutX="36.0" layoutY="8.0" prefHeight="150.0" prefWidth="1200.0" AnchorPane.bottomAnchor="650.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="170.0" fitWidth="335.0" layoutX="48.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images%20Interface/ZAPPA.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="483.0" layoutY="50.0" text="Risultati Della Ricerca">
+               <font>
+                  <Font size="33.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="Homepage" buttonType="RAISED" contentDisplay="TOP" layoutX="986.0" layoutY="29.0" minHeight="91.0" minWidth="145.0" onAction="#back" prefHeight="91.0" prefWidth="145.0" text="Homepage">
+               <graphic>
+                  <ImageView fitHeight="45.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images%20Interface/Interfacce%20imagini/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <Label fx:id="trascrizione" layoutX="809.0" layoutY="288.0" prefHeight="361.0" prefWidth="328.0" />
+      <ImageView fx:id="selectedImage" fitHeight="361.0" fitWidth="439.0" layoutX="326.0" layoutY="288.0" pickOnBounds="true" preserveRatio="true" />
+      <TitledPane animated="false" collapsible="false" layoutX="74.0" layoutY="189.0" prefHeight="528.0" prefWidth="202.0" text="Lista pagine">
          <content>
             <ListView fx:id="listView" prefHeight="455.0" prefWidth="200.0" />
          </content>
       </TitledPane>
+      <Label layoutX="360.0" layoutY="239.0" prefHeight="49.0" prefWidth="324.0" text="Anteprima Pagina:">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="834.0" layoutY="239.0" prefHeight="49.0" prefWidth="324.0" text="Anteprima Trascrizione:">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="download" buttonType="RAISED" contentDisplay="TOP" layoutX="693.0" layoutY="662.0" minHeight="91.0" minWidth="145.0" onAction="#download" prefHeight="91.0" prefWidth="145.0" text="Download">
+         <graphic>
+            <ImageView fitHeight="45.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images%20Interface/Interfacce%20imagini/download.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
    </children>
 </AnchorPane>

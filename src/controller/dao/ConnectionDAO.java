@@ -12,7 +12,7 @@ public class ConnectionDAO {
   
   private static String username = "root";
 
-  private static String pass = "root";
+  private static String pass = "";
 
 
    

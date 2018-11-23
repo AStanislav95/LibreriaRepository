@@ -1,0 +1,8 @@
+.root{
+-fx-border-color: black;
+
+-fx-border-width:5;
+
+-fx-border-style:solid   ;
+-fx-background-color: white;
+}

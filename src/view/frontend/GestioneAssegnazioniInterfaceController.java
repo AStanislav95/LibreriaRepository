@@ -92,7 +92,6 @@ public class GestioneAssegnazioniInterfaceController implements Initializable {
             dbtable.setItems(data);
         } catch (Exception exx) {
             exx.printStackTrace();
-            System.out.println("Error on Building Data");
         }
     }
 
@@ -113,9 +112,8 @@ public class GestioneAssegnazioniInterfaceController implements Initializable {
 			 if (AssegnazioneTrascrizioniController.doesitExist(idutente,idpagina))
 			 { AssegnazioneTrascrizioniController.TogliTrascrizione(idutente,idpagina);}
 			 else { AssegnazioneTrascrizioniController.AssegnaTrascrizione(idutente,idpagina);}
-			String Sql="SELECT p.id, p.numero, m.titolo FROM pagina p, manoscritto m WHERE p.Trascrizione=0 and p.Manoscritto=m.ID;";
+			String Sql="SELECT p.id, p.numero, m.titolo FROM pagina p, manoscritto m WHERE p.Trascrizione=0 and p.accettato=0 and p.Manoscritto=m.ID;";
 			buildData(Sql, dbtable);
-			//funziona ma non si refresha.
 			Sql="Select nome, ID from utente where ruolo="+4+"";
 			buildData(Sql,dbtable1);
 					
@@ -129,7 +127,7 @@ public class GestioneAssegnazioniInterfaceController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		String Sql="SELECT p.id, p.numero, m.titolo FROM pagina p, manoscritto m, trascrizione t WHERE p.Trascrizione=0 and p.Manoscritto=m.ID and p.trascrizione=t.ID;";
+		String Sql="SELECT p.id, p.numero, m.titolo FROM pagina p, manoscritto m WHERE p.Trascrizione=0 and p.accettato=0 and p.Manoscritto=m.ID;";
 		buildData(Sql, dbtable);
 		Sql="Select nome, ID from utente where ruolo="+4+"";
 		buildData(Sql,dbtable1);

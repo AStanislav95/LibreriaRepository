@@ -9,6 +9,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
+import com.jfoenix.controls.JFXDrawer;
+import com.jfoenix.controls.JFXHamburger;
+import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
+import com.jfoenix.transitions.hamburger.HamburgerNextArrowBasicTransition;
+import com.sun.javafx.scene.control.skin.TableHeaderRow;
+
 import controller.administrator.GestioneBackEndController;
 import controller.dao.ConnectionDAO;
 import javafx.fxml.FXML;
@@ -20,7 +26,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import javafx.scene.control.Alert.AlertType;
+import javafx.beans.binding.StringExpression;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -50,26 +59,17 @@ public class AdminInterfaceController implements Initializable {
 	private TextField ruolo;
 	@FXML
 	private TextField lvt;
-	@FXML
-	private Button ruolo1;
-	@FXML
-	private Button ruolo2;
-	@FXML
-	private Button ruolo3;
-	@FXML
-	private Button ruolo4;
-	@FXML
-	private Button ruolo5;
-	@FXML
-	private Button ruolo6;
-	@FXML
-	private Button ruolo7;
+	
 	@FXML
 	private Button cd0;
 	@FXML
 	private Button cd1;
 	@FXML
 	private Button TranscriberCandidatureInterface;
+	@FXML
+	private JFXDrawer drawer;
+	@FXML
+	private JFXHamburger hamburger;
 
 	private ObservableList<ObservableList> data;
 	private String Sql="select ID, Nome , Ruolo, LivelloTrascrittore , CanDownload  from utente";
@@ -87,6 +87,7 @@ public class AdminInterfaceController implements Initializable {
                 TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1));
                 col.setPrefWidth(145.25);
                 col.setResizable(false);
+                col.impl_setReorderable(false);
                 col.setCellValueFactory(new Callback<CellDataFeatures<ObservableList, String>, ObservableValue<String>>() {
                     public ObservableValue<String> call(CellDataFeatures<ObservableList, String> param) {
                         return new SimpleStringProperty(param.getValue().get(j).toString());
@@ -115,7 +116,6 @@ public class AdminInterfaceController implements Initializable {
             dbtable.setItems(data);
         } catch (Exception exx) {
             exx.printStackTrace();
-            System.out.println("Error on Building Data");
         }
     }
 
@@ -159,18 +159,14 @@ public class AdminInterfaceController implements Initializable {
 		}
 	}
 
-	@FXML
-	private void elencoruoli(ActionEvent e) throws Exception {
-		
 
-	}
 
 	@FXML
 	private void canDownload(ActionEvent e) throws Exception {
 		Button b = (Button)e.getSource();
-    	String testo= String.valueOf((b.getText()).charAt((b.getText()).length()-1));
+    	String testo= String.valueOf((b.getId()).charAt((b.getId()).length()-1));
         if(testo.equals("1")) {
-        GestioneBackEndController.AggiungiDownload(Integer.parseInt(utente.getText()));
+        GestioneBackEndController.AggiungiDownload(Integer.parseInt(utente.getId()));
           dbtable.getColumns().clear();
           buildData(Sql);
      	}else {
@@ -200,6 +196,38 @@ public class AdminInterfaceController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		buildData(Sql);
+		  
+		 try { 
+		VBox box =  FXMLLoader.load(getClass().getResource("/view/GUI/Toolbar.fxml"));
+	           
+					
+					
+				if(box!=null) {
+					}
+					drawer.setSidePane(box);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+	          
+	          
+
+	        HamburgerNextArrowBasicTransition transition = new HamburgerNextArrowBasicTransition(hamburger);
+	        transition.setRate(-1);
+	        hamburger.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
+	            transition.setRate(transition.getRate() * -1);
+	            transition.play();
+
+	            if (drawer.isOpened()) {
+	            	drawer.setDisable(true);
+	                drawer.close();
+	            } else {
+	            	drawer.setDisable(false);
+	            	drawer.open();
+	                
+	            }
+	});
 	}
+	
 
 }

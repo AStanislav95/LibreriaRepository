@@ -1,0 +1,55 @@
+.table-view{
+    -fx-table-cell-border-color: black;
+    -fx-effect: dropshadow( gaussian,rgba(0,0,0,0.16),5,0,0,2);
+    -fx-background-radius: 3px;
+    -fx-background-color: black;
+    -fx-background-insets: 0;
+
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: #808080;
+    
+    -fx-text-fill:white;
+  
+}
+.table-view .column-header{
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: rgba(1,1,1,0.15);
+}
+.table-view .column-header .label{
+    -fx-font-size:16px;
+    -fx-text-fill:white;
+    -fx-padding: 0.8em;
+    -fx-font-weight:400;
+}
+
+.tableview .column-cell{
+	-fx-border-color:black;
+}
+
+.table-view .table-row-cell .table-cell{
+    -fx-border-width: 0 0 0 0;
+}
+
+.table-view .table-row-cell:selected .table-cell{
+    -fx-text-fill: white;
+    -fx-border-width: 0 0 0 0;
+}
+.table-view .table-row-cell:selected{
+    -fx-background-color:  #808080 ; 
+    -fx-border-color: black;
+}
+.table-view .table-row-cell:focused{
+    -fx-border-color: white;
+    -fx-border-width: 0;
+}
+
+
+.table-view .table-cell{
+    -fx-font-size: 16px;
+    -fx-padding: 0.8em;
+}
+.table-view .table-cell .ripple-circle{
+    -fx-fill:#2196F3;
+}

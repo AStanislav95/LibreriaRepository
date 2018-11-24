@@ -1,8 +1,22 @@
 .root{
 -fx-border-color: black;
 
--fx-border-width:5;
+-fx-border-width:3;
 
 -fx-border-style:solid   ;
 -fx-background-color: white;
 }
+
+/*  .vbox{
+-fx-border-color: black;
+
+-fx-border-width:3;
+
+-fx-border-style:solid   ;
+}
+#header{
+	-fx-border-color:black;
+	-fx-border-width:3;
+	-fx-border-insets: 0,0,3,0;
+} 
+*/

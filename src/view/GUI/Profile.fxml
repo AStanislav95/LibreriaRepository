@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.frontend.ProfileInterfaceController">
+<AnchorPane prefHeight="600.0" prefWidth="550.0" stylesheets="@style/Border.css" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.frontend.ProfileInterfaceController">
    <children>
       <AnchorPane fx:id="header" layoutX="36.0" layoutY="8.0" prefHeight="150.0" prefWidth="575.0" AnchorPane.bottomAnchor="450.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -60,7 +60,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <ImageView fitHeight="107.0" fitWidth="104.0" layoutX="406.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="107.0" fitWidth="104.0" layoutX="406.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images%20Interface/Interfacce%20imagini/user(11).png" />
          </image>

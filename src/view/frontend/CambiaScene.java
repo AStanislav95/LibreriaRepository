@@ -40,7 +40,7 @@ public class CambiaScene {
              //stage.centerOnScreen();
              stage.show();
          }else {
-         Scene scene1 = new Scene(Scena,1200,850);
+         Scene scene1 = new Scene(Scena,1200,800);
          scene1.getStylesheets().add("/view/GUI/style/tableview.css");
          scene1.getStylesheets().add("/view/GUI/style/Listview.css");
     	 scene1.getStylesheets().add("/view/GUI/style/Border.css");

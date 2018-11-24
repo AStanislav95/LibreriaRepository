@@ -26,16 +26,11 @@ public class TrascrizioneDAO {
 		Connection con = ConnectionDAO.getConnection();
 		Statement stm = con.createStatement();
 		Statement stm2=con.createStatement();
-		if (haTrascrizione(idPag)) {
-		stm.executeUpdate("SET SQL_SAFE_UPDATES = 0;");
-		stm2.executeUpdate("Update trascrizione set testo='"+text+"' where pagina="+idPag);
-		return true;
-		}
-		else {
+		
 		stm.executeUpdate("INSERT INTO Trascrizione(Pagina, Testo, IDUtente) values (" + idPag + ",'" + text + "',"
 				+ IDUtente + ");");
 		stm.executeUpdate("delete from Assegnazione where IDPagina=" + idPag + " and IDUtente=" + IDUtente);
-		return true;}
+		return true;
 	}
 
 	public static boolean insertAssegnazione(int IDutente, int IDpagina) throws Exception {

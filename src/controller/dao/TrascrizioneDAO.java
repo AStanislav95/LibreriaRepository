@@ -29,7 +29,7 @@ public class TrascrizioneDAO {
 		
 		stm.executeUpdate("INSERT INTO Trascrizione(Pagina, Testo, IDUtente) values (" + idPag + ",'" + text + "',"
 				+ IDUtente + ");");
-		stm.executeUpdate("delete from Assegnazione where IDPagina=" + idPag + " and IDUtente=" + IDUtente);
+		stm2.executeUpdate("delete from Assegnazione where IDPagina=" + idPag + " and IDUtente=" + IDUtente);
 		return true;
 	}
 

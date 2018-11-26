@@ -81,6 +81,8 @@ public class TranscriberInterfaceController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
+		
 
 		ObservableList<String> work = FXCollections.observableArrayList();
 		ObservableList<Integer> pag = FXCollections.observableArrayList();
@@ -138,13 +140,15 @@ public class TranscriberInterfaceController implements Initializable {
 						try {
 							
 							img.setImage(new Image(new FileInputStream(p.getScanpath())));
+							editor.setHtmlText(p.getTrascrizione()+"//\n " + p.getAnnotazione());
+							
 						} catch (FileNotFoundException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 					}
 				}
-				
+				   
 			}
 
 		});

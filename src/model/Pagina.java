@@ -1,5 +1,11 @@
 package model;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+import controller.dao.ConnectionDAO;
+
 public class Pagina {
 	
 	private int ID;
@@ -90,8 +96,13 @@ public class Pagina {
 		this.trascrizione = trascrizione;
 	}
 
-	public String getAnnotazione() {
-		return annotazione;
+	public String getAnnotazione() throws Exception{
+		Connection con = ConnectionDAO.getConnection();
+		Statement stm = con.createStatement();
+		ResultSet rs=stm.executeQuery("select annotazioni from trascrizione where pagina="+this.ID);
+		if (rs.next())
+			return rs.getString(1);
+		else return "";
 	}
 
 	public void setAnnotazione(String annotazione) {

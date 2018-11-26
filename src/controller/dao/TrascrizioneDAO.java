@@ -22,6 +22,8 @@ public class TrascrizioneDAO {
 		
 	}
 	
+	
+	
 	public static boolean insertTrascrizione(int idPag, String text, int IDUtente) throws Exception {
 		Connection con = ConnectionDAO.getConnection();
 		Statement stm = con.createStatement();

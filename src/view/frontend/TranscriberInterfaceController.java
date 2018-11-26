@@ -140,7 +140,7 @@ public class TranscriberInterfaceController implements Initializable {
 						try {
 							
 							img.setImage(new Image(new FileInputStream(p.getScanpath())));
-							editor.setHtmlText(p.getTrascrizione()+"//\n " + p.getAnnotazione());
+							editor.setHtmlText(p.getAnnotazione());
 							
 						} catch (FileNotFoundException e) {
 							// TODO Auto-generated catch block

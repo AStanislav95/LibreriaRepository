@@ -35,7 +35,7 @@ public class CapoTrascrittoreInterfaceController implements Initializable {
 	private Button Homepage;
 	@FXML
 	private Button submit;
-
+ 
 	@FXML
 	private ListView<Integer> idTrasc;
 	@FXML

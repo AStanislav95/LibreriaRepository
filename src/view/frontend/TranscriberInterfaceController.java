@@ -112,7 +112,7 @@ public class TranscriberInterfaceController implements Initializable {
 					
 						for (Pagina p : m.getListaPagine()) {
 							pagine.add(p);
-							pag.add(p.getNumero());
+							pag.add(p.getID());
 						}
 					}
 					
@@ -133,7 +133,7 @@ public class TranscriberInterfaceController implements Initializable {
 				
 				
 				for(Pagina p : pagine) {
-					if(p.getNumero() ==arg0.getValue()) {
+					if(p.getID() ==arg0.getValue()) {
 						idPagina = arg0.getValue();
 						try {
 							

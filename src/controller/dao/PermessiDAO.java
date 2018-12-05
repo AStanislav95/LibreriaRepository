@@ -81,16 +81,16 @@ public class PermessiDAO {
 		}
 	}
 	
-	public static boolean AggiungiDownlaod(int IDUtente) {
+	public static boolean AggiungiDownload(int IDUtente) {
 		try{conn = ConnectionDAO.getConnection();
 		java.sql.Statement stmt = conn.createStatement();
 		stmt.executeUpdate("update utente set CanDownload=1 where ID=" + IDUtente + ";");
-		return true;	
-		} catch(Exception e){
+		return true;		} catch(Exception e){
 			System.out.println(e);
 			return false;
 			}
 	}
+	
 	public static boolean TogliDownlaod(int IDUtente) {
 		try{conn = ConnectionDAO.getConnection();
 		java.sql.Statement stmt = conn.createStatement();

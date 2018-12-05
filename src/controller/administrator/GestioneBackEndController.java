@@ -30,7 +30,7 @@ public class GestioneBackEndController {
 			return PermessiDAO.TogliDownlaod(IDUtente);
 		}
 		public static boolean AggiungiDownload(int IDUtente) {
-			return PermessiDAO.AggiungiDownlaod(IDUtente);
+			return PermessiDAO.AggiungiDownload(IDUtente);
 		}
 		
 		public static boolean Cambialvltranscriber(int IDUtente, int livello) {

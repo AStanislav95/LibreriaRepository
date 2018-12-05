@@ -166,7 +166,7 @@ public class AdminInterfaceController implements Initializable {
 		Button b = (Button)e.getSource();
     	String testo= String.valueOf((b.getId()).charAt((b.getId()).length()-1));
         if(testo.equals("1")) {
-        GestioneBackEndController.AggiungiDownload(Integer.parseInt(utente.getId()));
+        GestioneBackEndController.AggiungiDownload(Integer.parseInt(utente.getText()));
           dbtable.getColumns().clear();
           buildData(Sql);
      	}else {

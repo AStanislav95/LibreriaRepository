@@ -72,7 +72,7 @@ public class UtenteDAO {
 		}
 		//Costruisce l'utente se esiste
 		else {System.out.println("Accesso concesso");
-		p=new Permessi(rs.getInt(7),rs.getInt(8),rs.getInt(9),rs.getInt(10));
+		p=new Permessi(rs.getInt(8),rs.getInt(7),rs.getInt(9),rs.getInt(10));
 		u=new Utente(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
 				rs.getString(5),rs.getString(6), p);
 		conn.close();

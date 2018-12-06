@@ -16,81 +16,6 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="800.0" prefWidth="1200.0" stylesheets="@style/JFXButton.css" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.frontend.HomepageInterfaceController">
    <children>
-      <AnchorPane fx:id="header" layoutX="26.0" layoutY="-2.0" prefHeight="150.0" prefWidth="1200.0" AnchorPane.bottomAnchor="650.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <ImageView fitHeight="170.0" fitWidth="335.0" layoutX="48.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Images%20Interface/ZAPPA.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="483.0" layoutY="50.0" text="Homepage">
-               <font>
-                  <Font size="33.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
-      <JFXButton fx:id="trascrittore" contentDisplay="TOP" graphicTextGap="10.0" layoutX="269.0" layoutY="181.0" minHeight="99.0" minWidth="145.0" onAction="#gestioneTrascrizioni" prefHeight="99.0" prefWidth="162.0" text="Trascrizioni">
-         <graphic>
-            <ImageView fitHeight="45.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Images%20Interface/Interfacce%20imagini/edit.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <JFXButton fx:id="revisioneTrascrizioni" contentDisplay="TOP" graphicTextGap="10.0" layoutX="619.0" layoutY="181.0" minHeight="99.0" minWidth="170.0" onAction="#revisione" prefHeight="99.0" prefWidth="170.0" text="Revisione Trascrizioni">
-         <graphic>
-            <ImageView fitHeight="45.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Images%20Interface/Interfacce%20imagini/newspaper.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <RadioButton fx:id="searchByAuthor" layoutX="405.0" layoutY="459.0" mnemonicParsing="false" text="Autore" />
-      <RadioButton fx:id="searchByName" layoutX="520.0" layoutY="459.0" mnemonicParsing="false" text="Nome Opera" />
-      <Label layoutX="253.0" layoutY="302.0" prefHeight="58.0" prefWidth="592.0" text="Fai una ricerca per scoprire alcune meraviglie del passato:">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <TitledPane animated="false" collapsible="false" layoutX="900.0" layoutY="183.0" prefHeight="567.0" prefWidth="220.0" text="Lista Opere">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-         <content>
-            <ListView fx:id="listView" prefHeight="500.0" prefWidth="220.0" stylesheets="@style/Listview.css" />
-         </content>
-      </TitledPane>
-      <Label layoutX="295.0" layoutY="530.0" prefHeight="58.0" prefWidth="292.0" text="Fai l'upload di un'immagine :)" textAlignment="CENTER">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <JFXTextField fx:id="searchBar" labelFloat="true" layoutX="305.0" layoutY="371.0" prefHeight="48.0" prefWidth="427.0" promptText="Cerca Opera o Autore..." unFocusColor="BLACK" />
-      <JFXButton fx:id="search" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" layoutX="733.0" layoutY="371.0" minHeight="50.0" minWidth="56.0" onAction="#search" prefHeight="50.0" prefWidth="56.0" text=" ">
-         <cursor>
-            <Cursor fx:constant="OPEN_HAND" />
-         </cursor>
-         <graphic>
-            <ImageView fitHeight="39.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Images%20Interface/Interfacce%20imagini/loupe.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <JFXButton fx:id="selectImage" contentDisplay="TOP" layoutX="613.0" layoutY="627.0" onAction="#upload" prefHeight="92.0" prefWidth="162.0" text="Upload Opera">
-         <graphic>
-            <ImageView fitHeight="40.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Images%20Interface/Interfacce%20imagini/sharing-file.png" />
-               </image>
-            </ImageView>
-         </graphic></JFXButton>
-      <JFXTextField fx:id="workName" labelFloat="true" layoutX="332.0" layoutY="596.0" prefHeight="31.0" prefWidth="242.0" promptText="Nome Opera" unFocusColor="BLACK" />
-      <JFXTextField fx:id="numPage" labelFloat="true" layoutX="332.0" layoutY="695.0" prefHeight="31.0" prefWidth="242.0" promptText="Numero Pagina" unFocusColor="BLACK" />
       <VBox layoutX="14.0" layoutY="145.0" minHeight="650.0" minWidth="180.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
          <children>
             <JFXButton fx:id="Profile" contentDisplay="TOP" graphicTextGap="10.0" minHeight="130.0" minWidth="180.0" onAction="#profile" text="Profilo Utente">
@@ -140,6 +65,86 @@
             </JFXButton>
          </children>
       </VBox>
+      <AnchorPane fx:id="header" layoutX="26.0" layoutY="-2.0" prefHeight="150.0" prefWidth="1200.0" AnchorPane.bottomAnchor="650.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="170.0" fitWidth="335.0" layoutX="48.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images%20Interface/ZAPPA.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="483.0" layoutY="50.0" text="Homepage">
+               <font>
+                  <Font size="33.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <JFXButton fx:id="trascrittore" contentDisplay="TOP" graphicTextGap="10.0" layoutX="269.0" layoutY="181.0" minHeight="99.0" minWidth="145.0" onAction="#gestioneTrascrizioni" prefHeight="99.0" prefWidth="162.0" text="Trascrizioni">
+         <graphic>
+            <ImageView fitHeight="45.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images%20Interface/Interfacce%20imagini/edit.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="revisioneTrascrizioni" contentDisplay="TOP" graphicTextGap="10.0" layoutX="619.0" layoutY="181.0" minHeight="99.0" minWidth="170.0" onAction="#revisione" prefHeight="99.0" prefWidth="170.0" text="Revisione Trascrizioni">
+         <graphic>
+            <ImageView fitHeight="45.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images%20Interface/Interfacce%20imagini/newspaper.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <RadioButton fx:id="searchByAuthor" layoutX="405.0" layoutY="459.0" mnemonicParsing="false" text="Autore" />
+      <RadioButton fx:id="searchByName" layoutX="520.0" layoutY="459.0" mnemonicParsing="false" text="Nome Opera" />
+      <Label layoutX="253.0" layoutY="302.0" prefHeight="58.0" prefWidth="592.0" text="Fai una ricerca per scoprire alcune meraviglie del passato:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TitledPane animated="false" collapsible="false" layoutX="899.0" layoutY="128.0" prefHeight="567.0" prefWidth="220.0" text="Lista Opere">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <content>
+            <ListView fx:id="listView" prefHeight="500.0" prefWidth="220.0" stylesheets="@style/Listview.css" />
+         </content>
+      </TitledPane>
+      <JFXTextField fx:id="searchBar" labelFloat="true" layoutX="305.0" layoutY="371.0" prefHeight="48.0" prefWidth="427.0" promptText="Cerca Opera o Autore..." unFocusColor="BLACK" />
+      <JFXButton fx:id="search" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" layoutX="733.0" layoutY="371.0" minHeight="50.0" minWidth="56.0" onAction="#search" prefHeight="50.0" prefWidth="56.0" text=" ">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fitHeight="39.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images%20Interface/Interfacce%20imagini/loupe.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
       <JFXDrawer fx:id="drawer" defaultDrawerSize="550.0" direction="RIGHT" disable="true" layoutX="650.0" prefHeight="600.0" prefWidth="550.0" style="-fx-background-color: transparent;" />
+      <AnchorPane fx:id="UploadPane" layoutX="202.0" layoutY="520.0" prefHeight="200.0" prefWidth="636.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="365.0" AnchorPane.topAnchor="520.0">
+         <children>
+            <JFXTextField fx:id="numPage" labelFloat="true" layoutX="152.0" layoutY="191.0" prefHeight="31.0" prefWidth="242.0" promptText="Numero Pagina" unFocusColor="BLACK" />
+            <JFXTextField fx:id="workName" labelFloat="true" layoutX="152.0" layoutY="99.0" prefHeight="31.0" prefWidth="242.0" promptText="Nome Opera" unFocusColor="BLACK" />
+            <Label layoutX="53.0" layoutY="8.0" prefHeight="58.0" prefWidth="383.0" text="Fai l'upload di una Pagina di un'Opera:" textAlignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="selectImage" contentDisplay="TOP" layoutX="436.0" layoutY="115.0" onAction="#upload" prefHeight="92.0" prefWidth="162.0" text="Upload Pagina ">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images%20Interface/Interfacce%20imagini/sharing-file.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

@@ -42,7 +42,7 @@
             <Label fx:id="qualification" layoutX="10.0" layoutY="185.0" prefHeight="35.0" prefWidth="181.0" />
          </children>
       </VBox>
-      <JFXButton fx:id="AdminInterface1" contentDisplay="TOP" graphicTextGap="10.0" layoutX="40.0" layoutY="427.0" minHeight="130.0" minWidth="180.0" onAction="#Adminpage" text="Interfaccia Admin">
+      <JFXButton fx:id="AdminInterface1" contentDisplay="TOP" graphicTextGap="10.0" layoutX="40.0" layoutY="427.0" minHeight="130.0" minWidth="180.0" onAction="#Adminpage" text="Interfaccia Admin" visible="false">
          <graphic>
             <ImageView fitHeight="45.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                <image>

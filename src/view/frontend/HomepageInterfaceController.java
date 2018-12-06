@@ -85,6 +85,9 @@ public class HomepageInterfaceController implements Initializable {
 	private Button TranscriberCandidatureInterface;
 	@FXML
 	private JFXDrawer drawer;
+
+    @FXML
+    private AnchorPane UploadPane;
 	@FXML
 	private Button exit;
 	private String url;
@@ -170,6 +173,7 @@ public class HomepageInterfaceController implements Initializable {
 	            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/GUI/Profile.fxml"));
 	            AnchorPane box= loader.load();
 	            
+	           
 	           
 
 	            drawer.setMinSize(550, 600);
@@ -265,6 +269,64 @@ public class HomepageInterfaceController implements Initializable {
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+		switch(ObjectContenitor.utenteAttivo.getPermessi().getRole()) {
+	/* utente normale*/
+		case 1:{
+			TranscriberCandidatureInterface.setVisible(false);
+			RevisioneUpload.setVisible(false);
+			GestioneAssegnazioni.setVisible(false);
+			trascrittore.setVisible(false);
+			revisioneTrascrizioni.setVisible(false);
+			UploadPane.setVisible(false);
+			break;
+			}
+	/*uploader*/	  
+		case 2:{
+			TranscriberCandidatureInterface.setVisible(false);
+			RevisioneUpload.setVisible(false);
+			GestioneAssegnazioni.setVisible(false);
+			trascrittore.setVisible(false);
+			revisioneTrascrizioni.setVisible(false);
+			break;
+		}
+	/*revisore upload*/	
+		case 3:{
+			TranscriberCandidatureInterface.setVisible(false);
+			GestioneAssegnazioni.setVisible(false);
+			trascrittore.setVisible(false);
+			revisioneTrascrizioni.setVisible(false);
+			break;
+			} 
+	/*Trascrittore*/	
+		case 4:{
+			UploadPane.setVisible(false);
+			trascrittore.setVisible(false);
+			TranscriberCandidatureInterface.setVisible(false);
+			RevisioneUpload.setVisible(false);
+			GestioneAssegnazioni.setVisible(false);
+			revisioneTrascrizioni.setVisible(false);
+			break;
+		}
+	/*RevisoreTrascrizioni*/	
+		case 5:{
+			UploadPane.setVisible(false);
+			RevisioneUpload.setVisible(false);
+			TranscriberCandidatureInterface.setVisible(false);
+			GestioneAssegnazioni.setVisible(false);
+			break;
+		}
+	/*CapoTrascrittore*/	
+		case 6:{
+			UploadPane.setVisible(false);
+			RevisioneUpload.setVisible(false);
+			break;
+			} 
+		case 7:{
+			break;
+		}
+		default:{}
+		}
 		
 		
 		

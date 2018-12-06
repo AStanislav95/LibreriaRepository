@@ -66,6 +66,9 @@ public class ProfileInterfaceController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
+		if(ObjectContenitor.utenteAttivo.getPermessi().getRole()==7) {
+			AdminInterface1.setVisible(true);
+		}
 		name.setText(ObjectContenitor.utenteAttivo.getName());
 		email.setText(ObjectContenitor.utenteAttivo.getEmail());
 		password.setText(ObjectContenitor.utenteAttivo.getPassword());
